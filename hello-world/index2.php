@@ -8,17 +8,21 @@
   <body>
     <div class="container">
       <div class="card">
+
         <div class="card-body">
-          <h3 class="card-title">Order Result</h3>
-          <?php
-
-            echo '<p>Order Processed at ';
-            echo date('H:i, jS F Y');
-            echo '</p>';
-           ?>
-
+          <div class="card-title">
+            <h1>PHP EXERCISES</h1>
+          </div>
+          <div class="col-6">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <a href="hello-world.php">Hello World Exercise</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
+
     </div>
 
      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
