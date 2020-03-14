@@ -28,7 +28,7 @@
 
             echo '<p>Your order is as follows</p>';
             echo "$tireQty tires<br/>";
-            echo "$oilQty oils<br/>";
+            echo "$oilQty bottles of oil<br/>";
             echo "$sparkQty sparkplugs<br/>";
           ?>
         </div>
