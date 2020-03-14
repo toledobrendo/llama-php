@@ -17,7 +17,16 @@
                echo '<p>Order processed at</p>';
                echo date ('H:i, jS F Y');
                echo '</p>';
+
+               // PHP Comments
+               /**Multiline Comments
+                * asd
+                asd
+                */
+
+                $tireQty = $_POST['tireQty'];
                ?>
+
          </div>
       </div>
    </div>
