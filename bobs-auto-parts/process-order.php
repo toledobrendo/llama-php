@@ -12,6 +12,7 @@
     <div class="container">
       <div class="card">
         <div class="card-body">
+          <form action="order-form.php" method="post">
           <h3 class="card-title">Order Result</h3>
           <?php
           echo '<p>Order Processed at ';
@@ -22,10 +23,18 @@
                  $sparkQty = $_POST['sparkQty'];
 
                  echo "<p>Your order is as follows</p>";
-                 echo $tireQty.'tires<br/>';
-                 echo $oilQty.'Oil<br/>';
-                 echo $sparkQty.'Spark Plug<br/>';
+                 echo $tireQty.' tires<br/>';
+                 echo $oilQty.' Oil<br/>';
+                 echo $sparkQty.' Spark Plug<br/>';
+
               ?>
+              <tr class="row">
+                <td colspan="2" class="col-9">
+                  <button type="back" class="btn btn-primary float-right">Back</button>
+                </td>
+
+              </tr>
+
            </div>
          </div>
        </div>

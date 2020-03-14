@@ -11,7 +11,7 @@
     <<div class="container">
       <div class="card">
         <div class="card-body">
-          <h3 class="card-title">Orderform</h3>
+          <h3 class="card-title">Order Form</h3>
           <form  action="process-order.php" method="post">
             <table class = "table">
               <thead>
@@ -36,7 +36,7 @@
 <tr class="row">
                   <td class="col-5"> Spark Plugs </td>
                   <td class="col-4">
-                    <input type="text" name="sparkeQty" maxlength="3" min="0" max="10" class="form-control">
+                    <input type="text" name="sparkQty" maxlength="3" min="0" max="10" class="form-control">
                   </td>
                 </tr>
                 <tr class="row">
