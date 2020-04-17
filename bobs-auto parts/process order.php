@@ -10,6 +10,8 @@
       <div class="card">
         <div class="card-body">
           <h3 class="card-title">Order Result</h3>
+
+          // Adjust the indention in this part
           <?php
           					 echo '<p>Order Processed at ';
           					 echo date('H:i, jS F Y');
