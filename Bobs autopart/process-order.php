@@ -12,6 +12,8 @@
 
         <div class="card-body">
           <h3 class="card-title">Order Result</h3>
+           // Change folder name to bobs-autopart for better naming convention.
+           // Spaces are discouraged for web assets
 		   <?php
 
              echo '<p>Order Processed at ';
