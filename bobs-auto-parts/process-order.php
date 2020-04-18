@@ -28,7 +28,7 @@
 
                 $tireQty = $_POST['tireQty'] ?  $_POST['tireQty'] : 0;
                 $oilQty = $_POST['oilQty'] ?  $_POST['oilQty']: 0;
-                $sparkQty = $_POST['sparkyQty']?  $_POST['sparkyQty']: 0;
+                $sparkQty = $_POST['sparkQty']?  $_POST['sparkQty']: 0;
 
                 echo '<p>Your order is as follows </p>';
                 echo "$tireQty  tires<br/>";
