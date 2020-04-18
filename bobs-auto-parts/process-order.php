@@ -42,24 +42,64 @@
 				$tireQty = $_POST['tireQty'] ?  $_POST['tireQty'] : 0;
 				$oilQty = $_POST['oilQty'] ?  $_POST['oilQty'] : 0;
 				$sparkQty = $_POST['sparkQty'] ?  $_POST['sparkQty'] : 0;
+				$find = $_POST['find'];
 
+				switch ($find) {
+					case 'regular':
+						echo "Regular Customer";
+						break;
+
+					case 'tv':
+						echo "From TV Advertising";
+						break;
+					
+
+					case 'phone':
+						echo "From Phone Directory";
+						break;
+					
+
+					case 'mouth':
+						echo "From Word of Mouth";
+						break;
+					
+					
+					default:
+						echo "Unknown Customer";						
+						break;
+				}
+
+
+
+			$totalQty = @($tireQty + $oilQty + $sparkQty);
+
+				if ($totalQty == 0) {
+					echo "You didn't order anything. <br/> </br>";
+
+				} else {
 
 
 
 				echo '<p> Your order is as follows</p>';
 				//echo $tireQty.' tires<br/>';
-				echo "$tireQty tires<br/>";
+				if($tireQty > 0)
+					echo "$tireQty tires<br/>";
 
-				echo "$oilQty bottles of oil<br/>";
+				if($tireQty > 0)
+					echo "$oilQty bottles of oil<br/>";
 
-				echo "$sparkQty sparkplugs<br/><br/>";
+				if($tireQty > 0)
+					echo "$sparkQty sparkplugs<br/><br/>";
 
 				echo "<p>Prices</br>";
 				echo 'Tires: '.TIRE_PRICE.'<br/> ';
 				echo 'Oil: '.OIL_PRICE.'<br/> ';
 				echo 'Spark Plugs: '.SPARK_PRICE.'<br/> <br/>';
 
-				$totalQty = @($tireQty + $oilQty + $sparkQty);
+				}
+
+
+				
 
 				echo "Total Quantity: ".$totalQty."<br/><br/>";
 
@@ -81,6 +121,20 @@
 				echo "Total Amount: ".$totalAmount."<br/><br/>";
 
 				echo "Amount exceeded 500 but less than 1000?".($totalAmount > 500 && $totalAmount < 1000 ? ' Yes':' No')."<br/>";
+
+				echo 'is $totalAmount string?'.(is_string($totalAmount) ? "Yes" : "No")."<br/>";
+
+				//unset($totalAmount);
+
+
+				echo 'is $totalAmount set?'.(isset($totalAmount) ? "Yes" : "No")."<br/>";
+
+				$totalAmounttwo ;
+
+				echo 'is $totalAmounttwo set?'.(isset($totalAmounttwo) ? "Yes" : "No")."<br/>";
+
+				echo 'is $totalAmounttwo empty ?'.(empty($totalAmounttwo) ? "Yes" : "No"."<br/>");
+
 
 				?>
 				 </div>
