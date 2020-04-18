@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html>
+<?php
+
+  define('TIRE_PRICE',100);
+  define('OIL_PRICE',50);
+  define('SPARK_PRICE',20);
+  define('VAT', 0.12);
+ ?>
 <head>
    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,19 +26,62 @@
 					 echo '</p>';
 
 
-					 $tireQty = $_POST['tireQty'];
-					 $oilQty = $_POST['oilQty'];
-					 $sparkQty = $_POST['sparkQty'];
+					 $tireQty = $_POST['tireQty'] ? $_POST['tireQty']:0;
+					 $oilQty = $_POST['oilQty'] ? $_POST['oilQty']:0;
+					 $sparkQty = $_POST['sparkQty'] ? $_POST['sparkQty']:0;
 
 
 					 echo '<p>Your order is as follows</p>';
-					 echo $tireQty. ' tires<br/>';
+					 echo "$tireQty tires<br/>";
 					 echo $oilQty. ' oil<br/>';
-					 echo $sparkQty. ' spark<br/>';
+					 echo $sparkQty. ' sparkplug<br/><br/>';
+
+					 echo '<p>Prices<br/>';
+					 echo'Tires:' .TIRE_PRICE. '<br/>';
+					 echo'Oil:' .OIL_PRICE.'<br/>';
+					 echo 'Spark: ' .SPARK_PRICE.'<br/><br/>';
+
+
+
+					 $TotalQty = @($tireQty + $oilQty + $sparkQty);
+
+					 echo "TotalQty: " .$TotalQty. '<br/>';
+					 
+					
+					 $tireAmount = @($tireQty) * TIRE_PRICE;
+					 $oilAmount = @($oilQty) * OIL_PRICE;
+					 $sparkAmount =@($sparkQty) * SPARK_PRICE;
+
+
+					$totalAmount = (float)($tireAmount);
+
+              		$otherTotalAmount = &$totalAmount;
+              		$otherTotalAmount += $oilAmount;
+              		echo 'Other Total Amount:  '.$otherTotalAmount.'<br/>';
+              		$totalAmount +=$sparkAmount;
+             		 echo 'Total Amount: '.$totalAmount.'<br/>';
+
+
+
+ 					 	$VATable = $totalAmount*VAT;
+ 					 	echo "VATable Amount: " .$totalAmount. '<br>';
+ 					 	echo "VAT Amount(12%): " .$totalAmount*VAT. '<br>';
+ 					 			$totalAmount += $VATable;
+ 					 			echo "Total: " .$totalAmount;
+
+             		 echo ' Amount exceeded  500 but less than 1000?'.($totalAmount>500 ? ' Yes' : ' No').'<br/>';
+
+             		
+
+             		
 					 ?>
 
+					 
 
 					 
+			</div>
+			<div class="card-footer">
+				<a class="btn btn-info" href="order-form.php">Go Back</a>
 			</div>
 		</div>
 	</div>
