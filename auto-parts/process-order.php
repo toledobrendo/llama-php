@@ -60,9 +60,9 @@
             $VAT = @(0.12 * $vatable);
             $total = @($vatable + $VAT);
 
-            echo 'VATABLE: '. $vatable. '<br/>';
+            echo 'VATable: '. $vatable. '<br/>';
             echo 'VAT: ' .$VAT.'<br/>';
-            echo 'TOTAL: ' .$total.'<br/>';
+            echo 'total: ' .$total.'<br/>';
 
 
             echo 'Other Total Amount: '.$otherTotalAmount.'<br/>';
