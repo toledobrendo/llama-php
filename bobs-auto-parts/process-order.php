@@ -35,7 +35,7 @@
             echo '<p>Your order is as follows</p>';
             echo "$tireQty tires<br/>";
             echo "$oilQty bottles of oil<br/>";
-            echo "$sparkQty sparkplugs<br/>";
+            echo "$sparkQty sparkplugs<br/><br/>";
 
             echo '<p>Prices<br/>';
             echo 'Tires: '.TIRE_PRICE.'<br/>';
@@ -46,15 +46,23 @@
             echo 'Total Quantity: '.$totalQty.'<br/><br/>';
 
 
+            //total = VAT + VATable(Gross amount)
+            // VAT = 0.12 * VATable
+
             $tireAmount = @($tireQty * TIRE_PRICE); // @() - Surpressing [To avoid warnings]
             $oilAmount = @($oilQty * OIL_PRICE);
             $sparkAmount = @($sparkQty * SPARK_PRICE);
 
-            $totalAmount = (float)($tireAmount + $oilAmount + $sparkAmount);
+            $vatAble = (float)($tireAmount + $oilAmount + $sparkAmount);
+            $vatAmount = (float)($vatAble * 0.12);
 
-            echo "Total Amount = ".$totalAmount."<br/>";
+            $totalAmount = (float)($vatAble + $vatAmount);
 
-            echo "Amount exceeded 500?".($totalAmount > 500 ? 'YES' : 'NO').'<br/>';
+            echo "VATable amount = ".$vatAble.'<br/>';
+            echo "VAT amount = ".$vatAmount.'<br/>';
+            echo "Total Amount = ".$totalAmount."<br/><br/>";
+
+            echo "Amount exceeded 500?".($totalAmount > 500 ? ' YES' : ' NO').'<br/>';
           ?>
 
 
