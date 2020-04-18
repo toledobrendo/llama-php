@@ -33,7 +33,7 @@
                         $num1 = 0;
                         $num2 = 1;
                         echo '<tr class="row">
-                        <td class="col-12">Series Length ' . $sequenceLength . '</td></tr>';
+                        <td class="col-12">Series length: ' . $sequenceLength . '</td></tr>';
 
                         echo'<tr class="row">';
 
@@ -46,7 +46,7 @@
 
                         echo '</tr>';
                      } else {
-                        echo '<td class="col-5">Series Length: </td>';
+                        echo '<td class="col-12">Series length: </td>';
                      }
 
                      ?>
