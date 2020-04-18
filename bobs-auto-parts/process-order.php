@@ -26,7 +26,8 @@
 
           // A VARIABLE
           // $tireQuantity = 0; OR
-
+          // all variable of PHP is preceded by dollarsign.
+          //$_POST is an array & it access through the name of the form.
           $tireQuantity = $_POST['tireQuantity'];
           $oilQuantity = $_POST['oilQuantity'];
           $sparkQuantity = $_POST['sparkQuantity'];
@@ -37,11 +38,15 @@
 
           echo  $tireQuantity.' tires. <br/>';
           // if double quote, pinoprocess muna laman ng double quote bago iecho
-          echo "$oilQuantity bottles of oil. <br/>"
-          echo "$sparkQuantity spark plugs."
+          echo "$oilQuantity bottles of oil. <br/>";
+          echo "$sparkQuantity spark plugs.";
       	?>
 
 
+      </div>
+      <!-- CARD FOOTER; add a go back button so there would be no dead end page. -->
+      <div class="card-footer">
+        <a class="btn btn-info" href="order-form.php">Go Back</a>
       </div>
     </div>
   </div>
