@@ -1,5 +1,11 @@
+<!-- <?php
+   define('TIRE PRICE'=)
+   define('TIRE PRICE'=100)
+   define('TIRE PRICE'=100)
+?> -->
+
 <!DOCTYPE html>
-<html lang="en">
+html lang="en">
 
 <head>
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -14,30 +20,38 @@
          <div class="card-body">
             <h3 class="card-title">Order Result</h3>
             <?php
-               echo '<p>Order processed at</p>';
-               echo date ('H:i, jS F Y');
-               echo '</p>';
+            echo '<p>Order processed at</p>';
+            echo date('H:i, jS F Y');
+            echo '</p>';
 
-               // PHP Comments
-               /**Multiline Comments
-                * asd
+            // PHP Comments
+            /**Multiline Comments
+             * asd
                 asd
-                */
+             */
 
-                $tireQty = $_POST['tireQty'];
-                $oilQty = $_POST['oilQty'];
-                $sparkQty = $_POST['sparkQty'];
+            $tireQty = $_POST['tireQty'];
+            $oilQty = $_POST['oilQty'];
+            $sparkQty = $_POST['sparkQty'];
 
-                echo '<p>Your order is as follows</p>';
-                echo $tireQty.' tires<br/>';
-                echo $oilQty.' bottles of oil<br/>';
-                echo $sparkQty.' spark plugs<br/>';
-               ?>
+            echo '<p>Your order is as follows</p>';
+            echo $tireQty . ' tires<br/>';
+            echo $oilQty . ' bottles of oil<br/>';
+            echo $sparkQty . ' spark plugs<br/>';
 
+            echo '<p>Prices<br/>';
+            echo 'Tires: '.TIRE_PRICE<br>;
+            echo 'Oil: '.OIL_PRICE<br>;
+            echo 'Spark Plugs: '.SPARK_PRICE<br>;
+
+            ?>
+
+         </div>
+         <div class="card-footer">
+            <a class="btn btn-info" href="order-form.php">Go Back</a>
          </div>
       </div>
    </div>
-
 
 </body>
 
