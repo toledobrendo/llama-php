@@ -31,15 +31,15 @@
           echo '<p>Your order is as follows</p>';
           echo $tireQty.' Tire<br/>';
           echo $oilQty.' Oil<br/>';
-          echo $sparkQty.' Spark Plugs<br/>';
+          echo $sparkQty.' Spark Plugs<br/>'.'<br/>';
+
+          $totalQty = @($tireQty + $oilQty + $sparkQty);
+          echo 'Total Quantity: '.$totalQty.'<br/><br/>';
 
           echo '<p>Prices:<br/>';
           echo 'Tires: '.TIRE_PRICE.'<br/>';
           echo 'Oil: '.OIL_PRICE.'<br/>';
-          echo 'Spark Plugs: '.SPARK_PRICE.'<br/>';
-
-          $totalQty = @($tireQty + $oilQty + $sparkQty);
-          echo '<br/>Total Quantity: '.$totalQty.'<br/>';
+          echo 'Spark Plugs: '.SPARK_PRICE.'<br/><br/>';
 
           $tireAmount = @($tireQty * TIRE_PRICE);
           $oilAmount = @($oilQty * OIL_PRICE);
@@ -49,14 +49,21 @@
 
           echo 'Tire amount: '.$tireAmount.'<br/>';
           echo 'Oil amount: '.$oilAmount.'<br/>';
-          echo 'Spark Plug Amount: '.$sparkAmount.'<br/>';
-          echo '<br/>Total amount: '.$totalAmount.'<br/>';
+          echo 'Spark Plug amount: '.$sparkAmount.'<br/>';
 
-          $otherTotalAmount = $totalAmount;
-          $otherTotalAmount += $oilAmount;
-          echo "Other total amount: ".$otherTotalAmount.'<br/>';
+          // $otherTotalAmount = $totalAmount;
+          // $otherTotalAmount += $oilAmount;
+          // echo "Other total amount: ".$otherTotalAmount.'<br/>'.'<br/>';
 
-          echo 'Amount exceeded 500? '.($totalAmount > 500? 'Yes' : 'No').'<br/>';
+          $vat = .12;
+          $vatableAmount = $totalAmount * (1.0-$vat);
+          $vatAmount = $totalAmount * $vat;
+
+          echo '<br/>'."VATable amount: ".$vatableAmount.'<br/>';
+          echo "VAT Amount: ".$vatAmount.'<br/>'.'<br/>';
+          echo "Total Amount: ".$totalAmount.'<br/>'.'<br/>';
+
+          echo 'Amount exceeded 500 but less than 1000? '.($totalAmount > 500 && $totalAmount < 1000? 'Yes' : 'No').'<br/>';
           ?>
 
         </div>
