@@ -53,13 +53,11 @@
                 $otherTotalAmount += $oilAmount;
                 echo 'Other Total Amount:  '.$otherTotalAmount.'<br/>';
                 $totalAmount +=$sparkAmount;
-                echo 'Total Amount: '.$totalAmount.'<br/>';
+                echo 'Total Amount: '.$totalAmount.'<br/><br/>';
 
-                echo 'Amount exceeded  500?'.($totalAmount>500 ? ' Yes' : ' No').'<br/><br/>';
 
-                echo "VAT: 12%<br/>";
                 $VATable = $totalAmount*VAT;
-                echo "VATable Amount: ".$VATable.'<br/>';
+                echo "VATable Amount: ".$totalAmount.'<br/>';
                 echo "VAT Amount(12%): ".$totalAmount*VAT.'<br/>';
                 $totalAmount += $VATable;
                 echo "Total: ".$totalAmount;
