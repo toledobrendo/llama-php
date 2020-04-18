@@ -6,48 +6,48 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous">
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   </head>
   <body>
-    <!-- hello-world.php or hello_world.php -->
     <div class="container">
       <div class="card">
         <div class="card-body">
-          <h3 class="card-title">Order Form</h3>
+          <h1 class="card-title">Order Form</h1>
           <form action="process-order.php" method="post">
             <table class="table">
-              <thead>
+              <thread>
                 <tr class="row">
-                  <th class="col-5">Item</th>
+                  <th class="col-5">Items</th>
                   <th class="col-4">Quantity</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="row">
-                  <td class="col-5">Tires</td>
-                  <td class="col-4">
-                    <input type="number" name="tireQty" maxlength="3" min="0" max="10" class="form-control"/>
-                  </td>
-                </tr>
-                <tr class="row">
-                  <td class="col-5">Oil</td>
-                  <td class="col-4">
-                    <input type="number" name="oilQty" maxlength="3" min="0" max="10" class="form-control"/>
-                  </td>
-                </tr>
-                <tr class="row">
-                  <td class="col-5">Spark Plugs</td>
-                  <td class="col-4">
-                    <input type="number" name="sparkQty" maxlength="3" min="0" max="10" class="form-control"/>
-                  </td>
-                </tr>
-                <tr class="row">
-                  <td colspan="2" class="col-9">
-                    <button type="submit" class="btn btn-primary float-right">Submit</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </form>
+                  </tr>
+                </thread>
+                <tbody>
+                  <tr class="row">
+                    <td class="col-5">Tires</td>
+                    <td class="col-4">
+                      <input type="text" name="tireQty" maxlength="3" min="0" max="10" class="form-control"/>
+                    </tr>
+                  <tr class="row">
+                    <td class="col-5">Oil</td>
+                    <td class="col-4">
+                      <input type="text" name="oilQty" maxlength="3" min="0" max="10" class="form-control"/>
+                    </tr>
+                  <tr class="row">
+                    <td class="col-5">Sparky</td>
+                    <td class="col-4">
+                      <input type="text" name="sparkyQty" maxlength="3" min="0" max="10" class="form-control"/>
+                    </tr>
+                    <tr class="row">
+                      <td colspan="2" class="col-9">
+                        <button type="submit" class="btn btn-primary float-right">Submit</button>
+                      </td>
+                    </tr>
+              </table>
+            </form>
         </div>
       </div>
     </div>
