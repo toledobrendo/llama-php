@@ -40,17 +40,38 @@
           $oilQuantity = $_POST['oilQuantity'] ? $_POST['oilQuantity'] : 0;
           $sparkQuantity = $_POST['sparkQuantity'] ?  $_POST['sparkQuantity']: 0;
 
-          echo '<p>Your order is as follows</p>';
-          // means concatenation; instead of plus, kay php kailangan dot.
-          // single quote, kapag may nilagay na variable, hindi ipprocess.
+          // echo '<p>Your order is as follows</p>';
+          // // means concatenation; instead of plus, kay php kailangan dot.
+          // // single quote, kapag may nilagay na variable, hindi ipprocess.
+          //
+          // echo  $tireQuantity.' tires. <br/>';
+          // // if double quote, pinoprocess muna laman ng double quote bago iecho
+          // echo "$oilQuantity bottles of oil. <br/>";
+          // echo "$sparkQuantity spark plugs.<br/><br/>";
 
-          echo  $tireQuantity.' tires. <br/>';
-          // if double quote, pinoprocess muna laman ng double quote bago iecho
-          echo "$oilQuantity bottles of oil. <br/>";
-          echo "$sparkQuantity spark plugs.<br/><br/>";
+          //switch statements
+          //1st step: extract from the array si find.
+          $find = $_POST['find'];
+          //2nd make a switch statement. Inside the switch statement are the values.
+          switch ($find) {
+            case 'regular':
+              echo 'Regular Customer';
+              break;
+            case 'tv':
+              echo 'From TV Advertising';
+              break;
+            case 'phone':
+              echo 'From Phone Directory';
+              break;
+            case 'mouth':
+              echo 'From Word of Mouth';
+              break;
+            default:
+              echo 'Unknown Customer';
+              break;
+          }
 
-
-
+          echo '<br/><br/>';
           echo '<p>Prices<br/>';
           // to access constant variables, call it using the same variable name WITHOUT the dollar sign.
           echo 'Tires: '.TIRE_PRICE. '<br/>';
@@ -60,9 +81,22 @@
           // ADDITION; it is expecting a numeric value. There would be a warning if the form submitted is empty.
           //nevertheless, with a warning, it would still display a zero.
           //SURPRESS WARNINGS (@ symbol) hides the warnings
-          $totalQty = @($tireQuantity + $oilQuantity + $sparkQuantity);
-          echo 'Total Quantity '.$totalQty.'<br/><br/>';
+           $totalQty = @($tireQuantity + $oilQuantity + $sparkQuantity);
 
+           //if statements
+           if ($totalQty == 0){
+             echo 'You didn\'t order anything. <br/> <br/>';
+           } else {
+             echo '<p>Your order is as follows: </p>';
+             if ($tireQuantity > 0) //one liner if statement
+                echo  $tireQuantity.' tires. <br/>';
+            if ($oilQuantity > 0)
+                echo "$oilQuantity bottles of oil. <br/>";
+            if($sparkQuantity > 0)
+                echo "$sparkQuantity spark plugs.<br/><br/>";
+          }
+
+          echo 'Total Quantity '.$totalQty.'<br/><br/>';
           $tireAmount = @($tireQuantity * TIRE_PRICE);
           $oilAmount = @($oilQuantity * OIL_PRICE);
           $sparkAmount = @($sparkQuantity * SPARK_PRICE);
@@ -90,6 +124,23 @@
 
           // Use of ternary operator
           echo 'Amount exceeded 500 but less than 1000?'.($totalAmount > 500 && $totalAmount < 1000 ? ' Yes ' : ' No ').'<br/>';
+          //is string checks if the variable/parameter is a string or not.
+          echo 'Is $totalAmount string? ' .(is_string($totalAmount) ? 'Yes' : 'No').'<br/>';
+
+          //deleted the variable so on line 104, it would tell no
+          // unset($totalAmount);
+
+          //totalAmountTwo would be set
+          $totalAmountTwo = ""; //if totalAmountTwo = 1, then it would NOT be empty.
+
+          //Checks if the variable in the file is initialized / declared - keword isset
+          echo 'Is $totalAmount set? ' .(isset($totalAmount) ? 'Yes' : 'No').'<br/>';
+          echo 'Is $totalAmountTwo set? ' .(isset($totalAmountTwo) ? 'Yes' : 'No').'<br/>';
+
+          //tests if a variable has value - keyword EMPTY
+          echo 'Is $totalAmountTwo empty? ' .(empty($totalAmountTwo) ? 'Yes' : 'No').'<br/>';
+
+
       	?>
 
 
