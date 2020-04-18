@@ -1,3 +1,9 @@
+<?php
+  define('TIRE_PRICE', 100);
+  define('OIL_PRICE', 50);
+  define('SPARK_PRICE', 30);
+ ?>
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf+8">
@@ -18,16 +24,44 @@
 
           // PHP Comments
 
-          $tireQty = $_POST['tireQty'];
-          $oilQty = $_POST['oilQty'];
-          $sparkQty = $_POST['sparkQty'];
+          $tireQty = $_POST['tireQty']? $_POST['tireQty']: 0;
+          $oilQty = $_POST['oilQty']? $_POST['oilQty']: 0;
+          $sparkQty = $_POST['sparkQty']? $_POST['sparkQty']: 0;
 
           echo '<p>Your order is as follows</p>';
           echo $tireQty.' Tire<br/>';
           echo $oilQty.' Oil<br/>';
           echo $sparkQty.' Spark Plugs<br/>';
-          
-           ?>
+
+          echo '<p>Prices:<br/>';
+          echo 'Tires: '.TIRE_PRICE.'<br/>';
+          echo 'Oil: '.OIL_PRICE.'<br/>';
+          echo 'Spark Plugs: '.SPARK_PRICE.'<br/>';
+
+          $totalQty = @($tireQty + $oilQty + $sparkQty);
+          echo '<br/>Total Quantity: '.$totalQty.'<br/>';
+
+          $tireAmount = @($tireQty * TIRE_PRICE);
+          $oilAmount = @($oilQty * OIL_PRICE);
+          $sparkAmount = @($sparkQty * SPARK_PRICE);
+
+          $totalAmount = (float) $tireAmount + $oilAmount + $sparkAmount;
+
+          echo 'Tire amount: '.$tireAmount.'<br/>';
+          echo 'Oil amount: '.$oilAmount.'<br/>';
+          echo 'Spark Plug Amount: '.$sparkAmount.'<br/>';
+          echo '<br/>Total amount: '.$totalAmount.'<br/>';
+
+          $otherTotalAmount = $totalAmount;
+          $otherTotalAmount += $oilAmount;
+          echo "Other total amount: ".$otherTotalAmount.'<br/>';
+
+          echo 'Amount exceeded 500? '.($totalAmount > 500? 'Yes' : 'No').'<br/>';
+          ?>
+
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-info" href=order-form.php>Go Back</a>
         </div>
       </div>
     </div>
