@@ -56,14 +56,14 @@
             $otherTotalAmount += $oilAmount;
             $totalAmount += $sparkAmount;
 
-            $VATable = $totalAmount;
-            $VAT = VAT_PERCENT*$VATable;
-            $totalSales = $VATable + $VAT;
+            $VATable = $totalAmount / 1.12;;
+            $VAT = $totalAmount - $VATable;
+
 
             echo 'VATable Amount: '.$VATable.'<br/>';
             echo 'VATt: '.$VAT.'<br/>';
-            echo 'Total Amount: '.$totalSales.'<br/>';
-            echo 'Amount exceeded 500? but less than 1000 '.($totalSales > 500 && $totalSales < 1000 ? 'Yes' : 'No').'<br/>';
+            echo 'Total Amount: '.$totalAmount.'<br/>';
+            echo 'Amount exceeded 500? but less than 1000 '.($totalAmount > 500 && $totalAmount < 1000 ? 'Yes' : 'No').'<br/>';
           ?>
         </div>
         <div class="card-footer">
