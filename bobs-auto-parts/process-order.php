@@ -30,7 +30,7 @@
             // echo $tireQty.' $tireQty tires<br/>';
             echo "$tireQty tires<br/>";
             echo $oilQty.'oil<br/>';
-            echo $sparkQty.'spark<br/>';
+            echo $sparkQty.'spark plugs<br/>';
             </br/>
           ?>
         </div>
