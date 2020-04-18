@@ -1,4 +1,11 @@
+<?php
+  define('TIRE_PRICE', 100);
+  define('OIL_PRICE', 100);
+  define('SPARK_PRICE', 100);
+  define('VAT', 0.12);
+?>
 <!DOCTYPE html>
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -16,20 +23,58 @@
             echo date('H:i, jS F Y');
             echo '</p>';
 
-
-
-              $tireQty = $_POST['tireQty'];
-              $oilQty = $_POST['oilQty'];
-              $sparkQty = $_POST['sparkQty'];
+          
+              $tireQty = $_POST['tireQty'] ?  $_POST['tireQty'] : 0;
+              $oilQty = $_POST['oilQty'] ?  $_POST['oilQty']: 0;
+              $sparkQty = $_POST['sparkQty']?  $_POST['sparkQty']: 0;
 
 
 
               echo "<p>Your order is as follows</p>";
               echo $tireQty.'tires<br/>';
               echo $oilQty.'Oil<br/>';
-              echo $sparkQty.'Spark Plug<br/>';
+              echo $sparkQty.'Spark Plug<br/><br/>';
+
+              echo '<p>Price<br/>';
+              echo 'Tires: '.TIRE_PRICE.'<br/>';
+              echo 'Oil: '.OIL_PRICE.'<br/';
+              echo 'Spark Plugs: '.SPARK_PRICE.'<br/><br/>';
+
+              $totalQty = $tireQty + $oilQty + $sparkQty;
+              echo 'Total Quantity: '.$totalQty.'<br/>';
+
+              $tireAmount = $tireQty * TIRE_PRICE;
+              $oilAmount = $oilQty * OIL_PRICE;
+              $sparkAmount = $sparkQty * SPARK_PRICE;
+
+              $totalAmount = (float) $tireAmount;
+
+              $otherTotalAmount = &$totalAmount;
+              $otherTotalAmount += $oilAmount;
+              $totalAmount += $sparkAmount;
+
+
+              $VATable = $totalAmount * VAT;
+
+              echo "VATable Amount: ".$totalAmount.'<br/>';
+              echo "VAT Amount(12%): ".$totalAmount * VAT.'<br/><br/>';
+              
+              $totalAmount += $VATable;
+
+              echo "Total: ".$totalAmount.'<br/>';
+                  
+
+
+              echo 'Other Total Amount: '.$otherTotalAmount.'<br/>';
+              echo 'Total Amount: '.$totalAmount.'<br/><br/>';
+
+              echo 'Amount exceeded 500? '.($totalAmount > 500 ? 'Yes' : 'No').'<br/>';
+
            ?>
 
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-info" href="order-form.php">Go Back</a>
         </div>
       </div>
     </div>
