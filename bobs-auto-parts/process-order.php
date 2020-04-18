@@ -46,17 +46,20 @@
             echo 'Total Quantity: '.$totalQty.'<br/><br/>';
 
 
-            //total = VAT + VATable(Gross amount)
+            //total = VAT + VATable
             // VAT = 0.12 * VATable
+            //VATable = total/1.12
+
 
             $tireAmount = @($tireQty * TIRE_PRICE); // @() - Surpressing [To avoid warnings]
             $oilAmount = @($oilQty * OIL_PRICE);
             $sparkAmount = @($sparkQty * SPARK_PRICE);
 
-            $vatAble = (float)($tireAmount + $oilAmount + $sparkAmount);
+            $vatAble = (float)(($tireAmount + $oilAmount + $sparkAmount)/1.12);
             $vatAmount = (float)($vatAble * 0.12);
 
             $totalAmount = (float)($vatAble + $vatAmount);
+
 
             echo "VATable amount = ".$vatAble.'<br/>';
             echo "VAT amount = ".$vatAmount.'<br/>';
