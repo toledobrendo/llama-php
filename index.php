@@ -16,13 +16,13 @@
           <div class="col-6">
             <ul class="list-group">
               <li class="list-group-item">
-                <a href="hello-world.php">Hello World</a>
+                <a href="hello-world/hello-world.php">Hello World</a>
               </li>
               <li class="list-group-item">
                 <a href="bobs-auto-parts/order-form.php">Bob's Auto Parts - Ordering</a>
               </li>
               <li class="list-group-item">
-                <a href="fibonacci.php">Fibonacci</a>
+                <a href="Fibonacci/fibonacci.php">Fibonacci</a>
               </li>
             </ul>
           </div>
