@@ -23,10 +23,15 @@
               Wow**/
 
             $tireQty = $_POST['tireQty'];
+            $oilQty = $_POST['oilQty'];
+            $sparkQty = $_POST['sparkQty'];
 
             echo '<p>Your order is as follows</p>';
-            echo $tireQty.' $tireQty tires<br/>';
-            echo "$tireQty tires<br/>"
+            // echo $tireQty.' $tireQty tires<br/>';
+            echo "$tireQty tires<br/>";
+            echo $oilQty.'oil<br/>';
+            echo $sparkQty.'spark<br/>';
+            </br/>
           ?>
         </div>
       </div>
