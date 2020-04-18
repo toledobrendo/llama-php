@@ -19,7 +19,45 @@
 <div class="card">
 <div class="card-body">
 
-	<<?php echo "Hello World"; ?>
+	<<?php echo "Freight Cost"; ?>
+
+<table class="table">
+  <thead>
+    <tr class="row">
+      <th class="col-3">Distance</th>
+      <th class="col-3">Cost</th>
+    </tr>
+  </thead>
+  <?php
+    $distance = 50;
+    while($distance <= 250 ){
+      echo '<tr class="row"
+      <td class="col-3">' . $distance.'Meters</td>
+      <td class="col-3">' . ($distance/10).'<td>
+      </tr>';
+    $distance +=50;
+      }
+
+      for ($distance =300; $distance <=500; $distance+=50){
+        echo '<tr class="row"
+        <td class="col-3">' . $distance.'Meters</td>
+        <td class="col-3">' . ($distance/10).'<td>
+        </tr>';
+      $distance +=50;
+
+      }
+      $distance +=550;
+
+      do{
+        echo '<tr class="row"
+        <td class="col-3">' . $distance.'Meters</td>
+        <td class="col-3">' . ($distance/10).'<td>
+        </tr>';
+      $distance +=50;
+
+      }while ($distance <= 750)
+    ?>
+
 
 </div>
 </div>

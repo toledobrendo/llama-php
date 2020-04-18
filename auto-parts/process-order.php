@@ -31,6 +31,20 @@
             $tireQty = $_POST['tireQty'] ? $_POST['tireQty'] : 0;
             $oilQty = $_POST['oilQty'] ? $_POST['oilQty'] : 0;
             $sparkQty = $_POST['sparkQty'] ? $_POST['sparkQty'] : 0;
+            $find = $_POST['find'];
+
+switch ($find) {
+  case 'regular':
+    echo 'Regular Customer';
+    break;
+  case 'tv':
+    echo 'tv advertising';
+    break;
+  case 'gossip':
+    echo 'heard from a friend';
+    break;
+
+}
 
             echo '<p>Your order is as follows</p>';
             // echo $tireQty.' $tireQty tires<br/>';
@@ -60,15 +74,23 @@
             $VAT = @(0.12 * $vatable);
             $total = @($vatable + $VAT);
 
-            echo 'VATable: '. $vatable. '<br/>';
-            echo 'VAT: ' .$VAT.'<br/>';
-            echo 'total: ' .$total.'<br/>';
+            if($totalQty == 0){
+              echo 'NO ORDER(S)'.'<br/>';
+            }else{
+              echo 'VATable: '. $vatable. '<br/>';
+              echo 'VAT: ' .$VAT.'<br/>';
+              echo 'total: ' .$total.'<br/>';
 
 
-            echo 'Other Total Amount: '.$otherTotalAmount.'<br/>';
-            echo 'Total Amount: '.$totalAmount.'<br/>';
+              echo 'Other Total Amount: '.$otherTotalAmount.'<br/>';
+              echo 'Total Amount: '.$totalAmount.'<br/>';
 
-            echo 'Amount exceeded 500? '.($totalAmount > 500 ? 'Yes' : 'No').'<br/>';
+              echo 'Amount exceeded 500? '.($totalAmount > 500 ? 'Yes' : 'No').'<br/>';
+              echo  'is $totalAmount string? ' . (is_string($totalAmount) ? 'Yes' : 'No') .'<br/>';
+              echo 'is $totalAmount set? ' . (isset($totalAmount) ? 'Yes' :'No').'<br/>';
+              echo 'is $totalAmount empty? '. (empty($totalAmount) ? 'Yes' : 'No').'<br/>';
+            }
+
           ?>
         </div>
         <div class="card-footer">

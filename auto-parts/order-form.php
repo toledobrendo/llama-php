@@ -25,26 +25,36 @@
                 <tr class="row">
                   <td class="col-5">Tires</td>
                   <td class="col-4">
-                    <input type="number" name="tireQty" maxlength="3" min="0" max="10" class="form-control"/>
+                    <input type="number" name="tireQty" maxlength="3" min="0" max="100" class="form-control"/>
                   </td>
                 </tr>
                 <tr class="row">
                   <td class="col-5">Oil</td>
                   <td class="col-4">
-                    <input type="number" name="oilQty" maxlength="3" min="0" max="10" class="form-control"/>
+                    <input type="number" name="oilQty" maxlength="3" min="0" max="100" class="form-control"/>
                   </td>
                 </tr>
                 <tr class="row">
                   <td class="col-5">Spark Plugs</td>
                   <td class="col-4">
-                    <input type="number" name="sparkQty" maxlength="3" min="0" max="10" class="form-control"/>
+                    <input type="number" name="sparkQty" maxlength="3" min="0" max="100" class="form-control"/>
                   </td>
                 </tr>
                 <tr class="row">
                   <td colspan="2" class="col-9">
+                    <a href="freight-cost.php" class="btn btn-secondary">Freight Cost</a>
                     <button type="submit" class="btn btn-primary float-right">Submit</button>
                   </td>
                 </tr>
+
+                <tr class = "row">
+                  <td class = "col-5"> How did you Find This</td>
+                  <td class = "col-4">
+                    <select name= "find" class="custom-select">
+                      <option value="regular">Regular Customer</option>
+                      <option value="tv">TV advertising</option>
+                      <option value="gossip">from a friend</option>
+                    </select>
               </tbody>
             </table>
           </form>
