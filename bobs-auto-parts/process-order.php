@@ -67,10 +67,20 @@
 				$oilAmount = @($oilQty * OIL_PRICE);
 				$sparkAmount = @($sparkQty * SPARK_PRICE);
 
+
+
+
 				$totalAmount = (float) ($tireAmount + $oilAmount + $sparkAmount);
+				$vatTax = (float) ($totalAmount * 0.12);
+				$vatAble = (float) $totalAmount - $vatTax;
+
+				echo "VATable Amount: ".$vatAble."<br/>";
+				echo "VAT Amount(12%): ".$vatTax."<br/>";
+
+
 				echo "Total Amount: ".$totalAmount."<br/><br/>";
 
-				echo "Amount exceeded 500?".($totalAmount > 500 ? ' Yes':' No')."<br/>";
+				echo "Amount exceeded 500 but less than 1000?".($totalAmount > 500 && $totalAmount < 1000 ? ' Yes':' No')."<br/>";
 
 				?>
 				 </div>
