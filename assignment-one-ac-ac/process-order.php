@@ -27,7 +27,9 @@
               echo $oilQty.' Oils<br/>';
               echo $sparkyQty.' Spark<br/>';
             ?>
-            <a href="order-form.php" class="btn btn-primary">Go back</a>
+        </div>
+        <div class="card-footer">
+          <a href="order-form.php" class="btn btn-primary">Go back</a>
         </div>
       </div>
     </div>

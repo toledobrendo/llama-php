@@ -35,7 +35,7 @@
                   <tr class="row">
                     <td class="col-5">Sparky</td>
                     <td class="col-4">
-                      <input type="text" name="sparkyQty" maxlength="3" min="0" max="10" class="form-control"/>
+                      <input type="text" name="sparkQty" maxlength="3" min="0" max="10" class="form-control"/>
                     </tr>
                     <tr class="row">
                       <td colspan="2" class="col-9">
