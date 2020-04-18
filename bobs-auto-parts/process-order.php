@@ -56,8 +56,8 @@
           // echo "Other total amount: ".$otherTotalAmount.'<br/>'.'<br/>';
 
           $vat = .12;
-          $vatableAmount = $totalAmount * (1.0-$vat);
-          $vatAmount = $totalAmount * $vat;
+          $vatableAmount = $totalAmount / (1+$vat);
+          $vatAmount = $totalAmount - $vatableAmount;
 
           echo '<br/>'."VATable amount: ".$vatableAmount.'<br/>';
           echo "VAT Amount: ".$vatAmount.'<br/>'.'<br/>';
