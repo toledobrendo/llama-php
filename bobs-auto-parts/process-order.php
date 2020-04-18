@@ -2,6 +2,7 @@
   define('TIRE_PRICE', 100);
   define('OIL_PRICE', 50);
   define('SPARK_PRICE', 30);
+  define('VAT_PERCENT', 0.12);
 ?>
 <html>
   <head>
@@ -55,10 +56,14 @@
             $otherTotalAmount += $oilAmount;
             $totalAmount += $sparkAmount;
 
-            echo 'Other Total Amount: '.$otherTotalAmount.'<br/>';
-            echo 'Total Amount: '.$totalAmount.'<br/>';
+            $VATable = $totalAmount;
+            $VAT = VAT_PERCENT*$VATable;
+            $totalSales = $VATable + $VAT;
 
-            echo 'Amount exceeded 500? '.($totalAmount > 500 ? 'Yes' : 'No').'<br/>';
+            echo 'VATable Amount: '.$VATable.'<br/>';
+            echo 'VATt: '.$VAT.'<br/>';
+            echo 'Total Amount: '.$totalSales.'<br/>';
+            echo 'Amount exceeded 500? but less than 1000 '.($totalSales > 500 && $totalSales < 1000 ? 'Yes' : 'No').'<br/>';
           ?>
         </div>
         <div class="card-footer">
