@@ -1,5 +1,5 @@
 <?php
-
+//GLOBAL VARIABLES
 define('TIRE_PRICE',100);
 define('OIL_PRICE',100);
 define('SPARK_PRICE',100);
@@ -45,7 +45,7 @@ define('VAT_PERCENT',0.12);
 
 							//PRINTING OUT DEFINED VARIABLES
 							echo "<p>Prices<br>";
-							echo "Tires: ".TIRE_PRICE.'<br/>';
+							echo "Tires: ".TIRE_PRICE.'<br/>';//. = +
 							echo "Oil: ".OIL_PRICE.'<br/>';
 							echo "Spark Plugs: ".SPARK_PRICE.'<br/><br/>';
 
@@ -57,23 +57,25 @@ define('VAT_PERCENT',0.12);
                $oilAmount = @($oilQty) * OIL_PRICE;
                $sparkAmount = @($sparkQty) * SPARK_PRICE;
 
+							 //IDK whats this HAHAHAHAH
                // $totalAmount = (float)($tireAmount);
 							 //
                // $otherTotalAmount = &$totalAmount;
                // $otherTotalAmount += $oilAmount;
-
+							 //Simplified version
 							 $totalAmount = (float) + $tireAmount + $oilAmount + $sparkAmount;
                // echo 'Other Total Amount:  '.$otherTotalAmount.'<br/>';
                // $totalAmount +=$sparkAmount;
                echo 'Total Amount: '.$totalAmount.'<br/>';
 
+							 //IDK
                echo 'Amount exceeded  500?'.($totalAmount>500 ? ' Yes' : ' No').'<br/>';
 
+							 //LIKE JAVA but with $
 							 $vatAmount = $totalAmount * 0.12;
-
-							 echo "<br/>Total vat Amount: ".$vatAmount."<br/>";
-
 							 $vatTotal = $totalAmount + $vatAmount;
+							 //Prints vatAmount and vatTotal
+							 echo "<br/>Total vat Amount: ".$vatAmount."<br/>";
 
 							 echo "<br/>Total amount with vatable: ".$vatTotal."<br/>";
            ?>
