@@ -41,8 +41,20 @@
                   </td>
                 </tr>
                 <tr class="row">
+                  <td class="col-5">How did you find Bob's<td>
+                  <td class="col-4">
+                    <select name="find" class="custon-select">
+                      <option value="regular">I'm a regular customer</option>
+                      <option value="tv">TV Advertisement</option>
+                      <option value="phone">From Phone directory</option>
+                      <option value="mouth">From Word of Mouth</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr class="row">
                   <td colspan="2" class="col-9">
-                    <button type="submit" class="btn btn-primary float-right">Submit</button>
+                    <a href="freight-cost.php" class="btn btn-warning btn-sm float-right">Freight Cost</a>
+                    <button type="submit" class="btn btn-primary btn-sm float-right">Submit</button>
                   </td>
                 </tr>
               </tbody>

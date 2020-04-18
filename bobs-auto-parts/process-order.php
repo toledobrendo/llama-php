@@ -31,11 +31,23 @@
             $tireQty = $_POST['tireQty'] ? $_POST['tireQty'] : 0;
             $oilQty = $_POST['oilQty'] ? $_POST['oilQty'] : 0;
             $sparkQty = $_POST['sparkQty'] ? $_POST['sparkQty'] : 0;
+            $find = $_POST['find'];
 
-            echo '<p>Your order is as follows</p>';
-            echo "$tireQty tires<br/>";
-            echo "$oilQty bottles of oil<br/>";
-            echo "$sparkQty sparkplugs<br/><br/>";
+            switch($find){
+              case 'regular':
+                echo "Regular Customer<br/>";
+                break;
+              case 'tv':
+                echo "TV Advertisement<br/>";
+                break;
+              case 'phone':
+                echo "From Phone Directory<br/>";
+                break;
+              case 'mouth':
+                echo "From word of mouth<br/>";
+              default:
+                echo "Unknown Customer<br/>";
+            }
 
             echo '<p>Prices<br/>';
             echo 'Tires: '.TIRE_PRICE.'<br/>';
@@ -43,13 +55,24 @@
             echo 'Sparkplugs: '.SPARK_PRICE.'<br/>';
 
             $totalQty = @($tireQty + $oilQty + $sparkQty);
-            echo 'Total Quantity: '.$totalQty.'<br/><br/>';
+            echo 'Total Quantity: '.$totalQty.'<br/>';
 
 
             //total = VAT + VATable
             // VAT = 0.12 * VATable
             //VATable = total/1.12
 
+            if($totalQty == 0){
+              echo 'You didn\'t order anything. <br/><br/>';
+            }else{
+              echo '<p>Your order is as follows</p>';
+              if($tireQty)
+                echo "$tireQty tires<br/>";
+              if($oilQty)
+                echo "$oilQty bottles of oil<br/>";
+              if($sparkQty)
+                echo "$sparkQty sparkplugs<br/><br/>";
+            }
 
             $tireAmount = @($tireQty * TIRE_PRICE); // @() - Surpressing [To avoid warnings]
             $oilAmount = @($oilQty * OIL_PRICE);
@@ -61,11 +84,15 @@
             $totalAmount = (float)($vatAble + $vatAmount);
 
 
-            echo "VATable amount = ".$vatAble.'<br/>';
+            echo "<br/>VATable amount = ".$vatAble.'<br/>';
             echo "VAT amount = ".$vatAmount.'<br/>';
             echo "Total Amount = ".$totalAmount."<br/><br/>";
 
-            echo "Amount exceeded 500?".($totalAmount > 500 ? ' YES' : ' NO').'<br/>';
+            echo "Amount exceeded 500?".($totalAmount > 500 ? ' YES' : ' NO').'<br/><br/>';
+
+            echo 'Is $totalAmount string? '.is_string($totalAmount) ? 'YES' : 'NO'.'<br/>';
+            echo 'Is $totalAmount set? '.isset($totalAmount) ? 'YES' : 'NO'.'<br/>';
+
           ?>
 
 
