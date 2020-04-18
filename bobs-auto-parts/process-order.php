@@ -74,7 +74,7 @@
 			$totalQty = @($tireQty + $oilQty + $sparkQty);
 
 				if ($totalQty == 0) {
-					echo "You didn't order anything. <br/> </br>";
+					echo "<br/>You didn't order anything. <br/> </br>";
 
 				} else {
 

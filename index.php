@@ -28,11 +28,11 @@
 					<ul class="list-group">
 						<li class="list-group-item">
 							
-							<a href="hello-world.php">Hello Owlrd</a>
-							<a href="order-form.php">Bob Auto order form</a>
-							<a href="freight-cost.php">Bob Auto freight cost</a>
-							<a href="process-order.php">Process Order</a>
-							<a href="hello-world.php">Fibonnaci plac holder</a>
+							<a href="hello-world.php">Hello Owlrd<br/></a>
+							<a href="bobs-auto-parts/order-form.php">Bob Auto order form<br/></a>
+							<a href="bobs-auto-parts/freight-cost.php">Bob Auto freight cost<br/></a>
+							<a href="bobs-auto-parts/process-order.php">Process Order<br/></a>
+							<a href="bobs-auto-parts/hello-world.php">Fibonnaci plac holder<br/></a>
 
 						</li>
 
