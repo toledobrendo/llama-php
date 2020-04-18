@@ -111,8 +111,9 @@
 
 
 				$totalAmount = (float) ($tireAmount + $oilAmount + $sparkAmount);
-				$vatTax = (float) ($totalAmount * 0.12);
-				$vatAble = (float) $totalAmount - $vatTax;
+				$vatAble = (float) $totalAmount / 1.12;
+				$vatTax = (float) ($totalAmount - $vatAble);
+			
 
 				echo "VATable Amount: ".$vatAble."<br/>";
 				echo "VAT Amount(12%): ".$vatTax."<br/>";
