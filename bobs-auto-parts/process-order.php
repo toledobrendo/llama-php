@@ -22,9 +22,7 @@
               echo date(' H:i, jS F Y');
               echo '</p>';
 
-              //PHP Comment
-              /**Maltiline Comment
-                  Wow**/
+
 
                 $tireQty = $_POST['tireQty'] ?  $_POST['tireQty'] : 0;
                 $oilQty = $_POST['oilQty'] ?  $_POST['oilQty']: 0;
@@ -48,14 +46,14 @@
                 $sparkAmount = @($sparkQty) * SPARK_PRICE;
 
                 $totalAmount = (float)($tireAmount);
-
+                // TOTAL
                 $otherTotalAmount = &$totalAmount;
                 $otherTotalAmount += $oilAmount;
                 echo 'Other Total Amount:  '.$otherTotalAmount.'php<br/>';
                 $totalAmount +=$sparkAmount;
                 echo 'Total Amount: '.$totalAmount.'php<br/><br/>';
 
-
+                // VAT
                 $VATable = $totalAmount*VAT;
                 echo "VATable Amount: ".$totalAmount.'php<br/>';
                 echo "VAT Amount(12%): ".$totalAmount*VAT.'php<br/>';
