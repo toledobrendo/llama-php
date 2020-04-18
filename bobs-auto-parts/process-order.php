@@ -29,7 +29,7 @@
                 $sparkQty = $_POST['sparkQty'];
 
                 echo '<p>Your order is as follows</p>';
-                echo $tireQty.' tires.<br/>';
+                echo $tireQty.' tires<br/>';
                 echo $oilQty.' bottles of oil<br/>';
                 echo $sparkQty.' spark plugs<br/>';
                ?>
