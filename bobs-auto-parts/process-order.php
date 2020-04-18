@@ -1,3 +1,10 @@
+<?php
+
+  define('TIRE_PRICE',100);
+  define('OIL_PRICE',50);
+  define('SPARK_PRICE',20);
+  define('VAT',0.12);
+ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -11,25 +18,55 @@
         <div class="card-body">
           <h3 class="card-title">Order Result</h3>
           <?php
+              echo '<p>Order Processed at';
+              echo date(' H:i, jS F Y');
+              echo '</p>';
 
-            echo '<p>Order Processed at ';
-            echo date('H:i, jS F Y');
-            echo '</p>';
+              //PHP Comment
+              /**Maltiline Comment
+                  Wow**/
 
+                $tireQty = $_POST['tireQty'] ?  $_POST['tireQty'] : 0;
+                $oilQty = $_POST['oilQty'] ?  $_POST['oilQty']: 0;
+                $sparkQty = $_POST['sparkyQty']?  $_POST['sparkyQty']: 0;
 
+                echo '<p>Your order is as follows </p>';
+                echo "$tireQty  tires<br/>";
+                echo $oilQty.' oil<br/>';
+                echo $sparkQty.' sparkplug<br/><br/>';
 
-              $tireQty = $_POST['tireQty'];
-              $oilQty = $_POST['oilQty'];
-              $sparkQty = $_POST['sparkQty'];
+                echo '<p>Prices<br/>';
+                echo 'Tires: '.TIRE_PRICE.'<br/>';
+                echo 'Oil: '.OIL_PRICE.'<br/>';
+                echo 'Spark: '.SPARK_PRICE.'<br/><br/>';
 
+                $totalQty = @($tireQty + $oilQty + $sparkQty);
+                echo "Total Qty: ".$totalQty.'<br/>';
 
+                $tireAmount = @($tireQty) * TIRE_PRICE;
+                $oilAmount = @($oilQty) * OIL_PRICE;
+                $sparkAmount = @($sparkQty) * SPARK_PRICE;
 
-              echo "<p>Your order is as follows</p>";
-              echo $tireQty.'tires<br/>';
-              echo $oilQty.'Oil<br/>';
-              echo $sparkQty.'Spark Plug<br/>';
-           ?>
+                $totalAmount = (float)($tireAmount);
 
+                $otherTotalAmount = &$totalAmount;
+                $otherTotalAmount += $oilAmount;
+                echo 'Other Total Amount:  '.$otherTotalAmount.'<br/>';
+                $totalAmount +=$sparkAmount;
+                echo 'Total Amount: '.$totalAmount.'<br/>';
+
+                echo 'Amount exceeded  500?'.($totalAmount>500 ? ' Yes' : ' No').'<br/><br/>';
+
+                echo "VAT: 12%<br/>";
+                $VATable = $totalAmount*VAT;
+                echo "VATable Amount: ".$VATable.'<br/>';
+                echo "VAT Amount(12%): ".$totalAmount*VAT.'<br/>';
+                $totalAmount += $VATable;
+                echo "Total: ".$totalAmount;
+              ?>
+              <div class="card-footer">
+                          <a class="btn btn-info"href="order-form.php">Go Back</a>
+              </div>
         </div>
       </div>
     </div>
