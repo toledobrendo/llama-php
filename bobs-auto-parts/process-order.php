@@ -51,16 +51,16 @@
 
                 $otherTotalAmount = &$totalAmount;
                 $otherTotalAmount += $oilAmount;
-                echo 'Other Total Amount:  '.$otherTotalAmount.'<br/>';
+                echo 'Other Total Amount:  '.$otherTotalAmount.'php<br/>';
                 $totalAmount +=$sparkAmount;
-                echo 'Total Amount: '.$totalAmount.'<br/><br/>';
+                echo 'Total Amount: '.$totalAmount.'php<br/><br/>';
 
 
                 $VATable = $totalAmount*VAT;
-                echo "VATable Amount: ".$totalAmount.'<br/>';
-                echo "VAT Amount(12%): ".$totalAmount*VAT.'<br/>';
+                echo "VATable Amount: ".$totalAmount.'php<br/>';
+                echo "VAT Amount(12%): ".$totalAmount*VAT.'php<br/>';
                 $totalAmount += $VATable;
-                echo "Total: ".$totalAmount;
+                echo "Total: ".$totalAmount.'php';
               ?>
               <div class="card-footer">
                           <a class="btn btn-info"href="order-form.php">Go Back</a>
