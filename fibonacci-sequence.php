@@ -32,8 +32,12 @@
                         $sequenceLength = $_POST['sequenceLength'];
                         $num1 = 0;
                         $num2 = 1;
-                        echo '<tr class="row">
-                        <td class="col-12">Series length: ' . $sequenceLength . '</td></tr>';
+                        echo 
+                        '<tr class="row">
+                           <td class="col-12">
+                              Series length: ' . $sequenceLength . '
+                           </td>
+                        </tr>';
 
                         echo'<tr class="row">';
 
