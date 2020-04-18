@@ -3,6 +3,7 @@
   define('TIRE_PRICE', 100);
   define('OIL_PRICE', 50);
   define('SPARK_PRICE', 30);
+  define('VAT_PERCENT', 0.12);
  ?>
 <html>
 <head>
@@ -48,6 +49,8 @@
           echo "$oilQuantity bottles of oil. <br/>";
           echo "$sparkQuantity spark plugs.<br/><br/>";
 
+
+
           echo '<p>Prices<br/>';
           // to access constant variables, call it using the same variable name WITHOUT the dollar sign.
           echo 'Tires: '.TIRE_PRICE. '<br/>';
@@ -70,14 +73,23 @@
           // kung saan nagpopoint ang reference, same sakaniya.
           $otherTotalAmount += $oilAmount;
           $totalAmount += $sparkAmount;
-          echo 'Other Total Amount: '.$otherTotalAmount. '<br/>';
+          // echo 'Other Total Amount: '.$otherTotalAmount. '<br/>';
+
+          // $vatableAmount = (float) $totalAmount / (1 + 0.12);
+          $vatableAmount = (float) $totalAmount / (1 + VAT_PERCENT);
+          echo 'VATable Amount: '.$vatableAmount.'.<br/>';
+
+          $vatAmount = $vatableAmount * VAT_PERCENT;
+          echo 'VAT Amount (12%): '.$vatAmount.'<br/>';
 
           // $totalAmount = (float) ($tireAmount + $oilAmount + $sparkAmount);
           // $totalAmount += $sparkAmount;
           echo 'Total Amount: '.$totalAmount.'<br/>';
 
+
+
           // Use of ternary operator
-          echo 'Amount exceeded 500?'.($totalAmount > 500 ? ' Yes ' : ' No ').'<br/>';
+          echo 'Amount exceeded 500 but less than 1000?'.($totalAmount > 500 && $totalAmount < 1000 ? ' Yes ' : ' No ').'<br/>';
       	?>
 
 
