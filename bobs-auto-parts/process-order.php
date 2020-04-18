@@ -1,3 +1,9 @@
+<!-- SAMPLE CONSTANTS -->
+<?php
+  define('TIRE_PRICE', 100);
+  define('OIL_PRICE', 50);
+  define('SPARK_PRICE', 30);
+ ?>
 <html>
 <head>
 <meta charset="utf-8">
@@ -28,9 +34,10 @@
           // $tireQuantity = 0; OR
           // all variable of PHP is preceded by dollarsign.
           //$_POST is an array & it access through the name of the form.
-          $tireQuantity = $_POST['tireQuantity'];
-          $oilQuantity = $_POST['oilQuantity'];
-          $sparkQuantity = $_POST['sparkQuantity'];
+          //The ternary operator is used so that if the form is empty, it would display zero. Otherwise, it would display the value entered.
+          $tireQuantity = $_POST['tireQuantity'] ? $_POST['tireQuantity'] : 0;
+          $oilQuantity = $_POST['oilQuantity'] ? $_POST['oilQuantity'] : 0;
+          $sparkQuantity = $_POST['sparkQuantity'] ?  $_POST['sparkQuantity']: 0;
 
           echo '<p>Your order is as follows</p>';
           // means concatenation; instead of plus, kay php kailangan dot.
@@ -39,7 +46,38 @@
           echo  $tireQuantity.' tires. <br/>';
           // if double quote, pinoprocess muna laman ng double quote bago iecho
           echo "$oilQuantity bottles of oil. <br/>";
-          echo "$sparkQuantity spark plugs.";
+          echo "$sparkQuantity spark plugs.<br/><br/>";
+
+          echo '<p>Prices<br/>';
+          // to access constant variables, call it using the same variable name WITHOUT the dollar sign.
+          echo 'Tires: '.TIRE_PRICE. '<br/>';
+          echo "Oil: ".OIL_PRICE. '<br/>';
+          echo "Spark Plug: ".SPARK_PRICE. '<br/><br/>';
+
+          // ADDITION; it is expecting a numeric value. There would be a warning if the form submitted is empty.
+          //nevertheless, with a warning, it would still display a zero.
+          //SURPRESS WARNINGS (@ symbol) hides the warnings
+          $totalQty = @(tireQuantity + $oilQuantity + $sparkQuantity);
+          echo 'Total Quantity '.$totalQty.'<br/><br/>';
+
+          $tireAmount = @($tireQuantity * TIRE_PRICE);
+          $oilAmount = @($oilQuantity * OIL_PRICE);
+          $sparkAmount = @($sparkQuantity * SPARK_PRICE);
+
+
+          $totalAmount = (float) $tireAmount;
+          $otherTotalAmount = &$totalAmount;
+          // kung saan nagpopoint ang reference, same sakaniya.
+          $otherTotalAmount += $oilAmount;
+          $totalAmount += $sparkAmount;
+          echo 'Other Total Amount: '.$otherTotalAmount. '<br/>';
+
+          // $totalAmount = (float) ($tireAmount + $oilAmount + $sparkAmount);
+          // $totalAmount += $sparkAmount;
+          echo 'Total Amount: '.$totalAmount.'<br/>';
+
+          // Use of ternary operator
+          echo 'Amount exceeded 500?'.($totalAmount > 500 ? ' Yes ' : ' No ').'<br/>';
       	?>
 
 
