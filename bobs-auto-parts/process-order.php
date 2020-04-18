@@ -55,9 +55,14 @@
             $otherTotalAmount += $oilAmount;
             $totalAmount += $sparkAmount;
 
-            echo 'Other Total Amount: '.$otherTotalAmount.'<br/>';
-            echo 'Total Amount: '.$totalAmount.'<br/>';
+            $VATABLE = $totalAmount;
+            $VAT = 0.12*$VATABLE;
+            $totalSales = $VATABLE + $VAT;
 
+            echo 'VATABLE amount: '.$VATABLE.'<br/>';
+            echo 'VAT AMOUNT: '.$VAT.'<br/>';
+            echo 'Other Total Amount: '.$otherTotalAmount.'<br/>';
+            echo 'Total Amount: '.$totalSales.'<br/>';
             echo 'Amount exceeded 500? '.($totalAmount > 500 ? 'Yes' : 'No').'<br/>';
           ?>
         </div>
