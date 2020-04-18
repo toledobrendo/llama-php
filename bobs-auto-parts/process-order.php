@@ -27,6 +27,28 @@
                 $tireQty = $_POST['tireQty'] ?  $_POST['tireQty'] : 0;
                 $oilQty = $_POST['oilQty'] ?  $_POST['oilQty']: 0;
                 $sparkQty = $_POST['sparkQty']?  $_POST['sparkQty']: 0;
+                $find = $_POST['find'];
+
+
+                  switch ($find) {
+                    case 'regular':
+                      echo "Regular Customer";
+                      break;
+                    case 'tv':
+                      echo "From TV advertisment";
+                      break;
+                    case 'phone':
+                      echo "Phone Directory";
+                      break;
+                    case 'mouth':
+                      echo "Word of Mouth";
+                      break;
+                    default:
+                      echo "Unknown Customer";
+                      break;
+                  }
+
+
 
                 echo '<p>Your order is as follows </p>';
                 echo "$tireQty  tires<br/>";
@@ -39,6 +61,10 @@
                 echo 'Spark: '.SPARK_PRICE.'<br/><br/>';
 
                 $totalQty = @($tireQty + $oilQty + $sparkQty);
+
+                if($totalQty==0){
+                echo "You didn't order anything<br/><br/>";
+                }
                 echo "Total Qty: ".$totalQty.'<br/>';
 
                 $tireAmount = @($tireQty) * TIRE_PRICE;
@@ -58,7 +84,18 @@
                 echo "VATable Amount: ".$totalAmount.'php<br/>';
                 echo "VAT Amount(12%): ".$totalAmount*VAT.'php<br/>';
                 $totalAmount += $VATable;
-                echo "Total: ".$totalAmount.'php';
+                echo "Total: ".$totalAmount.'php<br/><br/>';
+
+                echo 'Is $totalAmount string?'.(is_string($totalAmount)? 'Yes':'No').'<br/>';
+
+                //unset = deleting var
+
+                $totalAmountTwo;
+                echo 'Is $totalAmount set?'.(isset($totalAmount)? 'Yes' : 'No').'<br/>';
+                echo 'Is $totalAmountTwo set?'.(isset($totalAmountTwo)? 'Yes' : 'No').'<br/>';
+                echo 'Is $totalAmountTwo empty?'.(empty($totalAmountTwo)? 'Yes' : 'No').'<br/>';
+
+
               ?>
               <div class="card-footer">
                           <a class="btn btn-info"href="order-form.php">Go Back</a>
