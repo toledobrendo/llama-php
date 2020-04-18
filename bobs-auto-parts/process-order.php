@@ -60,7 +60,7 @@
           // ADDITION; it is expecting a numeric value. There would be a warning if the form submitted is empty.
           //nevertheless, with a warning, it would still display a zero.
           //SURPRESS WARNINGS (@ symbol) hides the warnings
-          $totalQty = @(tireQuantity + $oilQuantity + $sparkQuantity);
+          $totalQty = @($tireQuantity + $oilQuantity + $sparkQuantity);
           echo 'Total Quantity '.$totalQty.'<br/><br/>';
 
           $tireAmount = @($tireQuantity * TIRE_PRICE);
