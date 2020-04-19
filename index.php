@@ -19,7 +19,10 @@
                 <a href="hello-world.php">Hello World Exercise</a>
               </li>
               <li class="list-group-item">
-                <a href="bobs-auto-parts/order-form.php">Bob's Auto Parts - Ordering</a>
+                <a href="order-form.php">Bob's Auto Parts - Ordering</a>
+              </li>
+              <li class="list-group-item">
+                <a href="fibo.php">Fibonacci Sequence</a>
               </li>
             </ul>
           </div>
