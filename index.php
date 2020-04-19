@@ -18,6 +18,9 @@
               <li class="list-group-item">
                 <a href="hello-world.php">Hello World!</a>
               </li>
+              <li class="list-group-item">
+                <a href="template.php">Template code</a>
+              </li>
             </ul>
           </div>
         </div>
