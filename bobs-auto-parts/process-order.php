@@ -27,6 +27,24 @@
           $tireQty = $_POST['tireQty']? $_POST['tireQty']: 0;
           $oilQty = $_POST['oilQty']? $_POST['oilQty']: 0;
           $sparkQty = $_POST['sparkQty']? $_POST['sparkQty']: 0;
+          $find = $_POST['find'];
+
+          switch($find){
+            case 'regular':
+              echo 'Regular Customer';
+              break;
+            case 'tv':
+              echo 'From Television advertising.';
+              break;
+            case 'phone':
+              echo 'From Phone Directory';
+              break;
+            case 'mouth':
+              echo 'Word of mouth.';
+              break;
+            default:
+              break;
+          }
 
           echo '<p>Your order is as follows</p>';
           echo $tireQty.' Tire<br/>';
