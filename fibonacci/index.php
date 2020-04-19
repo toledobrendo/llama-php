@@ -15,7 +15,7 @@
                 <button type="submit" name="button" class="btn btn-primary float-right">Submit</button>
             </form>
             <?php
-                $seriesLength = $_POST['fibLength']? $_POST['fibLength'] : 0;
+                $seriesLength = @($_POST['fibLength']? $_POST['fibLength'] : 0);
                 echo '<br/>';
                 echo 'Series Length: '.$seriesLength.'<br/>';
 
