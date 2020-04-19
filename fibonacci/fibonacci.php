@@ -31,15 +31,16 @@
             <?php
 
             //ASSIGN input of the user to a php variable with method GET
+
             $input = $_GET['input'];
 
 
-            echo "The length is ".$input." <br/>";
+          
 
 
             //Xn= Xn-1 + Xn-2
             // $fibonacciLength = 1;
-            $num1 = 0;
+            $num1 = 1;
             $num2 = 1;
 
             $counter= 0;
