@@ -15,6 +15,7 @@
   <body>
     <div class="container">
       <div class="card">
+
         <div class="card-body">
           <h3 class="card-title">Order Result</h3>
           <?php
