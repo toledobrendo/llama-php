@@ -61,9 +61,9 @@
               echo "<p>Your order is as follows</p>";
 
               if ($tireQty > 0)
-                echo "$tireQty tire/s.<br/>";
+                echo "$tireQty tire/s.<br>";
               if ($oilQty > 0)
-                echo "$oilQty oil.<br/>";
+                echo "$oilQty oil.<br>";
               if ($sparkQty > 0)
                 echo "$sparkQty spark plug/s.<br>";
               echo "<br>";

@@ -15,14 +15,17 @@
           <h1 class="card-title">PHP Exercises</h1>
           <div class="col-6">
             <ul class="list-group">
-              <li class="list-group-item">
+              <!-- <li class="list-group-item">
                 <a href="hello-world.php">Hello World!</a>
-              </li>
+              </li> -->
               <li class="list-group-item">
-                <a href="template.php">Template code</a>
+                <a href="template.php">Hello World!</a>
               </li>
               <li class="list-group-item">
                 <a href="bobs-auto-parts/order-form.php">Bob's Auto parts - Ordering</a>
+              </li>
+              <li class="list-group-item">
+                <a href="fibonacci-sequence.php">Fibonacci Sequence</a>
               </li>
             </ul>
           </div>
