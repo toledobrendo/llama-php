@@ -46,7 +46,9 @@
 
               <tr class="row">
                 <td colspan="2" class="col-9">
-                  <button type="submit" class="btn btn-primary float-right">Submit</button>
+                  <a href="../index.php">
+                  <button type="button" class="btn btn-danger float-left">Back</button> </a>
+                  <button type="submit" class="btn btn-success float-right">Submit</button>
                 </td>
               </tr>
               </tbody>
