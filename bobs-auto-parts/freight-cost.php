@@ -6,26 +6,36 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous">
-    <title>PHP Organizer</title>
+    <title>Freight Cost</title>
   </head>
   <body>
     <div class="container">
       <div class="card">
         <div class="card-body">
-          <h1 class="card-title">PHP Exercises</h1>
-          <div class="col-6">
-            <ul class="list-group">
-              <li class="list-group-item">
-                <a href="hello-world.php">Hello World!</a>
-              </li>
-              <li class="list-group-item">
-                <a href="template.php">Template code</a>
-              </li>
-              <li class="list-group-item">
-                <a href="bobs-auto-parts/order-form.php">Bob's Auto parts - Ordering</a>
-              </li>
-            </ul>
-          </div>
+          <h1>Freight cost</h1>
+            <table class="table">
+              <thead>
+                <tr class="row">
+                  <th class="col-3">Distance</th>
+                  <th class="col-3">Cost</th>
+                </tr>
+              </thead>
+              <tbody>
+              <?php
+                $distance = 50;
+                while ($distance <= 250) {
+                  echo
+                    '<tr class="row">
+                      <td class="col-3">'.$distance.'Meters</td>
+                      <td class="col-3">'.($distance/10).'</td>
+                    </tr>';
+                    $distance += 50;
+                }
+               ?></tbody>
+            </table>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-info" href="order-form.php">Go Back</a>
         </div>
       </div>
     </div>

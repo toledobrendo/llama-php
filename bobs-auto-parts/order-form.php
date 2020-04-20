@@ -6,7 +6,7 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous">
-    <title>PHP Template</title>
+    <title>Order Form</title>
   </head>
   <body>
     <div class="container">
@@ -43,12 +43,24 @@
                   <input type="number" name="sparkQty" maxlength="3" min="0" max="10" class="form-control"/>
                 </td>
               </tr>
-
+              <tr class="row">
+                <td class="col-5">How did you find Bob's</td>
+                <td class="col-4">
+                  <select name="find" class="custom-select">
+                    <option value="none"></option>
+                    <option value="regular">I'm a regular customer</option>
+                    <option value="tv">TV advertising</option>
+                    <option value="phone">Phone Directory</option>
+                    <option value="mouth">Word of mouth</option>
+                  </select>
+                </td>
+              </tr>
               <tr class="row">
                 <td colspan="2" class="col-9">
                   <a href="../index.php">
-                  <button type="button" class="btn btn-danger float-left">Back</button> </a>
-                  <button type="submit" class="btn btn-success float-right">Submit</button>
+                    <button type="button" class="btn btn-danger float-left">Cancel</button> </a>
+                  <a href="freight-cost.php" class="btn btn-warning float-right">Freight Cost</a>
+                    <button type="submit" class="btn btn-success float-right">Submit</button>
                 </td>
               </tr>
               </tbody>
