@@ -1,14 +1,9 @@
-<?php
 
+<?php
   define('TIRE_PRICE', 100);
   define('OIL_PRICE', 50);
   define('SPARK_PRICE', 150);
- ?>
-
-  define('TIRE_PRICE',100);
-  define('OIL_PRICE',50);
-  define('SPARK_PRICE',20);
- ?>
+?>
 
 <html>
   <head>
@@ -20,20 +15,16 @@
       crossorigin="anonymous">
   </head>
   <body>
-    <!-- hello-world.php or hello_world.php -->
+
     <div class="container">
       <div class="card">
         <div class="card-body">
-
-          <h3 class="card-title">Order Result</h3>
+          <h1 class="card-title">Order Result</h1>
           <?php
             echo '<p>Order Processed at ';
             echo date('H:i, jS F Y');
             echo '</p>';
 
-            // PHP Comments
-            /**Multiline Comments
-              Wow**/
 
             $tireQty = $_POST['tireQty'] ? $_POST['tireQty'] : 0;
             $oilQty = $_POST['oilQty'] ? $_POST['oilQty'] : 0;
@@ -95,62 +86,19 @@
             echo "VAT amount = ".$vatAmount.'<br/>';
             echo "Total Amount = ".$totalAmount."<br/><br/>";
 
+            $otherTotalAmount = &$totalAmount;
+            $otherTotalAmount += $oilAmount;
+            echo 'Other Total Amount:  '.$otherTotalAmount.'<br/>';
+            $totalAmount +=$sparkAmount;
+            echo 'Total Amount: '.$totalAmount.'<br/>';
+
             echo "Amount exceeded 500?".($totalAmount > 500 ? ' YES' : ' NO').'<br/><br/>';
 
-            echo 'Is $totalAmount string? '.is_string($totalAmount) ? 'YES' : 'NO'.'<br/>';
-            echo 'Is $totalAmount set? '.isset($totalAmount) ? 'YES' : 'NO'.'<br/>';
-
           ?>
-
 
         </div>
         <div class="card-footer">
           <a class="btn btn-success" href="order-form.php"> Go Back </a>
-          <h1 class="card-title">Order Result</h1>
-          <?php
-            echo '<p>Order Processed at';
-            echo date(' H:i, jS F Y');
-            echo '</p>';
-
-            //PHP Comment
-            /**Maltiline Comment
-                Wow**/
-
-              $tireQty = $_POST['tireQty'] ?  $_POST['tireQty'] : 0;
-              $oilQty = $_POST['oilQty'] ?  $_POST['oilQty']: 0;
-              $sparkQty = $_POST['sparkyQty']?  $_POST['sparkyQty']: 0;
-
-              echo '<p>Your order is as follows </p>';
-              echo "$tireQty  tires<br/>";
-              echo $oilQty.' oil<br/>';
-              echo $sparkQty.' sparkplug<br/><br/>';
-
-              echo '<p>Prices<br/>';
-              echo 'Tires: '.TIRE_PRICE.'<br/>';
-              echo 'Oil: '.OIL_PRICE.'<br/>';
-              echo 'Spark: '.SPARK_PRICE.'<br/><br/>';
-
-              $totalQty = @($tireQty + $oilQty + $sparkQty);
-              echo "Total Qty: ".$totalQty.'<br/>';
-
-              $tireAmount = @($tireQty) * TIRE_PRICE;
-              $oilAmount = @($oilQty) * OIL_PRICE;
-              $sparkAmount = @($sparkQty) * SPARK_PRICE;
-
-              $totalAmount = (float)($tireAmount);
-
-              $otherTotalAmount = &$totalAmount;
-              $otherTotalAmount += $oilAmount;
-              echo 'Other Total Amount:  '.$otherTotalAmount.'<br/>';
-              $totalAmount +=$sparkAmount;
-              echo 'Total Amount: '.$totalAmount.'<br/>';
-
-              echo 'Amount exceeded  500?'.($totalAmount>500 ? ' Yes' : ' No').'<br/>';
-            ?>
-
-            <div class="card-footer">
-                <a class="btn btn-info"href="order-form.php">Go Back</a>
-            </div>
         </div>
       </div>
     </div>
@@ -165,4 +113,3 @@
       crossorigin="anonymous"></script>
   </body>
 </html>
-
