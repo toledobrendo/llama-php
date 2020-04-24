@@ -7,6 +7,61 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous">
+  </head>
+  <body>
+    <!-- hello-world.php or hello_world.php -->
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Order Form</h3>
+          <form action="process-order.php" method="post">
+            <table class="table">
+              <thead>
+                <tr class="row">
+                  <th class="col-5">Item</th>
+                  <th class="col-4">Quantity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="row">
+                  <td class="col-5">Tires</td>
+                  <td class="col-4">
+                    <input type="number" name="tireQty" maxlength="3" min="0" max="10" class="form-control"/>
+                  </td>
+                </tr>
+                <tr class="row">
+                  <td class="col-5">Oil</td>
+                  <td class="col-4">
+                    <input type="number" name="oilQty" maxlength="3" min="0" max="10" class="form-control"/>
+                  </td>
+                </tr>
+                <tr class="row">
+                  <td class="col-5">Spark Plugs</td>
+                  <td class="col-4">
+                    <input type="number" name="sparkQty" maxlength="3" min="0" max="10" class="form-control"/>
+                  </td>
+                </tr>
+                <tr class="row">
+                  <td class="col-5">How did you find Bob's<td>
+                  <td class="col-4">
+                    <select name="find" class="custon-select">
+                      <option value="regular">I'm a regular customer</option>
+                      <option value="tv">TV Advertisement</option>
+                      <option value="phone">From Phone directory</option>
+                      <option value="mouth">From Word of Mouth</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr class="row">
+                  <td colspan="2" class="col-9">
+                    <a href="freight-cost.php" class="btn btn-warning btn-sm float-right">Freight Cost</a>
+                    <button type="submit" class="btn btn-primary btn-sm float-right">Submit</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+
 
 <html lang="en" dir="ltr">
   <head>
