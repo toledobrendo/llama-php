@@ -22,8 +22,8 @@
             </div>
 
             <?php
-
-                echo "<br/>Series Length: ".($fibSequence = $_POST['sequence'] ? $_POST['sequence'] : 0).'<br/><br/>';
+                $fibSequence = $_POST['sequence'] ? $_POST['sequence'] : 0;
+                echo "<br/>Series Length: ".$fibSequence.'<br/><br/>';
 
                 $seqValue = 0;
                 $preValue = 0;
