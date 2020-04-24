@@ -6,26 +6,35 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous">
-    <title>PHP Template</title>
   </head>
   <body>
+    <!-- hello-world.php or hello_world.php -->
     <div class="container">
       <div class="card">
         <div class="card-body">
-          <h1 class="card-title">PHP Exercises</h1>
-          <div class="col-6">
-            <ul class="list-group">
-              <li class="list-group-item">
-                <a href="hello-world.php">Hello World</a>
-              </li>
-              <li class="list-group-item">
-                <a href="bobs-auto-parts/order-form.php">Bob's Auto Parts - Ordering</a>
-              </li>
-              <li class="list-group-item">
-                <a href="fibonacci/fibonacci.php">Fibonacci Sequence</a>
-              </li>
-            </ul>
-          </div>
+          <h3 class="card-title">Fibonacci Sequence</h3>
+          <form action = "fibonacci.php" method = "POST">
+            Sequence length: <input type = "number" name = "number" />
+           <button type="submit" class="btn btn-primary">Submit</button>
+         </form>
+
+          <?php
+          $fS = $_REQUEST["number"];
+          echo "Series length: ".$fS.'<br/>';
+          function series($fS){
+              if($fS == 0){
+              return 0;
+            }else if( $fS == 1){
+          return 1;
+          }  else {
+          return (series($fS-1) + series($fS-2));
+          }
+          }
+          for ($i = 0; $i < $fS; $i++){
+          echo series($i);
+          echo "\n";
+          }
+          ?>
         </div>
       </div>
     </div>
