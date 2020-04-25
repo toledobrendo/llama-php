@@ -10,7 +10,7 @@
   <body>
     <!-- hello-world.php or hello_world.php -->
     <div class="container">
-      <div class="card">
+      <div class="card mt-3">
         <div class="card-body">
           <h3 class="card-title">Order Form</h3>
           <form action="process-order.php" method="post">
@@ -22,39 +22,40 @@
                 </tr>
               </thead>
               <tbody>
+                <?php
+
+                $productInputs = array(
+                    array('Product' => 'Tire', 'name' => 'tireQty'),
+                    array('Product' => 'Oil', 'name' => 'oilQty'),
+                    array('Product' => 'Spark Plug', 'name' => 'sparkQty')
+                );
+
+                foreach($productInputs as $productInput){
+                  echo '<tr class="row">
+                          <td class="col-5">'.$productInput['Product'].'</td>
+                          <td class="col-4">
+                            <input type="number" name="'.$productInput['name'].'"  min="0" class="form-control"/>
+                          </td>
+                        </tr>';
+                }
+
+                ?>
+
                 <tr class="row">
-                  <td class="col-5">Tires</td>
+                  <td class="col-5">How did you find Bob's</td>
                   <td class="col-4">
-                    <input type="number" name="tireQty" maxlength="3" min="0" max="10" class="form-control"/>
+                    <select name="find" class="custom-select">
+                      <option value="regular">I'm a regular customer</option>
+                      <option value="tv">Television advertising</option>
+                      <option value="phone">Phone Directory</option>
+                      <option value="mouth">Word of mouth</option>
+                    </select>
                   </td>
-                </tr>
-                <tr class="row">
-                  <td class="col-5">Oil</td>
-                  <td class="col-4">
-                    <input type="number" name="oilQty" maxlength="3" min="0" max="10" class="form-control"/>
-                  </td>
-                </tr>
-                <tr class="row">
-                  <td class="col-5">Spark Plugs</td>
-                  <td class="col-4">
-                    <input type="number" name="sparkQty" maxlength="3" min="0" max="10" class="form-control"/>
-                  </td>
-                </tr>
-                <tr class="row">
-                    <td class="col-5">How did you find Bob's</td>
-                    <td class="col-4">
-                      <select name="find" class="custom-select">
-                        <option value="regular">I'm a regular customer</option>
-                        <option value="tv">TV advertising</option>
-                        <option value="phone">Phone Directory</option>
-                        <option value="mouth">Word of mouth</option>
-                      </select>
-                    </td>
                 </tr>
                 <tr class="row">
                   <td colspan="2" class="col-9">
-                    <a href="freight-cost.php" class="btn btn-secondary float-right">Freight Cost</a>
-                    <button type="submit" class="btn btn-primary float-right">Submit</button>
+                    <button type="submit" class="btn btn-danger float-right ">Submit</button>
+                    <a href="freight-cost.php" class="btn btn-warning float-right mr-3">Freight</a>
                   </td>
                 </tr>
               </tbody>
