@@ -18,6 +18,10 @@
 
       $products = array ('Tires', 'Oil', 'Spark Plugs');
 
+      sort($products);
+      rsort($products);
+
+
       echo '<p>Product 0: '.$products[0];
 
       echo '<ul>';
@@ -74,13 +78,59 @@
       echo '<br>Clutch Disk: '.$prices['Clutch Disk'];
       echo "<br><br>";
 
+      //sort by keys
+      ksort($prices);
+      krsort($prices);
+
+      //sort by value
+      asort($prices);
+      arsort($prices);
+
       echo '<ul>';
       foreach ($prices as $itemDesc => $price) {
         echo '<li>'.$itemDesc.' - '.$price.'</li>';
       }
       echo '</ul';
 
-     ?>
+      $empty = array();
+
+      $items = array(
+                        array('Code' => 'OIL', 'Description' => 'Oil', 'Price' => 10),
+                        array('Code' => 'TIR', 'Description' => 'Tires', 'Price' => 100),
+                        array('Code' => 'SPK', 'Description' => 'Spark Plugs', 'Price' => 5)
+                      );
+
+            echo '<p>'.$items[1]['Description'];
+
+            function compareItems($fir, $sec) {
+              if ($fir['Price'] == $sec['Price']) {
+                return 0;
+              } else if ($fir['Price'] > $sec['Price']) {
+                return -1;
+              } else {
+                return 1;
+              }
+            }
+
+            usort($items, 'compareItems');
+
+            echo '<table class="table table-condensed">
+                    <thead>
+                    <tr>
+                      <th>Code</th>
+                      <th>Description</th>
+                      <th>Price</th>
+                    </tr>
+                    </thead>';
+            foreach ($items as $item) {
+              echo '<tr>';
+              foreach ($item as $value) {
+                echo '<td>'.$value.'</td>';
+              }
+              echo '</tr>';
+            }
+            echo '</table>';
+          ?>
         </div>
         <div class="card-footer">
           <a class="btn btn-info" href="../index.php">Go Back</a>
