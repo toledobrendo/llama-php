@@ -34,13 +34,13 @@
                     $preValue = $seqValue;
 
                       if($i == 1){
-                        echo $preValue.'&emsp;';
+                        echo $preValue.'&emsp;&emsp;&emsp;';
                         $seqValue += 1;
-                        echo $seqValue.'&emsp;';
+                        echo $seqValue.'&emsp;&emsp;&emsp;';
                         $i++;
                       } else {
                         $seqValue = $preValue + $preValue2;
-                        echo $seqValue.'&emsp;';
+                        echo $seqValue.'&emsp;&emsp;&emsp;';
                       }
                     }
              ?>
