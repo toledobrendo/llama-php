@@ -25,20 +25,20 @@
                 <?php
 
                 $productInputs = array(
-                    array('Product' => 'Tire'),
-                    array('Product' => 'Oil'),
-                    array('Product' => 'Spark Plug')
+                    array('Product' => 'Tire', 'name' => 'tireQty'),
+                    array('Product' => 'Oil', 'name' => 'oilQty'),
+                    array('Product' => 'Spark Plug', 'name' => 'sparkQty')
                 );
 
                 foreach($productInputs as $productInput){
                   echo '<tr class="row">
                           <td class="col-5">'.$productInput['Product'].'</td>
                           <td class="col-4">
-                            <input type="number" name="tireQty" maxlength="3" min="0" max="10" class="form-control"/>
+                            <input type="number" name="'.$productInput['name'].'" maxlength="3" min="0" max="10" class="form-control"/>
                           </td>
                         </tr>';
                 }
-                
+
                 ?>
 
                 <tr class="row">
