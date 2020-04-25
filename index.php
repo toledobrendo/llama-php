@@ -19,7 +19,7 @@
                 <a href="hello-world.php">Hello World</a>
               </li>
               <li class="list-group-item">
-                <a href="hw1/fibo.php">Fibonacci</a>
+                <a href="ILoveJava/fibo.php">Fibonacci</a>
               </li>
               <li class="list-group-item">
                 <a href="bobs-auto-parts/order-form.php">Bob's Auto Parts - Ordering</a>
