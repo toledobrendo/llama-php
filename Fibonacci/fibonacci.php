@@ -17,12 +17,12 @@
           Sequence length
           <form action="fibonacci.php" method="post">
             <div>
-              <input type="number" name="sequence" class="col-11" min="1" placeholder="Enter Sequence Length">
+              <input type="number" name="sequence" class="col-11" min="1" placeholder="Enter Sequence Length" required="required">
               <button type="submit" class="btn btn-primary btn-sm">Submit</button>
             </div>
 
             <?php
-                $fibSequence = $_POST['sequence'] ? $_POST['sequence'] : 0;
+                $fibSequence = @($_POST['sequence'] ? $_POST['sequence'] : 0);
                 echo "<br/>Series Length: ".$fibSequence.'<br/><br/>';
 
                 $seqValue = 0;
