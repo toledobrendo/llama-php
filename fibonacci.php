@@ -16,29 +16,25 @@
       	<h1> Fibonacci Sequence </h1>
         <form action = "fibonacci.php" method = "get">
           <div> Sequence Length </div>
-
-          <div class="input-group">
-                    <input type = "number" name = "sequenceQty" maxlength = "3" min = "0" max = "30" class="form-control"/>
-                    <button type = "submit" class="btn btn-primary float-right">Submit</button>
-          </div>
+            <div class="input-group">
+              <input type = "number" name = "sequenceQty" maxlength = "3" min = "0" max = "30" class="form-control"/>
+              <button type = "submit" class="btn btn-primary float-right">Submit</button>
+            </div>
               <?php
-              function Fibonacci($length){
-                if($length == 0)
-                  return 0;
-                else if ($length == 1)
-                  return 1;
-                else
-                  return (Fibonacci($length - 1) + Fibonacci($length - 2));
-              }
-
-                        $length = @($_GET['sequenceQty']);
-                        echo 'Series Length: '.$length. '<br/>';
-
-                        for ($counter=0; $counter < $length; $counter++) {
-                            echo '<strong>' .Fibonacci($counter). '&nbsp&nbsp </strong>';
-                        }
-
-                    ?>
+                function Fibonacci($length){
+                  if($length == 0)
+                    return 0;
+                  else if ($length == 1)
+                    return 1;
+                  else
+                    return (Fibonacci($length - 1) + Fibonacci($length - 2));
+                }
+                  $length = @($_GET['sequenceQty']);
+                  echo 'Series Length: '.$length. '<br/>';
+                  for ($counter=0; $counter < $length; $counter++) {
+                      echo '<strong>' .Fibonacci($counter). '&nbsp&nbsp </strong>';
+                  }
+              ?>
         </form>
       </div>
     </div>
