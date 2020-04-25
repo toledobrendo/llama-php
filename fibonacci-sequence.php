@@ -17,7 +17,7 @@
               <?php
                 echo "Sequence Length<br>";
                 echo '<input type="number" name="seqLength" min="0" class="form-control col-11 float-left"/>';
-                echo '<button type="submit" class="btn btn-success float-right">Submit</button>';
+                echo '<button type="submit" class="btn btn-success col-1 float-right">Submit</button>';
 
                 @($seqLength = $_POST['seqLength'] ? $_POST['seqLength'] : 0);
                 echo "<br><br><p>Series Length: $seqLength</p>";
