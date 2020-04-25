@@ -25,10 +25,10 @@
                 <a href="bobs-auto-parts/order-form.php">Bob's Auto parts - Ordering</a>
               </li>
               <li class="list-group-item">
-                <a href="fibonacci-sequence.php">Fibonacci Sequence</a>
+                <a href="bobs-auto-parts/price-list.php">Price List</a>
               </li>
               <li class="list-group-item">
-                <a href="bobs-auto-parts/price-list.php">Price List</a>
+                <a href="fibonacci-sequence.php">Fibonacci Sequence</a>
               </li>
             </ul>
           </div>

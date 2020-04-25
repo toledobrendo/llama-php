@@ -25,7 +25,7 @@
      ?>
         </div>
         <div class="card-footer">
-          <a class="btn btn-info" href="index.php">Go Back</a>
+          <a class="btn btn-info" href="../index.php">Go Back</a>
         </div>
       </div>
     </div>
