@@ -8,23 +8,9 @@
     <div class="container">
       <div class="card">
         <div class="card-body">
-            <h1 class="card-title"> PHP EXERCISE </h1>
-            <div class="col-6">
-              <ul class="list-group">
-                <li class="list-group-item">
-                    <a href="hello-world.php">Hello World</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="bobs-auto-parts/order-form.php">Bob's auto parts - ordering</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="fibonacci/index.php">Fibonacci</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="caesar-shift/index.php">Caesar Shift</a>
-                </li>
-              </ul>
-            </div>
+            <?php
+              echo 'Hello World';
+             ?>
         </div>
       </div>
     </div>
