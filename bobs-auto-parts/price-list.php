@@ -18,10 +18,68 @@
 
       $products = array ('Tires', 'Oil', 'Spark Plugs');
 
-      echo '<p>Product: '.$products[0];
+      echo '<p>Product 0: '.$products[0];
 
       echo '<ul>';
+        for ($ctr=0; $ctr < count($products); $ctr++) {
+          echo '<li>'.$products[$ctr].'</li>';
+        }
       echo '</ul>';
+
+      echo "<ul>";
+        $ctr = 0;
+        foreach ($products as &$product) {
+          $product = $product.' 1 ';
+          echo '<li>'.$ctr.' - '.$product.'</li>';
+          $ctr++;
+        }
+      echo "</ul>";
+
+      echo '<ul>';
+        for ($ctr=0; $ctr < count($products); $ctr++) {
+          echo '<li>'.$products[$ctr].'</li>';
+        }
+      echo '</ul>';
+
+      $numbers = range(0, 10, 2);
+      echo '<br>range(1, 10): ';
+      foreach ($numbers as $number) {
+        echo $number.' ';
+      }
+      echo "<br>";
+
+
+      //range of letters
+      $letters = range('a', 'z');
+      echo '<br>letters: ';
+      foreach ($letters as $letter) {
+        echo $letter.' ';
+      }
+      echo "<br>";
+
+      $prices = array('Tires' => 100, 'Oil' => 20, 'Spark Plugs' => 5, 1000);
+
+
+      //change the value of a particular item on the array
+      $prices['Tires'] = 120;
+
+      echo "Tire price: ".$prices['Tires'];
+
+      //Doon sa walang key, dun nagstart yung indexing (index 0)
+      //Although it is not a good practice to mix numeric index and by key
+      echo "<br>Fourth price: ".$prices[0];
+
+      $prices['Clutch Disk'] = 250;
+
+      echo '<br>Clutch Disk: '.$prices['Clutch Disk'];
+      echo "<br><br>";
+
+      echo '<ul>';
+      foreach ($prices as $itemDesc => $price) {
+        echo '<li>'.$itemDesc.' - '.$price.'</li>';
+      }
+      echo '</ul';
+
      ?>
         </div>
         <div class="card-footer">
