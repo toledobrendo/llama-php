@@ -22,24 +22,25 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="row">
-                  <td class="col-5">Tires</td>
-                  <td class="col-4">
-                    <input type="number" name="tireQty" maxlength="3" min="0" max="10" class="form-control"/>
-                  </td>
-                </tr>
-                <tr class="row">
-                  <td class="col-5">Oil</td>
-                  <td class="col-4">
-                    <input type="number" name="oilQty" maxlength="3" min="0" max="10" class="form-control"/>
-                  </td>
-                </tr>
-                <tr class="row">
-                  <td class="col-5">Spark Plugs</td>
-                  <td class="col-4">
-                    <input type="number" name="sparkQty" maxlength="3" min="0" max="10" class="form-control"/>
-                  </td>
-                </tr>
+                <?php
+
+                $productInputs = array(
+                    array('Product' => 'Tire'),
+                    array('Product' => 'Oil'),
+                    array('Product' => 'Spark Plug')
+                );
+
+                foreach($productInputs as $productInput){
+                  echo '<tr class="row">
+                          <td class="col-5">'.$productInput['Product'].'</td>
+                          <td class="col-4">
+                            <input type="number" name="tireQty" maxlength="3" min="0" max="10" class="form-control"/>
+                          </td>
+                        </tr>';
+                }
+                
+                ?>
+
                 <tr class="row">
                   <td class="col-5">How did you find Bob's</td>
                   <td class="col-4">
