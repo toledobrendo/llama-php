@@ -38,7 +38,7 @@
 
 <?php
 $num = 0;
-$ctr = $_POST['num'];
+$ctr = @($_POST['num']);
 $n1 = 0;
 $n2 = 1;
 echo "<h3>Fibonacci series: </h3>";
