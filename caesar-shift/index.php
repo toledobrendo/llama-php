@@ -8,9 +8,47 @@
     <div class="container">
       <div class="card">
         <div class="card-body">
-            <?php
-              echo 'Hello World';
-             ?>
+          <div class="col-12">
+            <h2>Caesar Shift</h2>
+            <p>Message</p>
+            <form method="POST" action="index.php">
+              <input type="textarea" name="message" class="form-control"/>
+              <br>
+              <p>Key</p>
+              <input type="number" name="key" class="form-control"/>
+              <br>
+              <?php
+                $message = @($_POST['message']? $_POST['message'] : null);
+                $key = @($_POST['key']? $_POST['key'] : null);
+
+                $letters = range('A','Z');
+
+                if($key > count($letters)){
+                  $key = $key % count($letters);
+                }
+
+                  if(isset($message)){
+                    $message = strtoUpper($message);
+                    $arrayMessage = str_split($message);
+
+                    foreach($arrayMessage as &$charValue){
+                      $index = array_search($charValue,$letters);
+                      if($index == 'A' || $index != false){
+                        $charValue = $letters[$index + $key];
+                      }
+                    }
+
+                  }//end of if(isset($message))
+
+                  echo 'Result: ';
+                  foreach(@($arrayMessage) as $value){
+                    echo @($value);
+                  }
+
+              ?>
+              <button type='submit' class="btn btn-primary float-right">Submit</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
