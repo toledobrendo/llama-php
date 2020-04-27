@@ -22,11 +22,15 @@
                </div>
 
                <?php
+               //GOOD DAY TO YOU!
                if (!empty($_POST['plaintext'])) {
                   
                   $plaintext = $_POST['plaintext'];
                   $key  =  $_POST['key'] ? $_POST['key'] : 0;
                   $key = $key % 26; //TO "WRAP AROUND"
+                  if($key<0){
+                     $key = $key+26;
+                  }
 
                   $plaintext = strtoupper($plaintext); //CAPITALIZE ALL CHARACTERS
                   $strArray = str_split($plaintext); //TURNS STRING TO ARRAY OF STRINGS, 1 CHARACTER PER ELEMENT
@@ -39,6 +43,9 @@
                      $byte = ord($plaintext[$index]);
                      if (ctype_alpha($byte)) { //CHECKS IF CHAR IS IN ALPHABET
                         $byte = $byte + $key; //ADDS OFFSET/ROTATION
+                        if($byte>90){//CHECKS IF IT'S NOT CAPITAL ANYMORE
+                           $byte=$byte-26;//TO MAKE IT GO BACK TO CAPITAL LETTERS
+                        }
                      }
 
                      $encryptedByte = chr($byte); //CASTS ASCII BACK TO STRING
