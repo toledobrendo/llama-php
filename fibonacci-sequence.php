@@ -32,14 +32,12 @@
                         $sequenceLength = $_POST['sequenceLength'];
                         $num1 = 0;
                         $num2 = 1;
-                        echo 
-                        '<tr class="row">
-                           <td class="col-12">
-                              Series length: ' . $sequenceLength . '
-                           </td>
-                        </tr>';
+                        echo
+                           '<tr class="row">
+                           <td class="col-12">Series length: ' . $sequenceLength . '</td>
+                           </tr>';
 
-                        echo'<tr class="row">';
+                        echo '<tr class="row">';
 
                         for ($sequenceCounter = 0; $sequenceCounter < $sequenceLength; $sequenceCounter++) {
 
@@ -50,10 +48,16 @@
 
                         echo '</tr>';
                      } else {
+                        echo 'a';
                         echo '<td class="col-12">Series length: </td>';
                      }
 
                      ?>
+                     <tr class="">
+                        <td>
+                           <a class="btn btn-secondary float-right" href="index.php">Go Back</a>
+                        </td>
+                     </tr>
                   </tbody>
                </table>
             </form>
