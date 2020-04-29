@@ -1,0 +1,41 @@
+/* overide bootstrap css */
+.btn-fibonacci{
+
+background: #105e55;
+color: white;
+border-color: transparent;
+width: 100px;
+border-radius:3px;
+
+}
+
+.btn-fibonacci:hover{
+
+  background-color:#1a756b;
+  color: white;
+  border-color: transparent;
+  width: 100px;
+  border-radius:3px;
+
+}
+
+.fontsub{
+  font-size: 15px;
+}
+
+.maindiv{
+
+
+
+  	position: absolute;
+  	top:30%;
+  	bottom: 0;
+  	left: 0;
+  	right: 0;
+  	margin: auto;
+
+}
+
+.cardsub{
+  font-weight: bolder;
+}
