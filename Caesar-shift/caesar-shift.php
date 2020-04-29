@@ -27,6 +27,26 @@
 
           <?php
 
+            $message = @($_POST['message']);
+            $key = @($_POST['key']);
+
+            $upperMessage = strtoupper($message);
+            $arrayMessage = str_split($message);
+            $counter = count($arrayMessage);
+            $alphabet = range("A","Z");
+
+            print_r($arrayMessage);
+            echo '</br>';
+            echo '</br>';
+            print_r($alphabet);
+            echo '</br>';
+            echo '</br>';
+
+            for ($count=0; $count < $counter; $count++) {
+              array_search($arrayMessage[$count],$alphabet,true);
+            }
+
+
 
            ?>
       </div>
