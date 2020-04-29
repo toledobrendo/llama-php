@@ -9,7 +9,9 @@
     <title>Order Form</title>
   </head>
   <body>
-    <div class="container">
+  <?php
+
+  echo '  <div class="container">
       <div class="card">
         <div class="card-body">
           <h3 class="card-title">Order Form</h3>
@@ -22,27 +24,21 @@
                 </tr>
               </thead>
 
-              <tbody>
-                <tr class="row">
-                <td class="col-5">Tires</td>
-                <td class="col-4">
-                  <input type="number" name="tireQty" maxlength="3" min="0" max="10" class="form-control"/>
-                </td>
-                </tr>
+              <tbody>';
 
-              <tr class="row">
-                <td class="col-5">Oil</td>
-                <td class="col-4">
-                  <input type="number" name="oilQty" maxlength="3" min="0" max="10" class="form-control"/>
-                </td>
-              </tr>
+              $someNiceVariableName = array(
+                                        array('key' => 'tireQty', 'item' => 'Tires'),
+                                        array('key' => 'oilQty', 'item' => 'Oil'),
+                                        array('key' => 'sparkQty', 'item' => 'Spark plugs'));
 
-              <tr class="row">
-                <td class="col-5">Spark plugs</td>
-                <td class="col-4">
-                  <input type="number" name="sparkQty" maxlength="3" min="0" max="10" class="form-control"/>
-                </td>
-              </tr>
+              for ($iteration=0; $iteration < 3 ; $iteration++) {
+                echo '  <tr class="row">
+                  <td class="col-5">'.$someNiceVariableName[$iteration]['item'].'</td>
+                  <td class="col-4">
+                    <input type="number" name="'.$someNiceVariableName[$iteration]['key'].'" maxlength="3" min="0" max="10" class="form-control"/>
+                  </td>
+                  </tr>';
+              } ?>
               <tr class="row">
                 <td class="col-5">How did you find Bob's</td>
                 <td class="col-4">
