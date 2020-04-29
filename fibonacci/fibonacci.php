@@ -18,7 +18,10 @@
 
       <div class="card shadow ">
         <div class="card-header">
-          <h2 class="card-title ml-3">Fibonacci Sequence</h2>
+          <div class="card-title ml-3">
+            <h2 class="d-inline">Fibonacci </h2>
+            <a class="d-inline float-right font-weight-bold" href="../index.php">Back</a>
+          </div>
           <h6 class="card-subtitle mb-2 ml-3 text-muted font-italic fontsub">@Dino Paulo Gomez ~ 4/18/2020</h6>
 
          </div>
