@@ -32,7 +32,12 @@
                 for ($ptr=0; $ptr < $count ; $ptr++) {
                   $newPtr = array_search($message[$ptr], $alphabet);
                   if($newPtr>-1){
-                    $message[$ptr] = $alphabet[$newPtr+$key];
+                    $newPtr+=$key;
+                    if($newPtr > 25){
+                      $newPtr = $newPtr - 26;
+                    }
+                    $message[$ptr] = $alphabet[$newPtr];
+
                   }
                 }
 
