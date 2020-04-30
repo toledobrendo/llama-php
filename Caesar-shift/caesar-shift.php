@@ -31,22 +31,28 @@
             $key = @($_POST['key']);
 
             $upperMessage = strtoupper($message);
-            $arrayMessage = str_split($message);
+            $arrayMessage = str_split($upperMessage);
             $counter = count($arrayMessage);
             $alphabet = range("A","Z");
+            $cipher = array();
 
-            print_r($arrayMessage);
-            echo '</br>';
-            echo '</br>';
-            print_r($alphabet);
-            echo '</br>';
-            echo '</br>';
 
             for ($count=0; $count < $counter; $count++) {
-              array_search($arrayMessage[$count],$alphabet,true);
+
+              if (!(preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $arrayMessage[$count]) || ctype_space($arrayMessage[$count]))){
+
+                $cipher[$count] = array_search($arrayMessage[$count],$alphabet,true);
+                $cipher[$count] += $key;
+                $cipher[$count] = $alphabet[$cipher[$count]];
+                $arrayMessage[$count] = $cipher[$count];
+              }
             }
 
 
+            echo "Message:&emsp;";
+            for ($count=0; $count < $counter; $count++) {
+              echo $arrayMessage[$count];
+            }
 
            ?>
       </div>
