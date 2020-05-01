@@ -24,6 +24,9 @@
               <li class="list-group-item">
                 <a href="fibonacci/fibonacci.php">Fibonacci Sequence</a>
               </li>
+              <li class="list-group-item">
+                <a href="caesarShift/caesarShift.php">Caesar Shift</a>
+              </li>
             </ul>
           </div>
         </div>
