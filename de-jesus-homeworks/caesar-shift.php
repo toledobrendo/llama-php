@@ -1,0 +1,53 @@
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
+    </head>
+    <body>
+      <!-- hello-world.php or hello_world.php -->
+      <div class="container">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">CAESAR SHIFT</h3>
+            <?php
+                $toEncrypt = $_POST['toEncrypt'];
+            //$toDecrypt = $_POST['toDecrypt'];
+                $key = array(
+                  "A" => "B", "B" => "C","C" => "D", "D" => "E","E" => "F","F" => "G",
+                  "G" => "H", "H" => "I", "I" => "J", "J" => "K","K" => "L",
+                  "L" => "M","M" => "N", "N" => "O", "O" => "P",
+                  "P" => "Q","Q" => "R", "R" => "S","S" => "T","T" => "U",
+                  "U" => "V", "V" => "W", "W" => "X", "X" => "Y",
+                  "Y" => "Z", "Z" => "Å", "Å" => "Ä", "Ä" => "Ö", "Ö" => "A"
+            );
+
+              $length=strlen($toEncrypt);
+              $newstr='';
+              for ($i = 0; $i < $length; $i++)
+              {
+                if (is_array($key) && in_array(strtoupper($toEncrypt[$i]), array_flip($key)))
+                {
+                  $newstr .= $key[strtoupper($toEncrypt[$i])];
+                }
+              }
+              echo $newstr;
+            ?>
+
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"></script>
+  </body>
+</html>
