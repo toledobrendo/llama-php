@@ -23,12 +23,15 @@
                 <li class = "list-group-item">
                   <a href = "bobs-auto-parts/order-form.php">Bob's Auto Parts - Ordering</a>
                 </li>
-                <li class = "list-group-item">
-                  <a href = "bobs-auto-parts/price-list.php">Bob's Auto Parts - Price List</a>
-                </li>
-                  <li class="list-group-item">
-                    <a href="fibonacci.php">Fibonacci</a>
+                  <li class = "list-group-item">
+                    <a href = "bobs-auto-parts/price-list.php">Bob's Auto Parts - Price List</a>
                   </li>
+                    <li class="list-group-item">
+                      <a href="fibonacci.php">Fibonacci</a>
+                    </li>
+                      <li class="list-group-item">
+                        <a href="caesar-shift/caesar-shift.php">Caesar Shift</a>
+                      </li>
             </ul>
           </div>
         </div>
