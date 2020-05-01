@@ -27,7 +27,7 @@
                     <a href = "bobs-auto-parts/price-list.php">Bob's Auto Parts - Price List</a>
                   </li>
                     <li class="list-group-item">
-                      <a href="fibonacci.php">Fibonacci</a>
+                      <a href="fibonacci/fibonacci.php">Fibonacci</a>
                     </li>
                       <li class="list-group-item">
                         <a href="caesar-shift/caesar-shift.php">Caesar Shift</a>
