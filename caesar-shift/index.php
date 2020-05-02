@@ -26,7 +26,7 @@
                 if($key > count($letters)){
                   $key = $key % count($letters);
                 }
-
+                echo "<br> Key is:".$key."<br>";
                   if(isset($message)){
                     $message = strtoUpper($message);
                     $arrayMessage = str_split($message);
@@ -34,7 +34,12 @@
                     foreach($arrayMessage as &$charValue){
                       $index = array_search($charValue,$letters);
                       if($index == 'A' || $index != false){
-                        $charValue = $letters[$index + $key];
+                        if($index+$key > count($letters)-1){
+                          $charValue = $letters[($index+$key) % count($letters)];
+                        }
+                        else{
+                          $charValue = $letters[$index + $key];
+                        }
                       }
                     }
 
