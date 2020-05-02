@@ -11,8 +11,15 @@
     <link rel="icon" href="img\caesar.png">
 
     <title>Caesar Cipher</title>
+    <script>
+    function myFunction() {
+      document.getElementsByClassName('className')
+      confirm("Do you want to confirm");
+
+    }
+    </script>
   </head>
-  <body>
+  <body onload="myFunction()">
 
     <div class="container maindiv">
 
@@ -40,7 +47,14 @@
                   <input type="number" class="form-control" name = "key" placeholder="Key">
                 </div>
                 <input class="btn btn-fibonacci"type="submit" name="submit" value="Print" />
-
+                <button onclick="myFunction()">button</button>
+                <?php
+                  echo date('H:i:s');
+                  sleep(15);
+                  flush();
+                  echo "<br>";
+                  echo date('H:i:s');
+                  ?>
 
 
               </div>
