@@ -35,7 +35,7 @@
             $input = $_GET['input'];
 
 
-          
+
 
 
             //Xn= Xn-1 + Xn-2
