@@ -39,6 +39,7 @@
                   // }
 
                   echo '<p>Result: ';
+                  $encryptedMessage='';
                   for ($index = 0; $index < strlen($plaintext); $index++) { //TO GET EACH CHAR IN STRING
                      $byte = ord($plaintext[$index]);
                      if (ctype_alpha($byte)) { //CHECKS IF CHAR IS IN ALPHABET
@@ -49,14 +50,16 @@
                      }
 
                      $encryptedByte = chr($byte); //CASTS ASCII BACK TO STRING
-                     echo $encryptedByte;
+
+                     $encryptedMessage = $encryptedMessage.$encryptedByte;
                   }
+                  echo $encryptedMessage;
                   echo '</p>';
                }
                ?>
             </div>
             <div class="card-footer">
-               <button type="submit" class="btn btn-primary">Submit</button>
+               <button type="submit" class="btn btn-primary">Susbmit</button>
                <a class="btn btn-secondary" href="index.php">Go Back</a>
             </div>
          </form>

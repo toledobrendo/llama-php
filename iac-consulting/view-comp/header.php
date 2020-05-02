@@ -1,3 +1,8 @@
+<?php
+  function isActive($page) {
+    return strpos($_SERVER['REQUEST_URI'], $page);
+  }
+?>
 <html>
   <head>
     <meta charset="utf-8">
@@ -8,14 +13,14 @@
       crossorigin="anonymous">
   </head>
   <body>
-  <div class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div href="index.php" class="navbar-brand">Bob's Auto Parts</div>
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div href="index.php" class="navbar-brand">iAC Consulting</div>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav">
-          <li class="nav-item <?php if(strpos($_SERVER['REQUEST_URI'], 'index.php')) echo 'active'; ?>">
+          <li class="nav-item <?php if(isActive('index.php')) echo 'active'; ?>">
             <a class="nav-link" href="index.php">Home</a>
           </li>
-          <li class="nav-item <?php if(strpos($_SERVER['REQUEST_URI'], 'contact.php')) echo 'active'; ?>">
+          <li class="nav-item <?php if(isActive('contact.php')) echo 'active'; ?>">
             <a class="nav-link" href="contact.php">Contact</a>
           </li>
         </ul>
