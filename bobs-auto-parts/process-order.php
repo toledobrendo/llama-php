@@ -90,6 +90,6 @@
         <div class="card-footer">
           <a class="btn btn-success" href="order-form.php"> Go Back </a>
 
-  <?php
-      require_once('view-comp/footer.php');
-  ?>
+<?php
+   require_once('view-comp/footer.php');
+?>
