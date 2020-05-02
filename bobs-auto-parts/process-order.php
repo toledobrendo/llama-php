@@ -1,21 +1,18 @@
 <?php
-  define('TIRE_PRICE', 100);
-  define('OIL_PRICE', 50);
-  define('SPARK_PRICE', 30);
   require_once('view-comp/header.php');
+  require_once('model/product.php');
+  require_once('model/product-list.php');
  ?>
     <h3 class="cart-title">Order Results</h3>
-
-    <?php
+<?php
     echo '<p> Order Processed at ';
     echo date('H:i, jS F Y');
     echo '</p>';
-
     // PHP Comments
 
-    $tireQty = $_POST['tireQty']? $_POST['tireQty']: 0;
-    $oilQty = $_POST['oilQty']? $_POST['oilQty']: 0;
-    $sparkQty = $_POST['sparkQty']? $_POST['sparkQty']: 0;
+    $tire->__set('quantity', $_POST['tireQty']? $_POST['tireQty']: 0);
+    $oil->__set('quantity', $_POST['oilQty']? $_POST['oilQty']: 0);
+    $sparkPlugs->__set('quantity',$_POST['sparkQty']? $_POST['sparkQty']: 0);
     $find = $_POST['find'];
 
     switch($find){
@@ -36,11 +33,11 @@
     }
 
     echo '<p>Your order is as follows</p>';
-    echo $tireQty.' Tire<br/>';
-    echo $oilQty.' Oil<br/>';
-    echo $sparkQty.' Spark Plugs<br/>'.'<br/>';
+    echo $tire->__get('quantity').' Tire<br/>';
+    echo $oil->__get('quantity').' Oil<br/>';
+    echo $sparkPlugs->__get('quantity').' Spark Plugs<br/>'.'<br/>';
 
-    $totalQty = @($tireQty + $oilQty + $sparkQty);
+    $totalQty = @($tire->__get('quantity') + $oil->__get('quantity') + $sparkPlugs->__get('quantity'));
     echo 'Total Quantity: '.$totalQty.'<br/><br/>';
 
     echo '<p>Prices:<br/>';
@@ -48,9 +45,9 @@
     echo 'Oil: '.OIL_PRICE.'<br/>';
     echo 'Spark Plugs: '.SPARK_PRICE.'<br/><br/>';
 
-    $tireAmount = @($tireQty * TIRE_PRICE);
-    $oilAmount = @($oilQty * OIL_PRICE);
-    $sparkAmount = @($sparkQty * SPARK_PRICE);
+    $tireAmount = @($tire->__get('quantity') * TIRE_PRICE);
+    $oilAmount = @($oil->__get('quantity') * OIL_PRICE);
+    $sparkAmount = @($sparkPlugs->__get('quantity') * SPARK_PRICE);
 
     $totalAmount = (float) $tireAmount + $oilAmount + $sparkAmount;
 

@@ -1,5 +1,8 @@
 <?php
 require_once('view-comp/header.php');
+require_once('model/product.php');
+require_once('model/product-list.php');
+
  ?>
   <h3 class="card-title">Order Form</h3>
   <form action="process-order.php" method="post">
@@ -13,27 +16,19 @@ require_once('view-comp/header.php');
       </thead>
       <tbody>
         <?php
-
-        $productInputs = array(
-            array('Product' => 'Tire', 'name' => 'tireQty', 'price' => 100),
-            array('Product' => 'Oil', 'name' => 'oilQty', 'price' => 50),
-            array('Product' => 'Spark Plug', 'name' => 'sparkQty', 'price' => 30)
-        );
-
         foreach($productInputs as $productInput){
           echo '<tr class="row">
                   <td class="col-6">
-                    '.$productInput['Product'].'
+                    '.$productInput->description.'
                   </td>
                   <td class="col-2">
-                    '.$productInput['price'].'
+                    '.$productInput->price.'
                   </td>
                   <td class="col-4">
-                    <input type="number" name="'.$productInput['name'].'" maxlength="3" min="0" max="10" class="form-control"/>
+                    <input type="number" name="'.$productInput->name.'" maxlength="3" min="0" max="10" class="form-control"/>
                   </td>
                 </tr>';
         }
-
         ?>
 
         <tr class="row">
