@@ -6,6 +6,19 @@
   </head>
   <body>
     <!--Can be seen in browser-->
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div href='index.php' class="navbar-brand">Bob's auto parts</div>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ">
+            <li class="nav-item active">
+              <a class="nav-link" href="order-form.php">Order Form</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="freight-cost.php">Freight Cost</a>
+            </li>
+          </ul>
+        </div>
+    </div>
     <div class="container">
       <div class="card">
         <div class="card-body">
