@@ -2,8 +2,9 @@
   require_once('view-comp/header.php');
 ?>
     <title>PHP Template</title>
-  </head>
-  <body>
+<?php
+  require_once('view-comp/header-nav-bar.php');
+?>
     <div class="container">
       <div class="card">
         <div class="card-body">

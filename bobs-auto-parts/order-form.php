@@ -2,8 +2,9 @@
   require_once('view-comp/header.php');
 ?>
     <title>Order Form</title>
-  </head>
-  <body>
+<?php
+  require_once('view-comp/header-nav-bar.php');
+?>
   <?php
 
   echo '  <div class="container">
