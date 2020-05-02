@@ -11,9 +11,14 @@
 
       	<?php
       	echo $message;
+        $isValid = true;
       	?>
+
+        <?php if($isValid){ ?>
+          <strong>This is valid.</strong>
+
+        <?php }?>
 
         <?php
       	  require_once('view-comp/footer.php')
       	?>
-    

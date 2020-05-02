@@ -13,17 +13,21 @@
     <div class="navbar-brand" href = "index.php">Bob's Auto Parts</div>
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav">
-        <li class="nav-item active">
+        <!-- <li class="nav-item active">
           <a class="nav-link" href="index.php">Home</a>
+        </li> -->
+
+        <li class="nav-item">
+          <a class="nav-link" href = "order-form.php">Order Form</a>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link" href = "freight-cost.php">Freight Cost</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href = "contact.php">Contact</a>
-        </li>
-
-
-        <li class="nav-item">
-          <a class="nav-link" href = "about-us.php">About Us</a>
+          <a class="nav-link" href = "price-list.php">Price List</a>
         </li>
 
       </ul>
