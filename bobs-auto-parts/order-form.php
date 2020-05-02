@@ -1,5 +1,6 @@
 <?php
   require_once('view-comp/header.php');
+  require_once('model/product.php');
  ?>
 
           <h3 class="card-title">Order Form</h3>
@@ -44,9 +45,33 @@
                                   <button type="submit" class="btn btn-primary btn-sm float-right">Submit</button>
                                 </td>
                               </tr>';
-                            echo '</table>';
+                            echo '</table><br/><br/>';
                 ?>
           </form>
+
+          <?php
+
+          $productsArray = array();
+
+          $productsArray[0] = new Product();
+            $productsArray[0]->setName = 'Oil';
+            $productsArray[0]->setPrice = 50;
+
+          $productsArray[1] = new Product();
+            $productsArray[1]->setName = 'Tires';
+            $productsArray[1]->setPrice = 100;
+
+          $productsArray[2] = new Product();
+            $productsArray[2]->setName = 'Spark Plugs';
+            $productsArray[2]->setPrice = 150;
+
+          $counter = count($productsArray);
+
+              echo "Products&emsp;Price";
+              echo $productsArray;
+
+
+           ?>
 
 
 <?php
