@@ -55,7 +55,7 @@
 									'.@$item[Price].'
 								</td>
 								<td class="col-4">
-									<input type="number" name="'.@$item[name].'" maxlength="3" min="0" max="10" class="form-control">
+									<input type="numb er" name="'.@$item[name].'" maxlength="3" min="0" max="10" class="form-control">
 								</td>
 								
 									</tr>';
