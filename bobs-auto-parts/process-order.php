@@ -39,7 +39,7 @@ echo '<br/><br/>';
 echo '<p>Prices<br/>';
 echo 'Tires: ' . $tires->price . '<br/>';
 echo 'Oil: ' . $oil->price . '<br/>';
-echo 'Spark Plugs: ' . $spark->price . '<br/><br/>';
+echo 'Spark Plugs: ' . $sparkPlug->price . '<br/><br/>';
 
 $totalQty = @($tireQty + $oilQty + $sparkQty);
 
@@ -60,7 +60,7 @@ echo 'Total Quantity: ' . $totalQty . '<br/>';
 
 $tireAmount = @($tireQty * $tires->price);
 $oilAmount = @($oilQty * $oil->price);
-$sparkAmount = @($sparkQty * $spark->price);
+$sparkAmount = @($sparkQty * $sparkPlug->price);
 
 $totalAmount = (float) $tireAmount;
 

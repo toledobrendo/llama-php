@@ -32,12 +32,12 @@ include("view-comp/header.php");
          // }
          foreach ($products as $product) {
             echo '<tr class= "row">
-                                    <td class="col-5">' . $product->title . '</td>
-                                    <td class="col-3">' . $product->price . '</td>
-                                    <td class="col-4">
-                                       <input type="number" name="' . $product->name . '" maxlength="3" min="0" max="10" class="form-control"/>
-                                    </td>
-                                 </tr>';
+                     <td class="col-5">' . $product->title . '</td>
+                     <td class="col-3">' . $product->price . '</td>
+                     <td class="col-4">
+                        <input type="number" name="' . $product->name . '" maxlength="3" min="0" max="10" class="form-control"/>
+                     </td>
+                  </tr>';
          }
          ?>
          <tr class="row">

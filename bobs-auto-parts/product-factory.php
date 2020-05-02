@@ -5,7 +5,7 @@ require_once('model/product.php')
 <?php
 $tires = new Product();
 $tires->title = 'Tires';
-$tires->name = 'TireQty';
+$tires->name = 'tireQty';
 $tires->price='100';
 
 $oil = new Product();
