@@ -1,5 +1,6 @@
 <?php
-include("view-comp/header.php")
+require_once('product-factory.php');
+include("view-comp/header.php");
 ?>
 
 <h3 class="card-title">Order Form</h3>
@@ -14,18 +15,27 @@ include("view-comp/header.php")
       </thead>
       <tbody>
          <?php
-         $products = array(
-            array('title' => 'Tires',     'name' => 'tireQty', 'price' => '100'),
-            array('title' => 'Oil',       'name' => 'oilQty',  'price' => '50'),
-            array('title' => 'Spark Plug', 'name' => 'sparkQty', 'price' => '10')
-         );
+         // $products = array(
+         //    array('title' => 'Tires',     'name' => 'tireQty', 'price' => '100'),
+         //    array('title' => 'Oil',       'name' => 'oilQty',  'price' => '50'),
+         //    array('title' => 'Spark Plug', 'name' => 'sparkQty', 'price' => '10')
+         // );
 
+         // foreach ($products as $product) {
+         //    echo '<tr class= "row">
+         //                            <td class="col-5">' . $product['title'] . '</td>
+         //                            <td class="col-3">' . $product['price'] . '</td>
+         //                            <td class="col-4">
+         //                               <input type="number" name="' . $product['name'] . '" maxlength="3" min="0" max="10" class="form-control"/>
+         //                            </td>
+         //                         </tr>';
+         // }
          foreach ($products as $product) {
             echo '<tr class= "row">
-                                    <td class="col-5">' . $product['title'] . '</td>
-                                    <td class="col-3">' . $product['price'] . '</td>
+                                    <td class="col-5">' . $product->title . '</td>
+                                    <td class="col-3">' . $product->price . '</td>
                                     <td class="col-4">
-                                       <input type="number" name="' . $product['name'] . '" maxlength="3" min="0" max="10" class="form-control"/>
+                                       <input type="number" name="' . $product->name . '" maxlength="3" min="0" max="10" class="form-control"/>
                                     </td>
                                  </tr>';
          }
