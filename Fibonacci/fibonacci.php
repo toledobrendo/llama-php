@@ -9,7 +9,46 @@
     <title>Fibonacci Generator</title>
   </head>
   <body>
-  
+
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Fibonacci Sequence</h2>
+          Sequence length
+          <form action="fibonacci.php" method="post">
+            <div>
+              <input type="number" name="sequence" class="col-11" min="1" placeholder="Enter Sequence Length" required="required">
+              <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+            </div>
+
+            <?php
+                $fibSequence = @($_POST['sequence'] ? $_POST['sequence'] : 0);
+                echo "<br/>Series Length: ".$fibSequence.'<br/><br/>';
+
+                $seqValue = 0;
+                $preValue = 0;
+                $preValue2 = 0;
+
+                  for ($i=1; $i <= $fibSequence; $i++) {
+                    $preValue2 = $preValue;
+                    $preValue = $seqValue;
+
+                      if($i == 1){
+                        echo $preValue.'&emsp;&emsp;&emsp;';
+                        $seqValue += 1;
+                        echo $seqValue.'&emsp;&emsp;&emsp;';
+                        $i++;
+                      } else {
+                        $seqValue = $preValue + $preValue2;
+                        echo $seqValue.'&emsp;&emsp;&emsp;';
+                      }
+                    }
+             ?>
+
+        </form>
+      </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
       crossorigin="anonymous"></script>
