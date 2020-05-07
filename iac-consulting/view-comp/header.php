@@ -1,3 +1,9 @@
+<?php
+  function isActive($page) {
+    return strpos($_SERVER['REQUEST_URI'],$page);
+  }
+?>
+
 <html>
   <head>
     <meta charset="utf-8">

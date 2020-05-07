@@ -2,7 +2,6 @@
   // include 'message.php';
   require_once('view-comp/header.php');
 ?>
-
           <h1>Freight Cost</h1>
           <table class="table">
             <thead>
