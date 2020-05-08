@@ -19,6 +19,12 @@
                 <a href="hello-world.php">Hello World</a>
               </li>
               <li class="list-group-item">
+                <a href="de-jesus-homeworks/fibonacci.php">Fibonacci</a>
+              </li>
+              <li class="list-group-item">
+                <a href="de-jesus-homeworks/caesar-shift.php">Caesar Shift</a>
+              </li>
+              <li class="list-group-item">
                 <a href="bobs-auto-parts/order-form.php">Bob's Auto Parts - Ordering</a>
               </li>
               <li class="list-group-item">
@@ -26,6 +32,9 @@
               </li>
               <li class="list-group-item">
                 <a href="iac-consulting/">iAC Consulting</a>
+              </li>
+              <li class="list-group-item">
+                <a href="de-jesus-homeworks/bobs-auto-parts-hw/order-form.php">Bob's Auto Parts - Ordering- HW</a>
               </li>
             </ul>
           </div>
@@ -40,6 +49,3 @@
       crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"></script>
-  </body>
-</html>

@@ -8,7 +8,6 @@
     crossorigin="anonymous">
 </head>
 <body>
-  <!-- hello-world.php or hello_world.php -->
   <div class="container">
     <div class="card mt-3">
       <div class="card-body">
@@ -40,7 +39,7 @@
               }
 
               ?>
-
+              
               <tr class="row">
                 <td class="col-5">How did you find Bob's</td>
                 <td class="col-4">
@@ -61,6 +60,9 @@
             </tbody>
           </table>
         </form>
+        <?php
+        require_once('view-comp/footer.php');
+        ?>
       </div>
     </div>
   </div>

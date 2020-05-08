@@ -1,5 +1,5 @@
 <?php
-  // include 'message.php';
+
   require_once('view-comp/header.php');
 ?>
 
