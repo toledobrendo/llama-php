@@ -1,5 +1,7 @@
 <?php
-require_once('view-comp/header.php')
+require_once('view-comp/header.php');
+require_once('model/productBean.php');
+require_once('model/ProductList.php');
  ?>
       <h3 class="card-title">Order Form</h3>
           <form action="process-order.php" method="post">
@@ -7,24 +9,30 @@ require_once('view-comp/header.php')
               <thead>
                 <tr class="row">
                   <th class="col-5">Item</th>
-                  <th class="col-4">Quantity</th>
+                  <th class="col-4">Price</th>
+                  <th class="col-3">Quantity</th>
                 </tr>
               </thead>
               <tbody>
                 <?php
 
-                $productInputs = array(
-                    array('Product' => 'Tire', 'name' => 'tireQty'),
-                    array('Product' => 'Oil', 'name' => 'oilQty'),
-                    array('Product' => 'Spark Plug', 'name' => 'sparkQty')
-                  );
+                // $productInputs = array(
+                //     array('Product' => 'Tire', 'name' => 'tireQty'),
+                //     array('Product' => 'Oil', 'name' => 'oilQty'),
+                //     array('Product' => 'Spark Plug', 'name' => 'sparkQty')
+                //   );
 
-                foreach($productInputs as $productInput){
+                foreach($productList as $productInput){
                   echo '<tr class="row">
-                          <td class="col-5">'.$productInput['Product'].'</td>
-                          <td class="col-6">
-                            <input type="number" name="'.$productInput['name'].'"  min="0" class="form-control"/>
-                          </td>
+                          <td class="col-4">
+                             '.$productInput->name.'
+                           </td>
+                           <td class="col-4">
+                             Php. '.$productInput->price.'
+                           </td>
+                           <td class="col-4">
+                             <input type="number" name="'.$productInput->description.'" maxlength="3" min="0" max="10" class="form-control"/>
+                           </td>
                         </tr>';
                 }
 

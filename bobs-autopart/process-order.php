@@ -1,30 +1,34 @@
 <?php
-//GLOBAL VARIABLES
-define('TIRE_PRICE',100);
-define('OIL_PRICE',100);
-define('SPARK_PRICE',100);
 
 define('VAT_PERCENT',0.12);
 
 ?>
 <?php
 require_once('view-comp/header.php');
+require_once('model/ProductBean.php');
+require_once('model/ProductList.php');
  ?>
           <h3 class="card-title">Order Result</h3>
-           // Change folder name to bobs-autopart for better naming convention.
-           // Spaces are discouraged for web assets
+
 		   <?php
 
              echo '<p>Order Processed at ';
              echo date('H:i, jS F Y');
              echo '</p>';
 
+             //Some inputs made into a object;
+             // $tires = new Product('Tire','good tires',TIRE_PRICE);
+             // $oil = new Product('Oil','Oil from Canada',OIL_PRICE);
+             // $spark = new Product('Spark','Sparking',SPARK_PRICE);
+
+             $tires->__set('quantity',$_POST['tireQty'] ? $_POST['tireQty'] : 0);
+             $oil->__set('quantity',$_POST['oilQty'] ? $_POST['oilQty'] : 0);
+             $sparkPlugs->__set('quantity',$_POST['sparkQty'] ? $_POST['sparkQty'] : 0);
+						$find = $_POST['find'];
+
+              //SET THEM UP
 
 
-              $tireQty = $_POST['tireQty'] ? $_POST['tireQty'] : 0;
-              $oilQty = $_POST['oilQty'] ? $_POST['oilQty'] : 0;
-              $sparkQty = $_POST['sparkQty'] ? $_POST['sparkQty'] : 0;
-							$find = $_POST['find'];
 
 							switch($find){
 									case 'regular':
@@ -47,18 +51,21 @@ require_once('view-comp/header.php');
 
 
               echo "<p>Your order is as follows</p>";
-              echo $tireQty.' tires<br/>';
-              echo $oilQty.' Oil<br/>';
-              echo $sparkQty.'&nbsp;Spark Plug<br/>';
+              echo ''.$tires->__get('quantity').' tires<br/>';
+              echo ''.$oil->__get('quantity').' Oil<br/>';
+              echo ''.$sparkPlugs->__get('quantity').'&nbsp;Spark Plug<br/>';
+
+
 
 							//PRINTING OUT DEFINED VARIABLES
-							echo "<p>Prices<br>";
+							echo "<br><p>Prices<br>";
 							echo "Tires: ".TIRE_PRICE.'<br/>';//. = +
 							echo "Oil: ".OIL_PRICE.'<br/>';
 							echo "Spark Plugs: ".SPARK_PRICE.'<br/><br/>';
 
 
-							$totalQty = @($tireQty + $oilQty + $sparkQty);
+							// $totalQty =   @($tires->getQuantity() + $oilQty->getQuantity() + $sparkQty->getQuantity());
+              $totalQty = ($tires->__get('quantity') + $oil->__get('quantity') + $sparkPlugs->__get('quantity'));
 
 							if($totalQty == 0){
 								echo "You didn't order anyting you swine";
@@ -68,10 +75,15 @@ require_once('view-comp/header.php');
 
                echo "Total Qty: ".$totalQty.'<br/>';
 
-               $tireAmount = @($tireQty) * TIRE_PRICE;
-               $oilAmount = @($oilQty) * OIL_PRICE;
-               $sparkAmount = @($sparkQty) * SPARK_PRICE;
+               //'doubleval' makes it Double tap
 
+               // $tireAmount = doubleval(@($tires->getQuantity())) * intval($tires->getPrice());
+               // $oilAmount = doubleval(@($oil->getQuantity()))* doubleval($oil->getPrice());
+               // $sparkAmount = doubleval(@($spark->getQuantity())) * doubleval($spark->getPrice());
+
+               $tireAmount = @($tires->__get('quantity') * $tires->__get(price));
+               $oilAmount = @($oil->__get('quantity') * $oil->__get(price));
+               $sparkAmount = @($sparkPlugs->__get('quantity') * $oil->__get(price));
 							 //IDK whats this HAHAHAHAH
                // $totalAmount = (float)($tireAmount);
 							 //
