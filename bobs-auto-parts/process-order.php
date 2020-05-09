@@ -11,11 +11,12 @@ echo '</p>';
 // PHP Comments
 /**Multiline Comments
               Wow**/
-
-$tireQty = $_POST['tireQty'] ? $_POST['tireQty'] : 0;
-$oilQty = $_POST['oilQty'] ? $_POST['oilQty'] : 0;
-$sparkQty = $_POST['sparkQty'] ? $_POST['sparkQty'] : 0;
-$find = $_POST['find'];
+              
+//"@" for supress warnings
+@$tireQty = $_POST['tireQty'] ? $_POST['tireQty'] : 0;
+@$oilQty = $_POST['oilQty'] ? $_POST['oilQty'] : 0;
+@$sparkQty = $_POST['sparkQty'] ? $_POST['sparkQty'] : 0;
+@$find = $_POST['find'];
 
 switch ($find) {
    case 'regular':
