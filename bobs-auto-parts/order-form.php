@@ -1,4 +1,8 @@
-<?php require_once('viewer/header.php') ?>
+<?php
+require_once('viewer/header.php');
+require_once('model/prodContent.php');
+require_once('model/prodVentory.php');
+?>
           <h3 class="card-title">Order Form</h3>
           <form action="process-order.php" method="post">
             <table class="table">
@@ -29,20 +33,20 @@
                   </td>
                 </tr> -->
                 <?php
-                $productList = array(
-                  array('item' => 'Tire', 'price' => 100, 'name' => 'tireQty'),
-                  array('item' => 'Oil', 'price' => 10, 'name' => 'oilQty'),
-                  array('item' => 'Spark Plug', 'price' => 5, 'name' => 'sparkQty')
-                );
+                // $productList = array(
+                //   array('item' => 'Tire', 'price' => 100, 'name' => 'tireQty'),
+                //   array('item' => 'Oil', 'price' => 10, 'name' => 'oilQty'),
+                //   array('item' => 'Spark Plug', 'price' => 5, 'name' => 'sparkQty')
+                // );
 
-              foreach($productList as $products){
+              foreach($inventory as $products){
                 echo '<tr class="row">
-                        <td class="col-4">'.$products['item'].'
+                        <td class="col-4">'.$products->prodName.'
                         </td>
-                        <td class="col-4">'.$products['price'].'
+                        <td class="col-4">'.$products->price.'
                         </td>
                         <td class="col-4">
-                          <input type="number" name="'.$products['name'].'"  min="0" class="form-control"/>
+                          <input type="number" name="'.$products->misc.'"  min="0" class="form-control"/>
                         </td>
                       </tr>';
               }

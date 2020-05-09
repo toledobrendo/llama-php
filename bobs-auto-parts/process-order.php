@@ -1,8 +1,10 @@
 <?php
-  define('TIRE_PRICE', 100);
-  define('OIL_PRICE', 50);
-  define('SPARK_PRICE', 30);
+  // define('TIRE_PRICE', 100);
+  // define('OIL_PRICE', 10);
+  // define('SPARK_PRICE', 5);
   require_once('viewer/header.php');
+  require_once('model/prodContent.php');
+  require_once('model/prodVentory.php');
 ?>
           <h3 class="card-title">Order Result</h3>
           <?php
