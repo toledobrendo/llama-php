@@ -91,7 +91,7 @@ $totalAmountTwo = 0;
 echo 'Is $totalAmountTwo set? ' . (isset($totalAmountTwo) ? 'Yes' : 'No') . '<br/>';
 echo 'Is $totalAmountTwo empty? ' . (empty($totalAmountTwo) ? 'Yes' : 'No') . '<br/>';
 
-@saveOrder($tireQty, $oilQty,$sparkQty,$totalAmount);
+@saveOrder($tireQty, $oilQty, $sparkQty, $totalAmount);
 ?>
 
 
