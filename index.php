@@ -36,6 +36,9 @@
               <li class="list-group-item">
                 <a href="de-jesus-homeworks/bobs-auto-parts-hw/order-form.php">Bob's Auto Parts - Ordering- HW</a>
               </li>
+              <li class="list-group-item">
+               <a href="bobs-auto-parts/view-comp/view-orders.php">Bob's Auto Parts - View Order List</a>
+             </li>
             </ul>
           </div>
         </div>

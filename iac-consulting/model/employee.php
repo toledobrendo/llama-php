@@ -4,6 +4,10 @@
   class Employee extends Person {
     private $company;
 
+    // public function __construct() {
+    //   echo '<br/>Employee Constructed';
+    // }
+
     public function __get($fieldName) {
       return $this->$fieldName;
     }
