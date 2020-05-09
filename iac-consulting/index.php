@@ -16,20 +16,19 @@
   $baseNumber = 5;
   raiseToTwo($baseNumber);
 
-  echo '<br/>Raised to two: '.$baseNumber;
+  echo '<br/>Raised to two: '.$baseNumber.'<hr/>';
 
   $person = new Person();
   $person->name = 'Juan';
   echo '<br/>Hello '.$person->name.'!';
   $person->introduce();
-
+  
   $person->setAge(15);
   echo '<br/>'.$person->name.' is '.$person->getAge().' yr(s) old';
-
   $person->address = 'Makati City';
-  echo '<br/>'.$person->name.' lives in '.$person->address;
+  echo '<br/>'.$person->name.' lives in '.$person->address.'<hr/>';
 
-  echo '<br/>Is a Person human? '.(Person::$IS_HUMAN ? 'Yep' : 'Nope');
+  echo '<br/>Is a Person human? '.(Person::$IS_HUMAN ? 'Yep' : 'Nope').'<hr/>';
 
   $employee = new Employee();
   $employee->name = 'Pedro';

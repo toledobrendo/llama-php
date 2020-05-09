@@ -1,6 +1,7 @@
 <?php
 require_once('product-factory.php');
-include("view-comp/header.php")
+include("view-comp/header.php");
+require_once('service/order-service.php')
 ?>
 <h3 class="card-title">Order Result</h3>
 <?php
@@ -11,7 +12,7 @@ echo '</p>';
 // PHP Comments
 /**Multiline Comments
               Wow**/
-              
+
 //"@" for supress warnings
 @$tireQty = $_POST['tireQty'] ? $_POST['tireQty'] : 0;
 @$oilQty = $_POST['oilQty'] ? $_POST['oilQty'] : 0;
@@ -82,14 +83,18 @@ echo 'Amount exceeded 500? ' . ($totalAmount > 500 ? 'Yes' : 'No') . '<br/><br/>
 
 echo 'Is $totalAmount string? ' . (is_string($totalAmount) ? 'Yes' : 'No') . '<br/>';
 
-unset($totalAmount);
+// unset($totalAmount);
 
 echo 'Is $totalAmount set? ' . (isset($totalAmount) ? 'Yes' : 'No') . '<br/>';
 
 $totalAmountTwo = 0;
 echo 'Is $totalAmountTwo set? ' . (isset($totalAmountTwo) ? 'Yes' : 'No') . '<br/>';
 echo 'Is $totalAmountTwo empty? ' . (empty($totalAmountTwo) ? 'Yes' : 'No') . '<br/>';
+
+@saveOrder($tireQty, $oilQty,$sparkQty,$totalAmount);
 ?>
+
+
 
 <div class="card-footer">
    <a class="btn btn-info" href="order-form.php">Go Back</a>
