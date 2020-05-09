@@ -47,9 +47,8 @@
 
           fclose($file);
         }
-      }catch(FileNotFoundException $e){
-        echo $e->getMessage();
-        echo $e;
+      }catch(FileNotFoundException $fnfe){
+        echo $fnfe->getMessage();
       }
     }
 
