@@ -1,5 +1,5 @@
 <?php
-   require_once('../exceptions/file-not-found-exception.php');
+   @include_once('../exceptions/file-not-found-exception.php');
    define ('DOCUMENT_ROOT',$_SERVER['DOCUMENT_ROOT']);
    
    function saveOrder($tireQty, $oilQty,$sparkQty,$totalAmount){
@@ -32,14 +32,14 @@
          $file= @ fopen(DOCUMENT_ROOT.'/llama-php/bobs-auto-parts/resource/order.txt', 'rb');
 
          if(!$file){
-            throw new FileNotFoundException('No orders pending. Please try again later.',1);
+            throw new FileNotFoundException('No orders pending. Please try again later.');
          }else{
             while(!feof($file)){
                $order = fgets($file,999);
-               $orderArr = explode("-",$order);
-               if(@ trim($orderArr[1])=='jc'){
+               // $orderArr = explode("-",$order);
+               // if(@ trim($orderArr[1])=='jc'){
                   echo $order.'<br/>';
-               }
+               // }
                // if(strpos($order,'brendo')){
                //    echo $order.'<br/>';
                // }
