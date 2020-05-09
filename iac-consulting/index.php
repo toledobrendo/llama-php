@@ -42,6 +42,7 @@
 
   $grabDriver = new DeliveryMan();
   $grabDriver->moveTo('Quezon City');
+  // $grabDriver->__construct();
 
 ?>
 <?php if($isValid) { ?>
