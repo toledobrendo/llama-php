@@ -51,4 +51,20 @@
          echo $fnfe;
       }
    }
+
+   function getVAT(){
+
+      $file=fopen(DOCUMENT_ROOT.'/llama-php/bobs-auto-parts/resource/properties.txt','rb');
+
+      if(!$file){
+         throw new FileNotFoundException('NO VAT');
+
+      }else{
+         $VAT=fgets($file,999);
+         $VATarr = explode("=",$VAT);
+         //IN VAT_PERCENT=0.12, VATarr[0] is VAT_PERCENT AND VATarr[1] is 0.12
+         return $VATarr[1];
+      }
+
+   }
 ?>

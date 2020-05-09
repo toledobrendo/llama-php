@@ -1,8 +1,10 @@
 <?php
-require_once('product-factory.php');
-// require_once('exceptions/file-not-found-exception.php');
 require_once("view-comp/header.php");
-require_once('service/order-service.php')
+
+require_once('product-factory.php');
+require_once('service/order-service.php');
+define("VAT_PERCENT",getVAT());// <-HOMEWORK 4
+
 ?>
 <h3 class="card-title">Order Result</h3>
 <?php
@@ -70,11 +72,29 @@ $totalAmount = (float) $tireAmount;
 $otherTotalAmount = &$totalAmount;
 $otherTotalAmount += $oilAmount;
 $totalAmount += $sparkAmount;
-
+   
 echo 'Other Total Amount: ' . $otherTotalAmount . '<br/>';
 echo 'Total Amount: ' . $totalAmount . '<br/>';
 
-$vatableAmount = $totalAmount / 1.12;
+
+/* if
+ *    $totalAmount = $vatableAmount + $vat
+ *    $vat = VAT_PERCENT * $vatableAmount
+ * 
+ * then it means
+ * 
+ *    $totalAmount = $vatableAmount + (VAT_PERCENT * $vatableAmount)
+ *    $totalAmount = $vatableAmount * (VAT_PERCENT + 1)
+ * 
+ * divide both sides by (VAT_PERCENT + 1):
+ * 
+ *    $totalAmount * (VAT_PERCENT + 1) = $vatableAmount
+ *    $vatableAmount = $totalAmount / (VAT_PERCENT + 1);         */
+ 
+$vatableAmount = $totalAmount / (VAT_PERCENT + 1);
+
+// $vatableAmount = $totalAmount / (1.12)
+
 $vat = $totalAmount - $vatableAmount;
 
 echo 'VATable Amount: ' . $vatableAmount . '<br/>';

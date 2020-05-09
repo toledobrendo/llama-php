@@ -20,26 +20,26 @@
                   <li class="list-group-item">
                      <a href="bobs-auto-parts/order-form.php">Bob's Auto Parts - Ordering</a>
                   </li>
-                  <li class="list-group-item">
+                  <li class="list-group-item list-group-item-success">
                      <a href="fibonacci-sequence.php">Homework - Fibonacci Sequence</a>
                   </li>
                   <li class="list-group-item">
                      <a href="bobs-auto-parts/price-list.php">Bob's Auto Parts - Price List</a>
                   </li>
-                  <li class="list-group-item">
+                  <li class="list-group-item list-group-item-success">
                      <a href="caesar-cipher.php">Homework - Caesar Cipher</a>
                   </li>
-                  <li class="list-group-item">
+                  <li class="list-group-item ">
                      <a href="iac-consulting">iAC Consulting</a>
                   </li>
-                  <li class="list-group-item">
-                     <a href="bobs-auto-parts/product-factory.php">Homework - Bob's Array of Objects (Class Product)</a>
+                  <li class="list-group-item list-group-item-success">
+                     <a href="bobs-auto-parts/product-factory.php">Homework - Bob's - Array of Objects (Class Product)</a>
                   </li>
                   <li class="list-group-item">
                      <a href="bobs-auto-parts/view-comp/view-orders.php">Bob's Auto Parts View Orders</a>
                   </li>
-                  <li class="list-group-item">
-                     <a href="bobs-auto-parts">Homework - Bob's Auto Parts - VAT in .txt file</a>
+                  <li class="list-group-item list-group-item-success">
+                     <a href="bobs-auto-parts/order-form.phpp">Homework - Bob's - VAT in .txt file</a>
                   </li>
                </ul>
             </div>
