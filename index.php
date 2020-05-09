@@ -18,6 +18,9 @@
                     <a href="bobs-auto-parts/order-form.php">Bob's auto parts - ordering</a>
                 </li>
                 <li class="list-group-item">
+                    <a href="bobs-auto-parts/view-orders.php">Bob's auto parts - view order list</a>
+                </li>
+                <li class="list-group-item">
                     <a href="fibonacci/index.php">Fibonacci</a>
                 </li>
                 <li class="list-group-item">

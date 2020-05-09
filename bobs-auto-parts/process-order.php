@@ -2,9 +2,13 @@
   require_once('view-comp/header.php');
   require_once('model/product.php');
   require_once('model/product-list.php');
+  require_once('service/order-service.php');
+  require_once('resource/properties.php');
+  define('VAT_PERCENT', doubleval(getProperty("VAT_PERCENT")));
  ?>
     <h3 class="cart-title">Order Results</h3>
 <?php
+
     echo '<p> Order Processed at ';
     echo date('H:i, jS F Y');
     echo '</p>';
@@ -58,17 +62,16 @@
     // $otherTotalAmount = $totalAmount;
     // $otherTotalAmount += $oilAmount;
     // echo "Other total amount: ".$otherTotalAmount.'<br/>'.'<br/>';
-
-    $vat = .12;
-    $vatableAmount = $totalAmount / (1+$vat);
+    $vatableAmount = $totalAmount / (1+VAT_PERCENT);
     $vatAmount = $totalAmount - $vatableAmount;
 
     echo '<br/>'."VATable amount: ".$vatableAmount.'<br/>';
     echo "VAT Amount: ".$vatAmount.'<br/>'.'<br/>';
     echo "Total Amount: ".$totalAmount.'<br/>'.'<br/>';
 
-    echo 'Amount exceeded 500 but less than 1000? '.($totalAmount > 500 && $totalAmount < 1000? 'Yes' : 'No').'<br/>';
-
+    echo 'Amount exceeded 500 but less than 1000? '.($totalAmount > 500 && $totalAmount < 1000? 'Yes' : 'No').'<br/><br/>';
+    saveOrder($tire->__get('quantity'), $oil->__get('quantity'),
+            $sparkPlugs->__get('quantity'), $totalAmount);
 
     require_once('view-comp/footer.php');
     ?>
