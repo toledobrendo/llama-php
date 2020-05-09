@@ -49,7 +49,7 @@
                 ?>
           </form>
 
-          <?php
+          <!-- <?php
 
           $productsArray = array();
 
@@ -70,8 +70,7 @@
               echo "Products&emsp;Price";
               echo $productsArray;
 
-
-           ?>
+           ?> -->
 
 
 <?php

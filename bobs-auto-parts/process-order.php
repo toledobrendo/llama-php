@@ -1,5 +1,7 @@
 
 <?php
+  require_once('service/order-service.php');
+
   define('TIRE_PRICE', 100);
   define('OIL_PRICE', 50);
   define('SPARK_PRICE', 150);
@@ -83,6 +85,9 @@
             echo 'Total Amount: '.$totalAmount.'<br/>';
 
             echo "Amount exceeded 500?".($totalAmount > 500 ? ' YES' : ' NO').'<br/><br/>';
+
+
+            saveOrder($tireQty, $oilQty, $sparkQty, $totalAmount);
 
           ?>
 
