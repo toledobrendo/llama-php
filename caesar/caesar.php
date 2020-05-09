@@ -48,13 +48,7 @@
                 </div>
                 <input class="btn btn-fibonacci"type="submit" name="submit" value="Print" />
                 <button onclick="myFunction()">button</button>
-                <?php
-                  echo date('H:i:s');
-                  sleep(15);
-                  flush();
-                  echo "<br>";
-                  echo date('H:i:s');
-                  ?>
+
 
 
               </div>

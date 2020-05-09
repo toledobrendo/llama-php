@@ -1,20 +1,13 @@
 <?php
+require_once 'view/header.php';
 
-  define('TIRE_PRICE',100);
-  define('OIL_PRICE',50);
-  define('SPARK_PRICE',30);
-  define('VAT',0.12);
+require_once 'model/process.php';
+require_once 'model/products.php';
+
  ?>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  </head>
-  <body>
+
     <div class="container">
-      <div class="card">
+      <div class="card mt-3">
 
         <div class="card-body">
           <h3 class="card-title">Order Result</h3>
@@ -23,11 +16,9 @@
               echo date(' H:i, jS F Y');
               echo '</p>';
 
-
-
-                $tireQty = $_POST['tireQty'] ?  $_POST['tireQty'] : 0;
-                $oilQty = $_POST['oilQty'] ?  $_POST['oilQty']: 0;
-                $sparkQty = $_POST['sparkQty']?  $_POST['sparkQty']: 0;
+                $tire->__set('qty',$_POST['Tires']);
+                $oil->__set('qty',$_POST['Oil']);
+                $sparkPlug->__set('qty',$_POST['SparkPlugs']);
                 $find = $_POST['find'];
 
 
@@ -49,52 +40,56 @@
                       break;
                   }
 
+                  $tireQty= $tire->__get('qty');
+                  $oilQty= $oil->__get('qty');
+                  $sparkQty=  $sparkPlug->__get('qty');
 
-
-                echo '<p>Your order is as follows </p>';
-                echo "$tireQty  tires<br/>";
-                echo $oilQty.' oil<br/>';
-                echo $sparkQty.' sparkplug<br/><br/>';
+                echo '<p>Your order is as follows</p>';
+                echo $tireQty.' Tire<br/>';
+                echo $oilQty.' Oil<br/>';
+                echo $sparkQty.' Spark Plugs<br/>';
+                echo "<hr>";
 
                 echo '<p>Prices<br/>';
-                echo 'Tires: '.TIRE_PRICE.'<br/>';
-                echo 'Oil: '.OIL_PRICE.'<br/>';
-                echo 'Spark: '.SPARK_PRICE.'<br/><br/>';
+                echo 'Tires: '.$tire->__get('price').'<br/>';
+                echo 'Oil: '.$oil->__get('price').'<br/>';
+                echo 'Spark: '.$sparkPlug->__get('price').'<br/><br/>';
 
                 $totalQty = @($tireQty + $oilQty + $sparkQty);
 
                 if($totalQty==0){
                 echo "You didn't order anything<br/><br/>";
                 }
-                echo "Total Qty: ".$totalQty.'<br/>';
+                echo "Total Qty: ".$totalQty.'<br/><br/>';
 
-                $tireAmount = @($tireQty) * TIRE_PRICE;
-                $oilAmount = @($oilQty) * OIL_PRICE;
-                $sparkAmount = @($sparkQty) * SPARK_PRICE;
+                $tireAmount = @($tireQty) * $tire->__get('price');
+                $oilAmount = @($oilQty) * $oil->__get('price');
+                $sparkAmount = @($sparkQty) * $sparkPlug->__get('price');
 
-                $totalAmount = (float)($tireAmount);
+
+                $tiretotal = $tire->__get('price') * $tireQty;
+                $oiltotal = $oil->__get('price') * $oilQty;
+                $sparktotal = $sparkPlug->__get('price') * $sparkQty;
+
+
+                echo "Calculation".'<br/>';
+                echo "Tires: ".$tire->__get('price')."(BASE PRICE) * ".$tireQty."(QUANTITY) = ".$tiretotal.'<br/>';
+                echo "Tires: ".$oil->__get('price')."(BASE PRICE) * ".$oilQty."(QUANTITY) = ".$oiltotal.'<br/>';
+                echo "Tires: ".$sparkPlug->__get('price')."(BASE PRICE) * ".$sparkQty."(QUANTITY) = ".$sparktotal.'<br/>';
+
                 // TOTAL
-                $otherTotalAmount = &$totalAmount;
-                $otherTotalAmount += $oilAmount;
-                echo 'Other Total Amount:  '.$otherTotalAmount.'php<br/>';
-                $totalAmount +=$sparkAmount;
+                echo "<hr>";
+                $totalAmount = $tiretotal+$oiltotal+$sparktotal;
                 echo 'Total Amount: '.$totalAmount.'php<br/><br/>';
 
                 // VAT
-                $VATable = $totalAmount*VAT;
+                $VATable = $totalAmount*0.12;
                 echo "VATable Amount: ".$totalAmount.'php<br/>';
-                echo "VAT Amount(12%): ".$totalAmount*VAT.'php<br/>';
+                echo "VAT Amount(12%): ".$totalAmount*0.12.'php<br/>';
                 $totalAmount += $VATable;
                 echo "Total: ".$totalAmount.'php<br/><br/>';
 
-                echo 'Is $totalAmount string?'.(is_string($totalAmount)? 'Yes':'No').'<br/>';
 
-                //unset = deleting var
-
-                $totalAmountTwo;
-                echo 'Is $totalAmount set?'.(isset($totalAmount)? 'Yes' : 'No').'<br/>';
-                echo 'Is $totalAmountTwo set?'.(isset($totalAmountTwo)? 'Yes' : 'No').'<br/>';
-                echo 'Is $totalAmountTwo empty?'.(empty($totalAmountTwo)? 'Yes' : 'No').'<br/>';
 
 
               ?>
@@ -105,9 +100,7 @@
       </div>
     </div>
 
-     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
 
-</html>
+        <?php
+        require_once  'view/footer.php';
+         ?>
