@@ -1,5 +1,4 @@
 <?php
-
 define('VAT_PERCENT',0.12);
 
 ?>
@@ -7,6 +6,7 @@ define('VAT_PERCENT',0.12);
 require_once('view-comp/header.php');
 require_once('model/ProductBean.php');
 require_once('model/ProductList.php');
+require_once('services/order-service.php');
  ?>
           <h3 class="card-title">Order Result</h3>
 
@@ -24,7 +24,7 @@ require_once('model/ProductList.php');
              $tires->__set('quantity',$_POST['tireQty'] ? $_POST['tireQty'] : 0);
              $oil->__set('quantity',$_POST['oilQty'] ? $_POST['oilQty'] : 0);
              $sparkPlugs->__set('quantity',$_POST['sparkQty'] ? $_POST['sparkQty'] : 0);
-						$find = $_POST['find'];
+						 $find = $_POST['find'];
 
               //SET THEM UP
 
@@ -108,6 +108,9 @@ require_once('model/ProductList.php');
 
 							 echo 'is $totalAmount string?'.(is_string($totalAmount) ? 'Yes' : 'No').'<br/>';
 							 echo 'Is $totalAmount empty?'.(empty($totalAmount) ? 'Yes' : 'No' ).'<br/>';
+
+               saveOrder($tires->__get('quantity') , $oil->__get('quantity'), $sparkPlugs->__get('quantity'), $totalAmount);
+
            ?>
         </div>
 
