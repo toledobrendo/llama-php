@@ -1,5 +1,4 @@
 <?php
-define('VAT_PERCENT',0.12);
 
 ?>
 <?php
@@ -7,6 +6,7 @@ require_once('view-comp/header.php');
 require_once('model/ProductBean.php');
 require_once('model/ProductList.php');
 require_once('services/order-service.php');
+$vatPercent =  file_get_contents(DOCUMENT_ROOT.'/llama-php/bobs-autopart/resource/properties.txt',true);
  ?>
           <h3 class="card-title">Order Result</h3>
 
@@ -99,7 +99,7 @@ require_once('services/order-service.php');
                echo 'Amount exceeded  500?'.($totalAmount>500 ? ' Yes' : ' No').'<br/>';
 
 							 //LIKE JAVA but with $
-							 $vatAmount = $totalAmount * 0.12;
+							 $vatAmount = $totalAmount * (float) $vatPercent;
 							 $vatTotal = $totalAmount + $vatAmount;
 							 //Prints vatAmount and vatTotal
 							 echo "<br/>Total vat Amount: ".$vatAmount."<br/>";
