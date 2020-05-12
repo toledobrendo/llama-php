@@ -1,14 +1,36 @@
-<?php
 
-?>
 <?php
 require_once('view-comp/header.php');
 require_once('model/ProductBean.php');
 require_once('model/ProductList.php');
 require_once('services/order-service.php');
-$vatPercent =  file_get_contents(DOCUMENT_ROOT.'/llama-php/bobs-autopart/resource/properties.txt',true);
- ?>
-          <h3 class="card-title">Order Result</h3>
+require_once('exception/file-not-found-exception.php');
+
+// $VAT_PERCENT = file_get_contents(DOCUMENT_ROOT."/llama-php/bobs-autopart/resource/orders.txt", FALSE, NULL, 13, 3);
+
+
+
+  function getVat(){
+      // $filePathProperties = @fopen(DOCUMENT_ROOT.'/llama-php/bobs-autopart/resource/properties.txt' , 'rd');
+      $filePathProperties = DOCUMENT_ROOT."/llama-php/bobs-autopart/resource/properties.txt";
+      $fileHandler = @fopen($filePathProperties,rb);
+
+      if (!$fileHandler) {
+        echo '<p><strong>Properties File containg computation values are not available.
+          Please try again later.</strong></p>';
+      } else{
+        while(!feof($fileHandler)){
+          $order = fgets($fileHandler , 222);
+          $value = explode("VAT_PERCENT=", $order);
+
+          return $value[1];
+        }
+      }
+      fclose($filePathProperties);
+  }
+?>
+
+        <h3 class="card-title">Order Result</h3>
 
 		   <?php
 
@@ -75,33 +97,25 @@ $vatPercent =  file_get_contents(DOCUMENT_ROOT.'/llama-php/bobs-autopart/resourc
 
                echo "Total Qty: ".$totalQty.'<br/>';
 
-               //'doubleval' makes it Double tap
 
-               // $tireAmount = doubleval(@($tires->getQuantity())) * intval($tires->getPrice());
-               // $oilAmount = doubleval(@($oil->getQuantity()))* doubleval($oil->getPrice());
-               // $sparkAmount = doubleval(@($spark->getQuantity())) * doubleval($spark->getPrice());
 
                $tireAmount = @($tires->__get('quantity') * $tires->__get(price));
                $oilAmount = @($oil->__get('quantity') * $oil->__get(price));
                $sparkAmount = @($sparkPlugs->__get('quantity') * $oil->__get(price));
-							 //IDK whats this HAHAHAHAH
-               // $totalAmount = (float)($tireAmount);
-							 //
-               // $otherTotalAmount = &$totalAmount;
-               // $otherTotalAmount += $oilAmount;
-							 //Simplified version
+
+
 							 $totalAmount = (float) + $tireAmount + $oilAmount + $sparkAmount;
-               // echo 'Other Total Amount:  '.$otherTotalAmount.'<br/>';
-               // $totalAmount +=$sparkAmount;
+
                echo 'Total Amount: '.$totalAmount.'<br/>';
 
-							 //IDK
                echo 'Amount exceeded  500?'.($totalAmount>500 ? ' Yes' : ' No').'<br/>';
 
-							 //LIKE JAVA but with $
-							 $vatAmount = $totalAmount * (float) $vatPercent;
-							 $vatTotal = $totalAmount + $vatAmount;
-							 //Prints vatAmount and vatTotal
+
+
+							 (float) $vatAmount = $totalAmount * (float) getVat();
+							 (float) $vatTotal = (float)$totalAmount + (float)$vatAmount;
+
+               //Prints vatAmount and vatTotal
 							 echo "<br/>Total vat Amount: ".$vatAmount."<br/>";
 
 							 echo "<br/>Total amount with vatable: ".$vatTotal."<br/>";
