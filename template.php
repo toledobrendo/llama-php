@@ -1,5 +1,4 @@
 
-
 <html>
 <head>
   <meta charset="utf-8">
@@ -10,7 +9,7 @@
     crossorigin="anonymous">
 </head>
 <body>
-  <!-- hello-world.php or hello_world.php -->
+
   <div class="container">
     <div class="card">
       <div class="card-body">
