@@ -1,0 +1,10 @@
+09:36,9th May 2020	2 Tires	2 Oil	2Spark Plugs	$403.2
+09:36,9th May 2020	6 Tires	6 Oil	2Spark Plugs	$1075.2
+00:58,12th May 2020	2 Tires	2 Oil	2Spark Plugs	$403.2
+00:59,12th May 2020	5 Tires	9 Oil	3Spark Plugs	$1164.8
+00:59,12th May 2020	1 Tires	5 Oil	7Spark Plugs	$627.2
+01:13,12th May 2020	1 Tires	1 Oil	1Spark Plugs	$360
+01:13,12th May 2020	1 Tires	1 Oil	1Spark Plugs	$360
+01:15,12th May 2020	1 Tires	1 Oil	1Spark Plugs	$201.6
+01:16,12th May 2020	1 Tires	1 Oil	1Spark Plugs	$201.6
+01:16,12th May 2020	1 Tires	1 Oil	1Spark Plugs	$201.6

@@ -30,6 +30,9 @@
               <li class="list-group-item">
                 <a href="caesar\caesar.php">Caesar Cipher</a>
               </li>
+              <li class="list-group-item">
+                <a href="bobs-auto-parts/view-orders.php">Bob's Auto Parts - View Order List</a>
+              </li>
             </ul>
           </div>
         </div>

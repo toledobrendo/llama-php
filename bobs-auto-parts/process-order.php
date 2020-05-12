@@ -1,6 +1,6 @@
 <?php
 require_once 'view/header.php';
-
+require_once 'model/order-service.php';
 require_once 'model/process.php';
 require_once 'model/products.php';
 
@@ -83,14 +83,14 @@ require_once 'model/products.php';
                 echo 'Total Amount: '.$totalAmount.'php<br/><br/>';
 
                 // VAT
-                $VATable = $totalAmount*0.12;
+                $VATable = $totalAmount*getVAT();
+                echo "VAT: ".getVAT().'<br/>';
                 echo "VATable Amount: ".$totalAmount.'php<br/>';
-                echo "VAT Amount(12%): ".$totalAmount*0.12.'php<br/>';
+                echo "VAT Amount(12%): ".$totalAmount*getVAT().'php<br/>';
                 $totalAmount += $VATable;
                 echo "Total: ".$totalAmount.'php<br/><br/>';
 
-
-
+                saveOrder($tireQty,$oilQty,$sparkQty,$totalAmount);
 
               ?>
               <div class="card-footer">
