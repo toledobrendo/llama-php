@@ -88,7 +88,7 @@ echo 'Total Amount: ' . $totalAmount . '<br/>';
  * 
  * divide both sides by (VAT_PERCENT + 1):
  * 
- *    $totalAmount * (VAT_PERCENT + 1) = $vatableAmount
+ *    $totalAmount / (VAT_PERCENT + 1) = $vatableAmount
  *    $vatableAmount = $totalAmount / (VAT_PERCENT + 1);         */
  
 $vatableAmount = $totalAmount / (VAT_PERCENT + 1);
