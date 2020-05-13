@@ -1,6 +1,3 @@
-    <div class="card-footer">
-      <a class="btn btn-info" href="order-form.php">Go Back</a>
-    </div>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

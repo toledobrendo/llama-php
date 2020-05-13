@@ -2,6 +2,9 @@
     require_once('view/header.php');
     require_once('model/ProductBean.php');
     require_once('model/list-of-products.php');
+    require_once('service/orderService.php');
+    require_once('resources/properties.php');
+    define('VAT_PERCENT', doubleval(getProperty("VAT_PERCENT")));
    ?>
    <body class="container">
           <h3 class="card-title">Order Result</h3>
@@ -65,17 +68,18 @@
               echo 'Spark Plug amount: '.$sparkAmount.'<br/>';
 
               //Computing the vat
-              $vat = .12;
-              $vatableAmount = $totalAmount / (1+$vat);
+              $vatableAmount = $totalAmount / (1+VAT_PERCENT);
               $vatAmount = $totalAmount - $vatableAmount;
 
               //Sysout of VAT computed
               echo '<br/>'."VATable amount: ".$vatableAmount.'<br/>';
               echo "VAT Amount: ".$vatAmount.'<br/>'.'<br/>';
               echo "Total Amount: ".$totalAmount.'<br/>'.'<br/>';
-              echo 'Amount exceeded 500 but less than 1000? '.($totalAmount > 500 && $totalAmount < 1000? 'Yes' : 'No').'<br/>';
-              require_once('view/footer.php');
+              echo 'Amount exceeded 500 but less than 1000? '.($totalAmount > 500 && $totalAmount < 1000? 'Yes' : 'No').'<br/><br/>';
+              saveOrder($tire->__get('quantity'), $oil->__get('quantity'),
+              $sparkPlugs->__get('quantity'), $totalAmount);
             ?>
-          </div>
-      </body>
-</html>
+            <div class="card-footer">
+              <a class="btn btn-info" href="order-form.php">Go Back</a>
+            </div>
+            <?php require_once('view/footer.php'); ?>

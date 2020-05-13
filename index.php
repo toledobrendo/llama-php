@@ -31,10 +31,16 @@
                 <a href="bobs-auto-parts/price-list.php">Bob's Auto Parts - Price List</a>
               </li>
               <li class="list-group-item">
+                <a href="bobs-auto-parts/view-orders.php">Bob's Auto Parts - Order List</a>
+              </li>
+              <li class="list-group-item">
                 <a href="iac-consulting/">iAC Consulting</a>
               </li>
               <li class="list-group-item">
                 <a href="ILoveJava/bobs-auto-parts-hw/order-form.php">Bob's Auto Parts - Ordering- HW</a>
+              </li>
+              <li class="list-group-item">
+                <a href="ILoveJava/bobs-auto-parts-hw/viewOrder.php">Bob's Auto Parts - View Order- HW</a>
               </li>
             </ul>
           </div>
