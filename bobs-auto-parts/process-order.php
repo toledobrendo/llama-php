@@ -1,7 +1,12 @@
 <?php
-  define('TIRE_PRICE', 100);
-  define('OIL_PRICE', 50);
-  define('SPARK_PRICE', 30);
+  require_once('service/order-service.php');
+  require_once('model/product.php');
+  require_once('model/product-list.php');
+  require_once('service/order-servcie.php');
+  require_once('resource/properties.php')
+
+  define('VAT_PERCENT',double(getProperty("VAT_PERCENT")));
+  
 ?>
 <?php
   // include 'message.php';
@@ -17,9 +22,9 @@
             /**Multiline Comments
               Wow**/
 
-            $tireQty = $_POST['tireQty'] ? $_POST['tireQty'] : 0;
-            $oilQty = $_POST['oilQty'] ? $_POST['oilQty'] : 0;
-            $sparkQty = $_POST['sparkQty'] ? $_POST['sparkQty'] : 0;
+            $tire->__set('quantity',$_POST['tireQty'] ? $_POST['tireQty'] : 0);
+            $oil->__set('quantity',['oilQty'] ? $_POST['oilQty'] : 0);
+            $sparkPlugs->__set('quantity',['sparkQty'] ? $_POST['sparkQty'] : 0);
             $find = $_POST['find'];
 
             switch($find) {
@@ -40,6 +45,14 @@
                 break;
             }
 
+            echo '<p>Your order is as follows</p>';
+            echo $tire->__get('quantity').' Tire<br/>';
+            echo $oil->__get('quantity').' Oil<br/>';
+            echo $sparkPlugs->__get('quantity').' Spark Plugs<br/>'.'<br/>';
+
+            $totalQty = @($tire->__get('quantity') + $oil->__get('quantity') + $sparkPlugs->__get('quantity'));
+            echo 'Total Quantity: '.$totalQty.'<br/><br/>';
+
             echo '<br/><br/>';
             echo '<p>Prices<br/>';
             echo 'Tires: '.TIRE_PRICE.'<br/>';
@@ -48,26 +61,12 @@
 
             $totalQty = @($tireQty + $oilQty + $sparkQty);
 
-            if ($totalQty == 0) {
-              echo 'You didn\'t order anything. <br/> <br/>';
-            } else {
-              echo '<p>Your order is as follows</p>';
-              // echo $tireQty.' $tireQty tires<br/>';
-              if ($tireQty > 0)
-                echo "$tireQty tires<br/>";
-              if ($oilQty > 0)
-                echo $oilQty.' oil<br/>';
-              if ($sparkQty > 0)
-                echo $sparkQty.' spark plugs<br/>';
-              echo '<br/>';
-            }
-            echo 'Total Quantity: '.$totalQty.'<br/>';
+            
+            $tireAmount = @($tire->__get('quantity') * TIRE_PRICE);
+            $oilAmount = @($oil->__get('quantity') * OIL_PRICE);
+            $sparkAmount = @($sparkPlugs->__get('quantity') * SPARK_PRICE);
 
-            $tireAmount = @($tireQty * TIRE_PRICE);
-            $oilAmount = @($oilQty * OIL_PRICE);
-            $sparkAmount = @($sparkQty * SPARK_PRICE);
-
-            $totalAmount = (float) $tireAmount;
+            $totalAmount = (float) $tireAmount + $oilAmount + $sparkAmount;
 
             $otherTotalAmount = &$totalAmount;
             $otherTotalAmount += $oilAmount;
@@ -79,7 +78,7 @@
             $vatableAmount = $totalAmount / 1.12;
             $vat = $totalAmount - $vatableAmount;
 
-            echo 'VATable Amount: '.$vatableAmount.'<br/>';
+            echo '<br/>VATable Amount: '.$vatableAmount.'<br/>';
             echo 'VAT: '.$vat.'<br/>';
 
             echo 'Amount exceeded 500? '.($totalAmount > 500 ? 'Yes' : 'No').'<br/><br/>';
@@ -93,6 +92,10 @@
             $totalAmountTwo = 0;
             echo 'Is $totalAmountTwo set? '.(isset($totalAmountTwo) ? 'Yes' : 'No').'<br/>';
             echo 'Is $totalAmountTwo empty? '.(empty($totalAmountTwo) ? 'Yes' : 'No').'<br/>';
+
+            saveOrder($tire->__get('quantity'), $oil->__get('quantity'), $sparkPlugs->__get('quantity'), $totalAmount);
+            //$class->saveOrder();
+
           ?>
         </div>
         <div class="card-footer">
