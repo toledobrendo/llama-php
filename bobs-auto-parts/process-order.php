@@ -1,3 +1,4 @@
+<!-- Note: Indention on PHP scripts -->
 <?php
 require_once("view-comp/header.php");
 
@@ -72,7 +73,7 @@ $totalAmount = (float) $tireAmount;
 $otherTotalAmount = &$totalAmount;
 $otherTotalAmount += $oilAmount;
 $totalAmount += $sparkAmount;
-   
+
 echo 'Other Total Amount: ' . $otherTotalAmount . '<br/>';
 echo 'Total Amount: ' . $totalAmount . '<br/>';
 
@@ -80,17 +81,17 @@ echo 'Total Amount: ' . $totalAmount . '<br/>';
 /* if
  *    $totalAmount = $vatableAmount + $vat
  *    $vat = VAT_PERCENT * $vatableAmount
- * 
+ *
  * then it means
- * 
+ *
  *    $totalAmount = $vatableAmount + (VAT_PERCENT * $vatableAmount)
  *    $totalAmount = $vatableAmount * (VAT_PERCENT + 1)
- * 
+ *
  * divide both sides by (VAT_PERCENT + 1):
- * 
+ *
  *    $totalAmount / (VAT_PERCENT + 1) = $vatableAmount
  *    $vatableAmount = $totalAmount / (VAT_PERCENT + 1);         */
- 
+
 $vatableAmount = $totalAmount / (VAT_PERCENT + 1);
 
 // $vatableAmount = $totalAmount / (1.12)
