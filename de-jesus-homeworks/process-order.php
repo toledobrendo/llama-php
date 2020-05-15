@@ -72,5 +72,4 @@
 
     require_once('view-comp/footer.php');
     ?>
-
 </html
