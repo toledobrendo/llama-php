@@ -1,5 +1,4 @@
 <!-- Note: Indention on PHP scripts -->
-
 <!-- Reply: Hi sir, my formatter auto-indents it that way po, I think
 it's following something like here: https://gist.github.com/ryansechrest/8138375
 where there is no indentation after the opening php tag and the last php
