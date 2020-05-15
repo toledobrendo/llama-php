@@ -9,7 +9,7 @@
                 <tr class="row">
                   <th class="col-4">Item</th>
                   <th class="col-5">Price</th>
-                  <th class="col-3">Quantity</th>   
+                  <th class="col-3">Quantity</th>
                 </tr>
               </thead>
               <tbody>
@@ -18,6 +18,7 @@
                                     array('desc' => 'Oil', 'price' => 200 , 'name' => 'oilQty' ),
                                     array('desc' => 'Spark Plugs', 'price' => 300,  'name' => 'sparkQty'));
 
+                  // Note: should be $products as $product to prevent confusion
                   foreach ($products as $products) {
                     echo '<tr class="row">
                             <td class="col-5">'.$products['desc'].'</td>
@@ -25,7 +26,7 @@
                             <td class="col-4">
                               <input type="text" name="'.$products['name'].'" maxlength="3" class="form-control"/>
                             </td>
-                    
+
                     </tr>';
                   }
 
