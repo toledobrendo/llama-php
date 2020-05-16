@@ -37,6 +37,9 @@
                 <a href="iac-consulting/">iAC Consulting</a>
               </li>
               <li class="list-group-item">
+                <a href="book-catalog/">Book Catalog</a>
+              </li>
+              <li class="list-group-item">
                 <a href="ILoveJava/bobs-auto-parts-hw/order-form.php">Bob's Auto Parts - Ordering- HW</a>
               </li>
               <li class="list-group-item">
