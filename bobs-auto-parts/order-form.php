@@ -1,5 +1,7 @@
 <?php
   require_once('view-comp/header.php');
+  require_once('model/product.php');
+  require_once('model/product-list.php');
  ?>
       	<h3 class = "card-title"> Order Form </h3>
           <form action = "process-order.php" method = "post">
@@ -15,18 +17,26 @@
               <tbody>
 
                 <?php
-                $items = array(
-                            array( 'Item' => 'Oil', 'name' => 'tireQuantity', 'Price' => 50),
-                            array( 'Item' => 'Tires', 'name' => 'oilQuantity', 'Price' => 100),
-                            array( 'Item' => 'Spark Plugs', 'name' => 'sparkQuantity', 'Price' => 30)
-                            );
+                // $items = array(
+                //             array( 'Item' => 'Oil', 'name' => 'tireQuantity', 'Price' => 50),
+                //             array( 'Item' => 'Tires', 'name' => 'oilQuantity', 'Price' => 100),
+                //             array( 'Item' => 'Spark Plugs', 'name' => 'sparkQuantity', 'Price' => 30)
+                //             );
 
-                foreach ($items as $item) {
+                // foreach ($items as $item) {
+                //   echo '<tr class = "row">
+                //             <td class = "col-5"> '.$item['Item'].' </td>
+                //             <td class = "col-3"> '.$item['Price'].' </td>
+                //             <td class = "col-4">
+                //               <input type = "number" name = '.$item['name'].' min = "0" max = "10" class="form-control"/>
+                //             </td>
+                //           </tr>';
+                foreach ($productList as $product) {
                   echo '<tr class = "row">
-                            <td class = "col-5"> '.$item['Item'].' </td>
-                            <td class = "col-3"> '.$item['Price'].' </td>
+                            <td class = "col-5"> '.$product->name.' </td>
+                            <td class = "col-3"> '.$product->price.' </td>
                             <td class = "col-4">
-                              <input type = "number" name = '.$item['name'].' min = "0" max = "10" class="form-control"/>
+                              <input type = "number" name = '.$product->qty.' min = "0" max = "10" class="form-control"/>
                             </td>
                           </tr>';
                 }

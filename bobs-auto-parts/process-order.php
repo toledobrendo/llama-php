@@ -1,12 +1,11 @@
-<!-- SAMPLE CONSTANTS -->
 <?php
-  define('TIRE_PRICE', 100);
-  define('OIL_PRICE', 50);
-  define('SPARK_PRICE', 30);
-  define('VAT_PERCENT', 0.12);
+  define ('VAT_PERCENT', 0.12);
  ?>
  <?php
    require_once('view-comp/header.php');
+   require_once('model/product.php');
+   require_once('model/product-list.php');
+   require_once('service/order-service.php');
   ?>
 
         <h3 class = "card-title"> Order Title </h3>
@@ -25,10 +24,13 @@
           // all variable of PHP is preceded by dollarsign.
           //$_POST is an array & it access through the name of the form.
           //The ternary operator is used so that if the form is empty, it would display zero. Otherwise, it would display the value entered.
-          $tireQuantity = $_POST['tireQuantity'] ? $_POST['tireQuantity'] : 0;
-          $oilQuantity = $_POST['oilQuantity'] ? $_POST['oilQuantity'] : 0;
-          $sparkQuantity = $_POST['sparkQuantity'] ?  $_POST['sparkQuantity']: 0;
+          // $tireQuantity = $_POST['tireQuantity'] ? $_POST['tireQuantity'] : 0;
+          // $oilQuantity = $_POST['oilQuantity'] ? $_POST['oilQuantity'] : 0;
+          // $sparkQuantity = $_POST['sparkQuantity'] ?  $_POST['sparkQuantity']: 0;
 
+          $tire->__set('qty', $_POST['tireQuantity'] ? $_POST['tireQuantity'] :0);
+          $oil->__set('qty', $_POST['oilQuantity'] ? $_POST['oilQuantity'] :0);
+          $sparkPlugs->__set('qty', $_POST['sparkQuantity'] ? $_POST['sparkQuantity'] :0);
           // echo '<p>Your order is as follows</p>';
           // // means concatenation; instead of plus, kay php kailangan dot.
           // // single quote, kapag may nilagay na variable, hindi ipprocess.
@@ -70,32 +72,45 @@
           // ADDITION; it is expecting a numeric value. There would be a warning if the form submitted is empty.
           //nevertheless, with a warning, it would still display a zero.
           //SURPRESS WARNINGS (@ symbol) hides the warnings
-           $totalQty = @($tireQuantity + $oilQuantity + $sparkQuantity);
+           // $totalQty = @($tireQuantity + $oilQuantity + $sparkQuantity);
 
            //if statements
-           if ($totalQty == 0){
-             echo 'You didn\'t order anything. <br/> <br/>';
-           } else {
-             echo '<p>Your order is as follows: </p>';
-             if ($tireQuantity > 0) //one liner if statement
-                echo  $tireQuantity.' tires. <br/>';
-            if ($oilQuantity > 0)
-                echo "$oilQuantity bottles of oil. <br/>";
-            if($sparkQuantity > 0)
-                echo "$sparkQuantity spark plugs.<br/><br/>";
-          }
+          //  if ($totalQty == 0){
+          //    echo 'You didn\'t order anything. <br/> <br/>';
+          //  } else {
+          //    echo '<p>Your order is as follows: </p>';
+          //    if ($tireQuantity > 0) //one liner if statement
+          //       echo  $tireQuantity.' tires. <br/>';
+          //   if ($oilQuantity > 0)
+          //       echo "$oilQuantity bottles of oil. <br/>";
+          //   if($sparkQuantity > 0)
+          //       echo "$sparkQuantity spark plugs.<br/><br/>";
+          // }
 
+
+            echo '<p>Your order is as follows: </p>';
+               echo  @($tire->__get('qty').' tires. <br/>');
+               echo @($oil->__get('qty').' bottles of oil. <br/>');
+               echo @($sparkPlugs->__get('qty').' spark plugs.<br/><br/>');
+
+          $totalQty = @($tire->__get('qty') + $oil->__get('qty') + $sparkPlugs->__get('qty'));
           echo 'Total Quantity '.$totalQty.'<br/><br/>';
-          $tireAmount = @($tireQuantity * TIRE_PRICE);
-          $oilAmount = @($oilQuantity * OIL_PRICE);
-          $sparkAmount = @($sparkQuantity * SPARK_PRICE);
+          // $tireAmount = @($tireQuantity * TIRE_PRICE);
+          // $oilAmount = @($oilQuantity * OIL_PRICE);
+          // $sparkAmount = @($sparkQuantity * SPARK_PRICE);
 
+          $tireAmount = @($tire->__get('quantity') * TIRE_PRICE);
+          $oilAmount = @($oil->__get('quantity') * OIL_PRICE);
+          $sparkAmount = @($sparkPlugs->__get('quantity')* SPARK_PRICE);
 
-          $totalAmount = (float) $tireAmount;
-          $otherTotalAmount = &$totalAmount;
-          // kung saan nagpopoint ang reference, same sakaniya.
-          $otherTotalAmount += $oilAmount;
-          $totalAmount += $sparkAmount;
+          // $totalAmount = (float) $tireAmount;
+
+          $totalAmount = (float) $tireAmount + $oilAmount + $sparkAmount;
+
+          // $otherTotalAmount = &$totalAmount;
+          // // kung saan nagpopoint ang reference, same sakaniya.
+          // $otherTotalAmount += $oilAmount;
+          // $totalAmount += $sparkAmount;
           // echo 'Other Total Amount: '.$otherTotalAmount. '<br/>';
 
           // $vatableAmount = (float) $totalAmount / (1 + 0.12);
@@ -129,7 +144,7 @@
           //tests if a variable has value - keyword EMPTY
           echo 'Is $totalAmountTwo empty? ' .(empty($totalAmountTwo) ? 'Yes' : 'No').'<br/>';
 
-
+          saveOrder($tireQuantity, $oilQuantity, $sparkQuantity, $totalAmount);
       	?>
 
 
