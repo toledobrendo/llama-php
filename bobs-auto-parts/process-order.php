@@ -5,6 +5,8 @@
   require_once('viewer/header.php');
   require_once('model/prodContent.php');
   require_once('model/prodVentory.php');
+  require_once('service/order-service.php');
+  require_once('exception/file-not-found-exception.php');
 ?>
           <h3 class="card-title">Order Result</h3>
           <?php
@@ -75,8 +77,22 @@
             echo 'Other Total Amount: '.$otherTotalAmount.'<br/>';
             echo 'Total Amount: '.$totalAmount.'<br/>';
 
-            $vatableAmount = $totalAmount / 1.12;
-            $vat = $totalAmount - $vatableAmount;
+            function vatPercent() {
+              $fetcher = fopen(DOCUMENT_ROOT.'/llama-php/llama-php/bobs-auto-parts/resource/properties.txt','rb');
+              if (!$fetcher) {
+                echo 'Invalid File Path!';
+              } else{
+                while(!feof($fetcher)){
+                  $fetch = fgets($fetcher , 999);
+                  $vfetch = explode("VAT_PERCENT=", $fetch);
+                  return $vfetch[1];
+                }
+              }
+              fclose($fetcher);
+            }
+
+            (float) $vatableAmount = $totalAmount / (float) vatPercent();
+            $vat = ($totalAmount - (float) $vatableAmount) * -1;
 
             echo 'VATable Amount: '.$vatableAmount.'<br/>';
             echo 'VAT: '.$vat.'<br/>';
@@ -85,13 +101,16 @@
 
             echo 'Is $totalAmount string? '.(is_string($totalAmount) ? 'Yes' : 'No').'<br/>';
 
-            unset($totalAmount);
+            // unset($totalAmount);
 
             echo 'Is $totalAmount set? '.(isset($totalAmount) ? 'Yes' : 'No').'<br/>';
 
             $totalAmountTwo = 0;
             echo 'Is $totalAmountTwo set? '.(isset($totalAmountTwo) ? 'Yes' : 'No').'<br/>';
             echo 'Is $totalAmountTwo empty? '.(empty($totalAmountTwo) ? 'Yes' : 'No').'<br/>';
+
+            saveOrder($tire->__get('quantity'), $oil->__get('quantity'), $sparkPlugs->__get('quantity'), $totalAmount);
+            // $inventory->saveOrder();
           ?>
         </div>
         <div class="card-footer">
