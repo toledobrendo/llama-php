@@ -27,7 +27,7 @@
           'Please try again later. '.$dbError, 1);
       }
 
-      $query = 'SELECT author.name as author_name, book.title, book.isbn
+      $query = 'SELECT author.name as author_name, book.img_url, book.title, book.isbn
         FROM book
         INNER JOIN author
             ON author.id = book.author_id
@@ -38,8 +38,12 @@
 
       $resultCount = $result->num_rows;
 
-      echo '<p>Result for '.$searchType.' : '.$searchTerm.'</br>';
-      echo 'Number of books found: '.$resultCount;
+      if ($resultCount == 0) {
+        echo "<p>Search failed: There are ".$resultCount." results for ".$searchTerm;
+      }else {
+        echo '<p>Result for '.$searchType.' : '.$searchTerm.'</br>';
+        echo 'Number of books found: '.$resultCount;
+      }
 
       echo '<div class="row">';
       for ($ctr = 0; $ctr < $resultCount; $ctr++) {
@@ -47,11 +51,12 @@
       ?>
         <div class="card col-4 mx-1">
           <div class="card-body">
-            <h6><?php echo $row['title'];?></h6>
-            <p>
-              By: <?php echo  $row['author_name'];?> <br/>
-              <?php echo $row['isbn']?>
-            </p>
+            <img class="my-3" src="<?php echo $row['img_url'];?>" style="height: 200px; width: 150px;">
+              <h6><?php echo $row['title'];?></h6>
+              <p>
+                By: <?php echo  $row['author_name'];?> <br/>
+                <?php echo $row['isbn']?>
+              </p>
           </div>
         </div>
       <?php
