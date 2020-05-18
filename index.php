@@ -41,6 +41,9 @@
                   <li class="list-group-item list-group-item-success">
                      <a href="bobs-auto-parts/order-form.phpp">Homework - Bob's - VAT in .txt file</a>
                   </li>
+                  <li class="list-group-item">
+                     <a href="book-catalog">Book Catalog Activity</a>
+                  </li>
                </ul>
             </div>
          </div>
