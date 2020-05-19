@@ -7,6 +7,7 @@
 <?php
   echo @ $message;
 ?>
+
 <?php
   require_once('view-comp/footer.php');
 ?>
