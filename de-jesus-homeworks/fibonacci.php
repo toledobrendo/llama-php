@@ -23,6 +23,7 @@
             </form>
 
             <?php
+//            Note: Put a suppress warning operator in this line
             $input = $_GET['input'];
 
             //Xn= Xn-1 + Xn-2
