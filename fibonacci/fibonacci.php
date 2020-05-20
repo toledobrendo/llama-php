@@ -19,6 +19,9 @@
          </form>
 
           <?php
+          // Note: Observe proper indention.
+          // Use @ to hide warnings.
+          
           $fS = $_REQUEST["number"];
           echo "Series length: ".$fS.'<br/>';
           function series($fS){
