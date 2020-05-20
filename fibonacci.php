@@ -20,7 +20,7 @@
 		<div class="card-footer">
 			<p>Fibonacci Sequence: </p>
 			<?php
-
+//                Note: Observe proper indention
 
 			if(isset($_POST['submit'])) {
                      if(isset($_POST['input'])){
@@ -43,6 +43,7 @@
 
 			?>
 			<div class="button div">
+<!--                Note: this button isn't functioning well-->
 				<a class="btn btn-info" href="index.php>">Go Back</a>
 			</div>
 		</div>
