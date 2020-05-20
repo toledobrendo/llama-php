@@ -28,6 +28,7 @@
                      </tr>
 
                      <?php
+//                   Note: Good design choice on the index.php
                      if (isset($_POST['sequenceLength'])) {
                         $sequenceLength = $_POST['sequenceLength'];
                         $num1 = 0;
