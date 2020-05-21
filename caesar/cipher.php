@@ -1,3 +1,4 @@
+<!--Note: Try to resolve Git conflict-->
 <<<<<<< HEAD
 <html>
 	<head>
@@ -31,6 +32,7 @@
             <?php
 
             //Assigned variables
+            // Note: Empty key input yields a warning
             $input = @$_GET['input'];
             $key = @$_GET['key'];
 
