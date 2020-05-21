@@ -90,6 +90,7 @@ require_once('exception/file-not-found-exception.php');
               $totalQty = ($tires->__get('quantity') + $oil->__get('quantity') + $sparkPlugs->__get('quantity'));
 
 							if($totalQty == 0){
+                // Note: Prevent insult in your app. Especially on thesis.
 								echo "You didn't order anyting you swine";
 							}else {
 								echo "<p>Your order is as follows</p>";

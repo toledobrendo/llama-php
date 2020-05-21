@@ -31,7 +31,7 @@
             <?php
 
             //ASSIGN input of the user to a php variable with method GET
-
+//            Note: Use a suppress warnings on this line (@)
             $input = $_GET['input'];
 
 
