@@ -12,6 +12,7 @@
 
     <title>Caesar Cipher</title>
     <script>
+    // Note: myFunction() kinds of disturb the app flow
     function myFunction() {
       document.getElementsByClassName('className')
       confirm("Do you want to confirm");
