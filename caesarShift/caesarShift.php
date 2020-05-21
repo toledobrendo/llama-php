@@ -21,6 +21,7 @@
           </form>
 
            <?php
+           // Note: No validation of input. Empty message or key causes errors.
            $rm = $_POST['message'];
            $k = $_POST['key'];
 
