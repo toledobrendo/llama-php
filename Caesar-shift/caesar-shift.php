@@ -26,7 +26,7 @@
           </form>
 
           <?php
-
+            // Note: Empty key caused warnings
             $message = @($_POST['message']);
             $key = @($_POST['key']);
 
