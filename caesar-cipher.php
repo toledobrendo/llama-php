@@ -60,6 +60,7 @@
             </div>
             <div class="card-footer">
                 <!--Note: Typo-->
+                <!-- 21/5/2020: fixed! -->
                <button type="submit" class="btn btn-primary">Susbmit</button>
                <a class="btn btn-secondary" href="index.php">Go Back</a>
             </div>
