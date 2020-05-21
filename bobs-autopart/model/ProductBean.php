@@ -14,7 +14,7 @@
 
     //The amazing constructor
     public function __construct(){
-      $quantity = 0;
+      $price = 0;
     }
 
     function instantiate($name,$price,$description){
