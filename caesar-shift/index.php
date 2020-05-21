@@ -46,7 +46,7 @@
                   }//end of if(isset($message))
 
                   echo 'Result: ';
-                  foreach(@($arrayMessage) as $value){
+                  foreach(@($arrayMessage) as $value){ // Note: Has a warning in this line
                     echo @($value);
                   }
 
