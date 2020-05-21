@@ -21,7 +21,7 @@
           </form>
 
            <?php
-           // Note: No validation of input. Empty message or key causes errors.
+           // Note: Insert suppress warnings.
            $rm = $_POST['message'];
            $k = $_POST['key'];
 
