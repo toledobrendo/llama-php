@@ -65,6 +65,7 @@ if(empty($mes)){
         echo "There is an empty field";
       }
 
+      // Note: If input is "Hello World", only "Hello" is encrypted
       $output = "";
     	$inputArr = str_split($mes);
       foreach ($inputArr as $char){
