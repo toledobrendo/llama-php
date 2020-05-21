@@ -38,6 +38,8 @@
             
             <?php
 
+            // Note: Empty key input outputs a warning
+            // Solution awfully similar to Dino
             $alphaArray = range('A', 'Z');
             
             $numArray = array("0"=>"A","1"=>"B","2"=>"C","3"=>"D","4"=>"E","5"=>"F","6"=>"G","7"=>"H","8"=>"I",
