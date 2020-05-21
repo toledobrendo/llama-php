@@ -59,6 +59,7 @@
                ?>
             </div>
             <div class="card-footer">
+                <!--Note: Typo-->
                <button type="submit" class="btn btn-primary">Susbmit</button>
                <a class="btn btn-secondary" href="index.php">Go Back</a>
             </div>
