@@ -66,6 +66,7 @@ if(empty($mes)){
       }
 
       // Note: If input is "Hello World", only "Hello" is encrypted
+      // Assignment awfully similar to JC
       $output = "";
     	$inputArr = str_split($mes);
       foreach ($inputArr as $char){
