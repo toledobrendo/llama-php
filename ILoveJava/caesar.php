@@ -27,6 +27,29 @@
 </style>
 <title>HW2</title>
 </head>
+<?php
+  //to move char
+  function Cipher($ch, $key)
+  {
+    if (!ctype_alpha($ch))
+      return $ch;
+
+    $offset = ord(ctype_upper($ch) ? 'A' : 'a');
+    return chr(fmod(((ord($ch) + $key) - $offset), 26) + $offset);
+  }
+
+//to cipher the message by passing the values thru parameters in this function
+  function Encipher($input, $key)
+  {
+    $output = "";
+
+    $inputArr = str_split($input);
+    foreach ($inputArr as $ch)
+      $output .= Cipher($ch, $key);
+
+    return $output;
+  }
+?>
 <body class="container" >
   <h2>Caesar Shift Cipher</h2>
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
@@ -49,7 +72,6 @@
       </tr>
     </table>
     <input type="submit" name="submit" value="Enrypt">
-    <!-- <input type="reset" name="submit" value="<?php $mes ="";$num =""; ?>"> -->
   </form>
 
 <?php
@@ -65,17 +87,8 @@ if(empty($mes)){
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if (empty($num)) {
         echo "There is an empty field";
-      }
-
-      $output = "";
-    	$inputArr = str_split($mes);
-      foreach ($inputArr as $char){
-        if (!ctype_alpha($char)){
-          $output = $char;
-        } else {
-          $offset = ord(ctype_upper($char) ? 'A' : 'a');
-          $output .= chr(fmod(((ord($char) + $num) - $offset), 26) + $offset);
-        }
+      } else {
+      $output = Encipher($mes, $num); //to get output
       }
       echo "<br /><br /><h3>Encrypted Message: ".$output." </h3>";
     }
