@@ -45,6 +45,9 @@
               <li class="list-group-item">
                 <a href="ILoveJava/bobs-auto-parts-hw/viewOrder.php">Bob's Auto Parts - View Order- HW</a>
               </li>
+              <li class="list-group-item">
+                <a href="ILoveJava/book-catalog/">Book Catalog - HW </a>
+              </li>
             </ul>
           </div>
         </div>
