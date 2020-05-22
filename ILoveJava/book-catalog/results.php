@@ -21,7 +21,7 @@
       }
 
       // 127.0.0.1 = localhost
-      @ $db = new mysqli('localhost', 'root', '', 'php_hw4_bookcatalog');
+      @ $db = new mysqli('localhost', 'root', '', 'php_bookcatalog_db');
 
       $dbError = mysqli_connect_errno();
       if ($dbError) {//exception as we did in the previous lessons
