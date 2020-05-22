@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-
-=======
-<!--Note: Try to resolve Git conflict-->
-<<<<<<< HEAD
->>>>>>> 9abcd8d0fca52e7f4bfa499f21c2374291768d76
 <html>
 	<head>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -36,14 +30,13 @@
             <?php
 
             //Assigned variables
-<<<<<<< HEAD
+
           	@$input = $_GET['input'];
-            @$key = $_GET['key'];
-=======
+
             // Note: Empty key input yields a warning
             $input = @$_GET['input'];
             $key = @$_GET['key'];
->>>>>>> 9abcd8d0fca52e7f4bfa499f21c2374291768d76
+
 
 						// $key = $key % 26;
 

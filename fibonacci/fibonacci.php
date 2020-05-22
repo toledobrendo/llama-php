@@ -32,9 +32,7 @@
 
             //ASSIGN input of the user to a php variable with method GET
 //            Note: Use a suppress warnings on this line (@)
-            $input = $_GET['input'];
-
-
+            @$input = $_GET['input'];
 
 
 
@@ -45,7 +43,6 @@
 
             $counter= 0;
 
-
             while ($counter < $input) {
               echo " ".$num1;
               $num3 = $num2 + $num1;
@@ -53,11 +50,6 @@
               $num2 = $num3;
               $counter = $counter + 1;
             }
-
-
-
-
-
 
              ?>
 
