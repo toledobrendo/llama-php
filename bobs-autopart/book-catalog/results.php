@@ -41,6 +41,7 @@ Book Results
     }
 
     // 127.0.0.1 = localhosl
+    // Sir d po gumagana 'User Accounts sa phpmyadmin ko po baka po may sira
     @ $db = new mysqli('localhost', 'root', '', 'php_lesson_db');
 
     $dbError = mysqli_connect_errno();
@@ -59,7 +60,8 @@ Book Results
 
     $result = $db->query($query);
 
-    $resultCount = $result->num_rows;
+
+    $resultCount =  mysqli_num_rows($query);;
 
     echo '<p>Result for '.$searchType.' : '.$searchTerm.'</br>';
     echo 'Number of books found: '.$resultCount;
