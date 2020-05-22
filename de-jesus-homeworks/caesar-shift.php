@@ -14,6 +14,8 @@
           <div class="card-body">
             <h3 class="card-title">CAESAR SHIFT</h3>
             <?php
+                // Note: Does not work without toEncrypt value
+                // Key number missing in code
                 $toEncrypt = $_POST['toEncrypt'];
             //$toDecrypt = $_POST['toDecrypt'];
                 $key = array(
