@@ -79,6 +79,8 @@ require_once 'model/products.php';
 
                 // TOTAL
                 echo "<hr>";
+
+                //Note: Camel case on $tiretotal, $oiltotal and $sparktotal
                 $totalAmount = $tiretotal+$oiltotal+$sparktotal;
                 echo 'Total Amount: '.$totalAmount.'php<br/><br/>';
 
