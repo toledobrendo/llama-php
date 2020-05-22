@@ -11,11 +11,6 @@
       'image' => 'book.pic_val'
     ));
 
-    // define('IMAGES', array(
-    //   'The Last Wish' => 'images/TheLastWish.jpg',
-    //   'Sword of Destiny' => 'images/SwordOfDestiny.jpg'
-    // ));
-
     $searchType = $_POST['searchType'];
     $searchTerm = $_POST['searchTerm'];
 
