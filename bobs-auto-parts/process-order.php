@@ -3,6 +3,7 @@
   define('TIRE_PRICE', 100);
   define('OIL_PRICE', 50);
   define('SPARK_PRICE', 30);
+  define('VAT_PERCENT',getVAT_PERCENT());
  ?>
  <?php
    require_once('view-comp/header.php');
@@ -79,23 +80,21 @@
             $otherTotalAmount = &$totalAmount;
             $otherTotalAmount += $oilAmount;
 
-            $VATableAmount = $totalAmount / 1.12;
+            @$VATableAmount = $totalAmount / (1 + VAT_PERCENT);
             echo "Vatable: ".$VATableAmount."<br>";
-            $VAT = $VATableAmount * 0.12;
+            @$VAT = $VATableAmount * VAT_PERCENT;
             echo "Vat: ".$VAT."<br>";
+            echo "Total Amount: ".$totalAmount.
 
             // echo "Other Total Amount: ".$otherTotalAmount."<br>";
-            echo "Total Amount: ".$totalAmount."<br><br>";
-            echo "Amount exceeded 500? ".($totalAmount > 500 ? "yes":"no")."<br><br>";
-
-            echo 'Is $totalAmount string? '.(is_string($totalAmount) ? "Yes" : "No")."<br>";
-
+            // echo "Total Amount: ".$totalAmount."<br><br>";
+            // echo "Amount exceeded 500? ".($totalAmount > 500 ? "yes":"no")."<br><br>";
+            // echo 'Is $totalAmount string? '.(is_string($totalAmount) ? "Yes" : "No")."<br>";
             // unset($totalAmount);
-            echo 'Is $totalAmount set? '.(isset($totalAmount) ? "Yes" : "No")."<br>";
-
-            $totalAmountTwo = 1;
-            echo 'Is $totalAmountTwo set? '.(isset($totalAmountTwo) ? "Yes" : "No")."<br>";
-            echo 'Is $totalAmountTwo empty? '.(empty($totalAmountTwo) ? "Yes" : "No")."<br>";
+            // echo 'Is $totalAmount set? '.(isset($totalAmount) ? "Yes" : "No")."<br>";
+            // $totalAmountTwo = 1;
+            // echo 'Is $totalAmountTwo set? '.(isset($totalAmountTwo) ? "Yes" : "No")."<br>";
+            // echo 'Is $totalAmountTwo empty? '.(empty($totalAmountTwo) ? "Yes" : "No")."<br>";
 
             saveOrder($tireQty, $oilQty, $sparkQty, $totalAmount);
            ?>
