@@ -1,94 +1,102 @@
-<!DOCTYPE html>
-<html>
 <?php
-
-  define('TIRE_PRICE',100);
-  define('OIL_PRICE',50);
-  define('SPARK_PRICE',20);
-  define('VAT', 0.12);
+require_once 'view/header.php';
+require_once 'order-service.php';
+require_once 'model/process.php';
+require_once 'model/products.php';
  ?>
-<head>
-   <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <div class="container">
+      <div class="card mt-3">
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<title></title>
-</head>
-<body>
+        <div class="card-body">
+          <h3 class="card-title">Order Result</h3>
+          <?php
+              echo '<p>Order Processed at';
+              echo date(' H:i, jS F Y');
+              echo '</p>';
 
-<div class="container">
-	<div class="card">
-		<div class="card-body">
-			<h3 class="card-title">Order Result</h3>
-				<?php
-					echo '<p>Order Processed at ';
-					 echo date('H:i, jS F Y');
-					 echo '</p>';
+                $tire->__set('qty',$_POST['Tires']);
+                $oil->__set('qty',$_POST['Oil']);
+                $sparkPlug->__set('qty',$_POST['SparkPlugs']);
+                $find = $_POST['find'];
 
 
-					 $tireQty = $_POST['tireQty'] ? $_POST['tireQty']:0;
-					 $oilQty = $_POST['oilQty'] ? $_POST['oilQty']:0;
-					 $sparkQty = $_POST['sparkQty'] ? $_POST['sparkQty']:0;
+                  switch ($find) {
+                    case 'regular':
+                      echo "Regular Customer";
+                      break;
+                    case 'tv':
+                      echo "From TV advertisment";
+                      break;
+                    case 'phone':
+                      echo "Phone Directory";
+                      break;
+                    case 'mouth':
+                      echo "Word of Mouth";
+                      break;
+                    default:
+                      echo "Unknown Customer";
+                      break;
+                  }
+
+                  $tireQty= $tire->__get('qty');
+                  $oilQty= $oil->__get('qty');
+                  $sparkQty=  $sparkPlug->__get('qty');
+
+                echo '<p>Your order is as follows</p>';
+                echo $tireQty.' Tire<br/>';
+                echo $oilQty.' Oil<br/>';
+                echo $sparkQty.' Spark Plugs<br/>';
+                echo "<hr>";
+
+                echo '<p>Prices<br/>';
+                echo 'Tires: '.$tire->__get('price').'<br/>';
+                echo 'Oil: '.$oil->__get('price').'<br/>';
+                echo 'Spark: '.$sparkPlug->__get('price').'<br/><br/>';
+
+                $totalQty = @($tireQty + $oilQty + $sparkQty);
+
+                if($totalQty==0){
+                echo "You didn't order anything<br/><br/>";
+                }
+                echo "Total Qty: ".$totalQty.'<br/><br/>';
+
+                $tireAmount = @($tireQty) * $tire->__get('price');
+                $oilAmount = @($oilQty) * $oil->__get('price');
+                $sparkAmount = @($sparkQty) * $sparkPlug->__get('price');
 
 
-					 echo '<p>Your order is as follows</p>';
-					 echo "$tireQty tires<br/>";
-					 echo $oilQty. ' oil<br/>';
-					 echo $sparkQty. ' sparkplug<br/><br/>';
-
-					 echo '<p>Prices<br/>';
-					 echo'Tires:' .TIRE_PRICE. '<br/>';
-					 echo'Oil:' .OIL_PRICE.'<br/>';
-					 echo 'Spark: ' .SPARK_PRICE.'<br/><br/>';
+                $tiretotal = $tire->__get('price') * $tireQty;
+                $oiltotal = $oil->__get('price') * $oilQty;
+                $sparktotal = $sparkPlug->__get('price') * $sparkQty;
 
 
+                echo "Calculation".'<br/>';
+                echo "Tires: ".$tire->__get('price')."(BASE PRICE) * ".$tireQty."(QUANTITY) = ".$tiretotal.'<br/>';
+                echo "Tires: ".$oil->__get('price')."(BASE PRICE) * ".$oilQty."(QUANTITY) = ".$oiltotal.'<br/>';
+                echo "Tires: ".$sparkPlug->__get('price')."(BASE PRICE) * ".$sparkQty."(QUANTITY) = ".$sparktotal.'<br/>';
 
-					 $TotalQty = @($tireQty + $oilQty + $sparkQty);
+                // TOTAL
+                echo "<hr>";
 
-					 echo "TotalQty: " .$TotalQty. '<br/>';
-					 
-					
-					 $tireAmount = @($tireQty) * TIRE_PRICE;
-					 $oilAmount = @($oilQty) * OIL_PRICE;
-					 $sparkAmount =@($sparkQty) * SPARK_PRICE;
+                
+                $totalAmount = $tiretotal+$oiltotal+$sparktotal;
+                echo 'Total Amount: '.$totalAmount.'php<br/><br/>';
 
+                // VAT
+                $VATable = $totalAmount*getVAT();
+                echo "VAT: ".getVAT().'<br/>';
+                echo "VATable Amount: ".$totalAmount.'php<br/>';
+                echo "VAT Amount(12%): ".$totalAmount*getVAT().'php<br/>';
+                $totalAmount += $VATable;
+                echo "Total: ".$totalAmount.'php<br/><br/>';
 
-					$totalAmount = (float)($tireAmount);
+                saveOrder($tireQty,$oilQty,$sparkQty,$totalAmount);
 
-              		$otherTotalAmount = &$totalAmount;
-              		$otherTotalAmount += $oilAmount;
-              		echo 'Other Total Amount:  '.$otherTotalAmount.'<br/>';
-              		$totalAmount +=$sparkAmount;
-             		 echo 'Total Amount: '.$totalAmount.'<br/>';
-
-
-
- 					 	$VATable = $totalAmount*VAT;
- 					 	echo "VATable Amount: " .$totalAmount. '<br>';
- 					 	echo "VAT Amount(12%): " .$totalAmount*VAT. '<br>';
- 					 			$totalAmount += $VATable;
- 					 			echo "Total: " .$totalAmount;
-
-             		 echo ' Amount exceeded  500 but less than 1000?'.($totalAmount>500 ? ' Yes' : ' No').'<br/>';
-
-             		
-
-             		
-					 ?>
-
-					 
-
-					 
-			</div>
-			<div class="card-footer">
-				<a class="btn btn-info" href="order-form.php">Go Back</a>
-			</div>
-		</div>
-	</div>
-
-</div>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</body>
-</html>
+              ?>
+              <div class="card-footer">
+                          <a class="btn btn-info"href="order-form.php">Go Back</a>
+              </div>
+        </div>
+      </div>
+    </div>
+          
