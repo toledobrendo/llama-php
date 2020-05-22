@@ -25,7 +25,10 @@
                 <a href="bobs-auto-parts/order-form.php">Bob's Auto parts - Ordering</a>
               </li>
               <li class="list-group-item">
-                <a href="bobs-auto-parts/price-list.php">Price List</a>
+                <a href="bobs-auto-parts/price-list.php">Bob's Auto parts - Price List</a>
+              </li>
+              <li class="list-group-item">
+                <a href="bobs-auto-parts/view-orders.php">Bob's Auto parts - Order List</a>
               </li>
               <li class="list-group-item">
                 <a href="Assignments/fibonacci-sequence.php">Fibonacci Sequence</a>
@@ -35,6 +38,9 @@
               </li>
               <li class="list-group-item">
                 <a href="iac-consulting/index.php">Iac Consulting</a>
+              </li>
+              <li class="list-group-item">
+                <a href="book-catalog/index.php">Book Catalog</a>
               </li>
             </ul>
           </div>
