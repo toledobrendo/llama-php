@@ -49,6 +49,10 @@
 
     return $output;
   }
+
+  $mes = @($_POST['mes']);
+  $num = @($_POST['num']);
+
 ?>
 <body class="container" >
   <h2>Caesar Shift Cipher</h2>
@@ -59,7 +63,7 @@
           Enter number key here:
         </td>
         <td>
-          <input type="number" name="num">
+          <input type="number" name="num" value="<?php echo $num; ?>">
         </td>
       </tr>
       <tr>
@@ -67,7 +71,7 @@
           Enter the message here:
         </td>
         <td>
-          <input type="text" name="mes">
+          <input type="text" name="mes" value="<?php echo $mes; ?>">
         </td>
       </tr>
     </table>
@@ -76,8 +80,6 @@
 
 <?php
 //Variables
-$mes = @($_POST['mes']);
-$num = @($_POST['num']);
 if(empty($mes)){
     echo "<br />input is required on the text field";
 } else{
