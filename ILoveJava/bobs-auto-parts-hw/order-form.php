@@ -15,6 +15,7 @@
             </thead>
             <tbody>
               <?php
+              // similar code with the previous activity
                 foreach($productInputs as $productInput){
                   echo '<tr class="row">
                           <td class="col-4">

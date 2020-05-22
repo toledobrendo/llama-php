@@ -1,14 +1,12 @@
 <?php
-  /**
-   *
-   */
-  class Product
+  class Product //product class
   {
     private $productName;
     private $price;
     private $tagName;
     private $quantity;
 
+    
     public function __constructor(){
      $quantity = 0;
    }

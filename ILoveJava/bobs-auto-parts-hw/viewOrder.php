@@ -1,6 +1,6 @@
 <?php
-  require_once('service/orderService.php');
-  require_once('view/header.php');
-  echo getOrders();
-  require_once('view/footer.php');
+  require_once('service/orderService.php'); // including service
+  require_once('view/header.php');//adding header
+  echo getOrders();//sysout of all orders
+  require_once('view/footer.php');//adding footer
 ?>

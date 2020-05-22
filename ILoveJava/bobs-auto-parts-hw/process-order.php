@@ -14,9 +14,7 @@
               echo date('H:i, jS F Y');
               echo '</p>';
 
-              // PHP Comments
-              /**Multiline Comments
-                Wow**/
+              // setting classes
 
                 $tire->__set('quantity', $_POST['tireQty']? $_POST['tireQty']: 0);
                 $oil->__set('quantity', $_POST['oilQty']? $_POST['oilQty']: 0);
