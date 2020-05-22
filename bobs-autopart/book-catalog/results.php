@@ -61,7 +61,7 @@ Book Results
     $result = $db->query($query);
 
 
-    $resultCount =  mysqli_num_rows($query);;
+   $resultCount =  $result->num_rows;
 
     echo '<p>Result for '.$searchType.' : '.$searchTerm.'</br>';
     echo 'Number of books found: '.$resultCount;
