@@ -22,7 +22,11 @@
             <a class="nav-link" href="index.php">Book Search</a>
           </li>
           <li class="nav-item <?php if(isActive('author-add.php')) echo 'active'; ?>">
+<<<<<<< HEAD
             <a class="nav-link" href="author-add.php">Book Search</a>
+=======
+            <a class="nav-link" href="author-add.php">Add Author</a>
+>>>>>>> 013e43dd5f375bb806b2a6d9dae68c93d0be986b
           </li>
         </ul>
       </div>
