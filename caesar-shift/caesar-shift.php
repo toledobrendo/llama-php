@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -35,38 +33,32 @@
           </div>
           <div class="card-footer">
             <label> Result: </label>
-            
-            <?php
+              <?php
+                function caesarEncode( $message, $key ){
+                  $plaintext = strtolower( $message );
+                  $ciphertext = "";
+                  $ascii_a = ord( 'a' );
+                  $ascii_z = ord( 'z' );
 
-            $alphaArray = range('A', 'Z');
-            
-            $numArray = array("0"=>"A","1"=>"B","2"=>"C","3"=>"D","4"=>"E","5"=>"F","6"=>"G","7"=>"H","8"=>"I",
-            "9"=>"J","10"=>"K","11"=>"L","12"=>"M","13"=>"N","14"=>"O","15"=>"P","16"=>"Q","17"=>"R","18"=>"S","19"=>"T",
-            "20"=>"U","21"=>"V","22"=>"W","23"=>"X","24"=>"Y","25"=>"Z");
-
-            if(isset($_POST['submit'])) {
+                   if(isset($_POST['submit'])) {
 
 
-            $message = $_POST['message'];
-            $key = $_POST['key'];
+                    $message = $_POST['message'];
+                    $key = $_POST['key'];
 
-            $upperMessage = strtoupper($message);
-
-            $messageArray = str_split($upperMessage);
-
-
-            for ($i=0; $i < count($messageArray) ; $i++) {
-                if ($messageArray[$i]==" ") {
-                    echo " ";
-                    echo $alphaArray[((array_search($messageArray[$i+1],$numArray))+$key)%26];
-                    $i++;
-                } else {
-                  echo $alphaArray[((array_search($messageArray[$i],$numArray))+$key)%26];
+                  while( strlen( $plaintext ) ){
+                      $char = ord( $plaintext );
+                      if( $char >= $ascii_a && $char <= $ascii_z ){
+                          $char = ( ( $key + $char - $ascii_a ) % 26 ) + $ascii_a;
+                      }
+                      $plaintext = substr( $plaintext, 1 );
+                      $ciphertext .= chr( $char );
+                  }
+                  return $ciphertext;
                 }
-              }
-            }
-            ?>
-
+                }
+                echo $ciphertext;              
+              ?>              
           </div>
       </div>                       
     </div>
