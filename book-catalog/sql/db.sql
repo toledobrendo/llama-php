@@ -26,4 +26,5 @@ VALUES
   ('A Game of Thrones', '1-141-5143123-5', 2);
 
 ALTER TABLE book ADD COLUMN pic_url VARCHAR(255);
-UPDATE book SET pic_url = '/url.png' WHERE id = 1;
+UPDATE book SET pic_url = 'JAVA.jpg' WHERE id = 1;
+UPDATE book SET pic_url = 'GOT.jpg' WHERE id = 2;

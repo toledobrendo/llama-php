@@ -30,7 +30,7 @@
       // save to db: 'http://localhost/dragon-php/book-catalog/image/manila.jpg'
       // save to db: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1562726234l/13496.jpg'
 
-      $query = 'SELECT author.name as author_name, book.title, book.isbn
+      $query = 'SELECT author.name as author_name, book.title, book.isbn, book.pic_url
         FROM book
         INNER JOIN author
             ON author.id = book.author_id
@@ -51,6 +51,11 @@
       ?>
         <div class="card col-4 mx-1">
           <div class="card-body">
+            <div class="row">
+              <div class="col">
+                  <img src="image/<?php echo $row['pic_url']; ?>" width="200 rem" alt="Book Cover">
+              </div>
+            </div>
             <h6><?php echo $row['title'];?></h6>
             <p>
               By: <?php echo  $row['author_name'];?> <br/>
