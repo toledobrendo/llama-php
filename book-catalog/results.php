@@ -1,4 +1,7 @@
-<?php require_once('view-comp/header.php');?>
+<?php
+require_once('view-comp/header.php');
+require_once('service/log-service.php');
+?>
 <div class="card-header">
   Book Results
 </div>
@@ -33,6 +36,8 @@
             ON author.id = book.author_id
         WHERE '.FIELDS[$searchType].' LIKE \'%'.$searchTerm.'%\';';
 
+
+      logMessage($query);
 
       $result = $db->query($query);
 

@@ -42,12 +42,14 @@
           if ($affectedRows > 0) {
             echo $affectedRows." author inserted into the database.";
           }else {
+
             throw new Exception("Error: Author was not added.");
           }
 
           $stmt->close();
 
         } catch (Exception $e) {
+          error_log($e->getMessage());
           echo $e->getMessage();
         }
 
