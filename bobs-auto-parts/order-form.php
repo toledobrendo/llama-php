@@ -12,7 +12,6 @@
                               array('Item' => 'Spark Plugs', 'Price' => 150, 'Quantity' => '<input type="number" name="sparkQty" maxlength="3" min="0" max="10" class="form-control"/>')
                             );
 
-
                             echo '<table class="table table-condensed">
                                     <thead>
                                     <tr>

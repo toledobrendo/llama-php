@@ -55,21 +55,34 @@
 
     $totalAmount = (float) $tireAmount + $oilAmount + $sparkAmount;
 
-    echo 'Tire amount: '.$tireAmount.'<br/>';
-    echo 'Oil amount: '.$oilAmount.'<br/>';
-    echo 'Spark Plug amount: '.$sparkAmount.'<br/>';
+    if ($totalQty == 0) {
+      echo 'You didn\'t order anything. <br/> <br/>';
+    } else {
+      echo '<p>Your order is as follows</p>';
+      // echo $tireQty.' $tireQty tires<br/>';
+      if ($tireQty > 0)
+        echo "$tireQty tires<br/>";
+      if ($oilQty > 0)
+        echo $oilQty.' oil<br/>';
+      if ($sparkQty > 0)
+        echo $sparkQty.' spark plugs<br/>';
+      echo '<br/>';
+    }
 
-    $vatableAmount = $totalAmount / (1+VAT_PERCENT);
+    $vatableAmount = $totalAmount / 1.12;
     $vatAmount = $totalAmount - $vatableAmount;
 
     echo '<br/>'."VATable amount: ".$vatableAmount.'<br/>';
     echo "VAT Amount: ".$vatAmount.'<br/>'.'<br/>';
     echo "Total Amount: ".$totalAmount.'<br/>'.'<br/>';
+    saveOrder($tire->__get('quantity'), $oil->__get('quantity'), $totalAmount);
 
-    echo 'Amount exceeded 500 but less than 1000? '.($totalAmount > 500 && $totalAmount < 1000? 'Yes' : 'No').'<br/><br/>';
-    saveOrder($tire->__get('quantity'), $oil->__get('quantity'),
-            $sparkPlugs->__get('quantity'), $totalAmount);
+    $totalAmountTwo = 0;
+    echo 'Is $totalAmountTwo set? '.(isset($totalAmountTwo) ? 'Yes' : 'No').'<br/>';
+    echo 'Is $totalAmountTwo empty? '.(empty($totalAmountTwo) ? 'Yes' : 'No').'<br/>';
+
+    saveOrder($tireQty, $oilQty, $sparkQty, $totalAmount);
 
     require_once('view-comp/footer.php');
     ?>
-</html
+</html>

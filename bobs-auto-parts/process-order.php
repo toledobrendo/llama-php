@@ -52,11 +52,25 @@
                 break;
             }
 
+            // echo '<p>Your order is as follows</p>';
+            // echo $tire->__get('quantity').' Tire<br/>';
+            // echo $oil->__get('quantity').' Oil<br/>';
+            // echo $sparkPlugs->__get('quantity').' Spark Plugs<br/>'.'<br/>';
+            //
+            // $totalQty = @($tire->__get('quantity') + $oil->__get('quantity') + $sparkPlugs->__get('quantity'));
+            // echo 'Total Quantity: '.$totalQty.'<br/><br/>';
+
             echo '<br/><br/>';
             echo '<p>Prices<br/>';
             echo 'Tires: '.TIRE_PRICE.'<br/>';
             echo 'Oil: '.OIL_PRICE.'<br/>';
             echo 'Spark Plugs: '.SPARK_PRICE.'<br/><br/>';
+
+            // $tireAmount = @($tire->__get('quantity') * TIRE_PRICE);
+            // $oilAmount = @($oil->__get('quantity') * OIL_PRICE);
+            // $sparkAmount = @($sparkPlugs->__get('quantity') * SPARK_PRICE);
+
+            $totalAmount = (float) $tireAmount + $oilAmount + $sparkAmount;
 
             $totalQty = @($tireQty + $oilQty + $sparkQty);
 
@@ -93,9 +107,7 @@
 
             echo 'VATable Amount: '.$vatableAmount.'<br/>';
             echo 'VAT: '.$vat.'<br/>';
-
             echo 'Amount exceeded 500? '.($totalAmount > 500 ? 'Yes' : 'No').'<br/><br/>';
-
             echo 'Is $totalAmount string? '.(is_string($totalAmount) ? 'Yes' : 'No').'<br/>';
 
             // unset($totalAmount);
