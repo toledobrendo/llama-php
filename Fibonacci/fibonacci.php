@@ -24,27 +24,29 @@ crossorigin="anonymous">
             </div>
 
             <?php
-                $fibSequence = @($_POST['sequence'] ? $_POST['sequence'] : 0);
-                echo "<br/>Series Length: ".$fibSequence.'<br/><br/>';
+                $fiboSequence = @($_POST['sequence'] ? $_POST['sequence'] : 0);
+                echo "<br/>Series Length: ".$fiboSequence.'<br/><br/>';
 
                 $seqValue = 0;
                 $val = 0;
                 $val2 = 0;
 
-                  for ($i=1; $i <= $fibSequence; $i++) {
-                    $val2 = $val;
-                    $val = $seqValue;
+                while($i != $fiboSequence){
+                  $val2 = $val;
+                  $val = $seqValue;
 
-                      if($i == 1){
-                        echo $val.'&emsp;&emsp;&emsp;';
-                        $seqValue += 1;
-                        echo $seqValue.'&emsp;&emsp;&emsp;';
-                        $i++;
-                      } else {
-                        $seqValue = $val + $val2;
-                        echo $seqValue.'&emsp;&emsp;&emsp;';
-                      }
+                    if($i == 1){
+                      echo $val;
+                      $seqValue += 1;
+                      echo $seqValue;
+                      $i++;
+                    } else {
+                      $seqValue = $val + $val2;
+                      echo $seqValue;
                     }
+
+                }
+
              ?>
 
         </form>
