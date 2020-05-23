@@ -79,3 +79,13 @@
 13:09, 12th May 2020	1 tires	1 oil	1 spark plugs	$200
 13:30, 12th May 2020	1 tires	1 oil	1 spark plugs	$200
 13:30, 12th May 2020	1 tires	1 oil	1 spark plugs	$200
+09:38, 23rd May 2020	1 tires	1 oil	1 spark plugs	$200
+09:38, 23rd May 2020	1 tires	1 oil	1 spark plugs	$200
+09:38, 23rd May 2020	10 tires	10 oil	10 spark plugs	$2000
+09:38, 23rd May 2020	10 tires	10 oil	10 spark plugs	$2000
+09:51, 23rd May 2020	1 tires	1 oil	1 spark plugs	$200
+09:51, 23rd May 2020	1 tires	1 oil	1 spark plugs	$200
+09:52, 23rd May 2020	2 tires	2 oil	2 spark plugs	$400
+09:52, 23rd May 2020	2 tires	2 oil	2 spark plugs	$400
+09:52, 23rd May 2020	6 tires	6 oil	6 spark plugs	$1200
+09:52, 23rd May 2020	6 tires	6 oil	6 spark plugs	$1200

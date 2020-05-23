@@ -15,16 +15,14 @@ require_once('exception/file-not-found-exception.php');
       $filePathProperties = DOCUMENT_ROOT."/llama-php/bobs-autopart/resource/properties.txt";
       $fileHandler = @fopen($filePathProperties,rb);
 
-      if (!$fileHandler) {
-        echo '<p><strong>Properties File containg computation values are not available.
-          Please try again later.</strong></p>';
-      } else{
-        while(!feof($fileHandler)){
+      try{
           $order = fgets($fileHandler , 222);
           $value = explode("VAT_PERCENT=", $order);
 
           return $value[1];
-        }
+      }catch(FileNotFoundException $fnfe){
+        echo '<p><strong>Properties File containg computation values are not available.
+          Please try again later.</strong></p>';
       }
       fclose($filePathProperties);
   }
