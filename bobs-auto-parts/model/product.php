@@ -1,7 +1,7 @@
 <?php
 
  class Product{
-    private $name; //name of input for the form
+    private $name; 
     private $description;
     private $price;
     private $quantity;
