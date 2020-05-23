@@ -19,6 +19,7 @@
             throw new Exception('Error: Could not connect to database. Please try again.');
           }
 
+          // Searching for author name
           $query = 'select id from author where name = \''.$authorName.'\'';
           $result = $db->query($query);
           $resultCount = $result->num_rows;
@@ -32,10 +33,12 @@
 
             $stmt->execute();
 
+
             $query = 'select id from author where name = \''.$authorName.'\'';
             $result = $db->query($query);
             $row = $result -> fetch_assoc();
 
+            // assigning the newly-created author id to a variable
             $authorId = $row['id'];
 
             $query = 'insert into book (img_url, title, isbn, author_id) values (?, ?, ?, ?)';
@@ -54,7 +57,28 @@
 
             $stmt->close();
           }else {
-            throw new Exception('Error: \''.$authorName.'\' already exists.');
+
+            $query = 'select id from author where name = \''.$authorName.'\'';
+            $result = $db->query($query);
+            $row = $result -> fetch_assoc();
+
+            // assigning the newly-created author id to a variable
+            $authorId = $row['id'];
+
+            $query = 'insert into book (img_url, title, isbn, author_id) values (?, ?, ?, ?)';
+            $stmt = $db->prepare($query);
+            $stmt->bind_param("ssss", $imageUrl, $bookTitle, $isbn, $authorId);
+
+            $stmt->execute();
+
+            @ $affectedRows = $stmt->$affected_rows;
+
+            if ($affectedRows > 0) {
+              throw new Exception("Error: Author was not added.");
+            }else {
+              echo $affectedRows."book successfully inserted into the database.";
+            }
+
             $stmt->close();
           }
 
