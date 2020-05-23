@@ -13,20 +13,19 @@
       crossorigin="anonymous">
   </head>
   <body>
+    <!-- hello-world.php or hello_world.php -->
     <div class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a href="index.php" class="navbar-brand">Book Catalog</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div href="index.php" class="navbar-brand">Book Catalog</div>
+      <div class="collapse navbar-collapse">
         <ul class="navbar-nav">
           <li class="nav-item <?php if(isActive('index.php')) echo 'active'; ?>">
             <a class="nav-link" href="index.php">Book Search</a>
+          </li>
+          <li class="nav-item <?php if(isActive('author-add.php')) echo 'active'; ?>">
+            <a class="nav-link" href="author-add.php">Add Author</a>
           </li>
         </ul>
       </div>
     </div>
     <div class="container">
       <div class="card my-3">
-       
