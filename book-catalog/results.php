@@ -1,4 +1,7 @@
-<?php require_once('view-comp/header.php');?>
+<?php
+  require_once('service/log-service.php');
+  require_once('view-comp/header.php');
+?>
 <div class="card-header">
   Book Results
 </div>
@@ -26,7 +29,6 @@
         throw new Exception('Error: Could not connect to database. '.
           'Please try again later. '.$dbError, 1);
       }
-      
 
       // save to db: 'http://localhost/dragon-php/book-catalog/image/manila.jpg'
       // save to db: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1562726234l/13496.jpg'
@@ -37,7 +39,7 @@
             ON author.id = book.author_id
         WHERE '.FIELDS[$searchType].' LIKE \'%'.$searchTerm.'%\';';
 
-      echo $query.'<br/>';
+      logMessage($query);
 
       $result = $db->query($query);
 
