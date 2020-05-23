@@ -1,4 +1,5 @@
 <?php
+//    Note: Good job on separating controller and view logic
     function fibonacci($n) {
         $num1 = 0;
         $num2 = 1;
