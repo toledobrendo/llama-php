@@ -42,6 +42,7 @@
         $key = $key+26;
       }
 
+
     $text = strtoupper($text); 
     $strArray = str_split($text);
       echo '<p>Caesar Shift Result: ';
@@ -57,6 +58,18 @@
 
               $encryptedByte = chr($byte); 
               $encryptedMessage = $encryptedMessage.$encryptedByte;
+
+      // Note: If input is "Hello World", only "Hello" is encrypted
+      // Assignment awfully similar to JC
+      $output = "";
+    	$inputArr = str_split($mes);
+      foreach ($inputArr as $char){
+        if (!ctype_alpha($char)){
+          $output = $char;
+        } else {
+          $offset = ord(ctype_upper($char) ? 'A' : 'a');
+          $output .= chr(fmod(((ord($char) + $num) - $offset), 26) + $offset);
+ d9f7d55e3bd8288b00ee69d9f7f112a710546d09
         }
               echo $encryptedMessage;
               echo '</p>';
