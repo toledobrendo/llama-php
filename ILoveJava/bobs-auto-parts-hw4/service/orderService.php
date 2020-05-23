@@ -14,8 +14,7 @@
                     '$'.$totalAmount."\n";
 
     //location of the file where the data to be save
-    $file = @fopen(DOCUMENT_ROOT.'/llama-php/ILoveJava/bobs-auto-parts-hw/resources/order.txt',
-            'ab');
+    $file = @fopen(DOCUMENT_ROOT.'/llama-php/ILoveJava/bobs-auto-parts-hw4/resources/order.txt', 'ab');
 
     if(!$file) //if file not found
       echo "<strong>your order cannot be processed at the moment,
@@ -35,7 +34,7 @@
   function getOrders(){
 
     try {
-      $file = @fopen(DOCUMENT_ROOT.'/llama-php/ILoveJava/bobs-auto-parts-hw/resources/order.txt', 'rb');
+      $file = @fopen(DOCUMENT_ROOT.'/llama-php/ILoveJava/bobs-auto-parts-hw4/resources/order.txt', 'rb');
       if(!$file){
         throw new FileNotFoundException("File not found!");
 
@@ -52,4 +51,31 @@
         echo $e;
     }
   }
+
+
+  //getting the value of vat that is inside the file
+ function getProperty($dataName){
+   try{
+     $file = fopen(DOCUMENT_ROOT.'/llama-php/ILoveJava/bobs-auto-parts-hw4/resources/properties.txt', 'rb'); //getting file thru file directory
+     if(!$file){
+       throw new FileNotFoundException("File is not found!");//throw exception if not found
+     }else {
+
+       while(!feof($file)){//will loop until it reaches the end of the file
+         $data = fgets($file); //Gets a line from file pointer.
+         $dataArray = explode("=",$data); //split strings into an array
+         if(@trim($dataArray[0]) == $dataName){ //since we split the string between "="
+           return $dataArray[1];//if we return $dataArray[1] it will be the string after the "="
+         }
+       }
+       return 0; // PROPERTY NOT FOUND;
+       fclose($file); // best practice to always close
+     }
+   } catch(FileNotFoundException $fnfe){
+       echo $fnfe->getMessage();
+   } catch(Exception $e){
+       echo $e->getMessage();
+   }
+
+ }
 ?>
