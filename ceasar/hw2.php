@@ -30,31 +30,30 @@
             $message = @($_POST['message']);
             $key = @($_POST['key']);
 
-            $upperMessage = strtoupper($message);
-            $arrayMessage = str_split($upperMessage);
-            $counter = count($arrayMessage);
-            $alphabet = range("A","Z");
+            $toUpper = strtoupper($message);
+            $message = str_split($toUpper);
+            $counter = count($message);
+            $alphabet  = range("A","Z");
+            //$numbers = range("0", "9");
             $cipher = array();
 
+            for($count = 0; $count < $counter; $count++){
 
-            for ($count=0; $count < $counter; $count++) {
-
-              if (!(preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $arrayMessage[$count]) || ctype_space($arrayMessage[$count]))){
-
-                $cipher[$count] = array_search($arrayMessage[$count],$alphabet,true);
+                $cipher[$count] = array_search($message[$count],$alphabet,true);
                 $cipher[$count] += $key;
+
                 $cipher[$count] = $alphabet[$cipher[$count]];
-                $arrayMessage[$count] = $cipher[$count];
-                
+                $message[$count] = $cipher[$count];
+
               }
 
-            }
 
 
 
-            echo "Message:&emsp;";
+
+            echo "Message: ";
             for ($count=0; $count < $counter; $count++) {
-              echo $arrayMessage[$count];
+              echo $message[$count];
             }
 
            ?>
