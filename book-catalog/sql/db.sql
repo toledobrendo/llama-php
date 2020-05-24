@@ -23,3 +23,5 @@ VALUES('JRR TOLKIEN'),
 INSERT INTO book (title,isbn,author_id)
 VALUES('The Lord of the Rings','000-000-001',1),
       ('Harry Potter and the Chamber of Secrets','000-000-002',2);
+
+ALTER TABLE author ADD CONSTRAINT un_author_name UNIQUE(name);
