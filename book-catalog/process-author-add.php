@@ -1,4 +1,7 @@
-<?php require_once('view-comp/header.php'); ?>
+<?php 
+   require_once('view-comp/header.php');
+   require_once('service/log-service.php');
+?>
 <div class="card-header">
   Add Author Result
 </div>
@@ -41,13 +44,14 @@
         echo $affectedRows." author inserted into the database.";
       } else {
         throw new Exception('Error: The author was not added.');
-
       }
 
       $stmt->close();
 
     } catch (Exception $e) {
+      error_log($e->getMessage());
       echo $e->getMessage();
+      logMessage($e->getMessage());
     }
   ?>
 </div>

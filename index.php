@@ -12,7 +12,7 @@
       <div class="card">
          <div class="card-body">
             <h1 class="card-title">PHP Exercises</h1>
-            <div class="col-6">
+            <div class="col-md-6">
                <ul class="list-group">
                   <li class="list-group-item">
                      <a href="hello-world.php">Hello World</a>
@@ -33,7 +33,7 @@
                      <a href="iac-consulting">iAC Consulting</a>
                   </li>
                   <li class="list-group-item list-group-item-success">
-                     <a href="bobs-auto-parts/product-factory.php">Homework - Bob's - Array of Objects (Class Product)</a>
+                     <a href="bobs-auto-parts/price-list.php">Homework - Bob's - Array of Objects (Class Product)</a>
                   </li>
                   <li class="list-group-item">
                      <a href="bobs-auto-parts/view-comp/view-orders.php">Bob's Auto Parts View Orders</a>
