@@ -21,46 +21,44 @@
                <h3 class="card-title">Caesar Shift:</h3>
                <div class=form-group>
                   <label for="message">Enter your encrypt message:</label>
-                  <textarea class="form-control" name="text" placeholder="Enter message">
-                  </textarea>
+                  <input type="text" class="form-control" name="message" placeholder="Enter message">
+                  </input>
                </div>
                <div class=form-group>
                   <label for="key">Enter Key:</label>
-                  <input type="number" class="form-control" name="key" placeholder="Enter key">
+                  <input type="number" class="form-control" name="key" placeholder="Enter key number">
                </div>
             
 
 <div class=form-group>
 <!-- getting the value -->
-<?php
-  if (!empty($_POST['text'])) {
-                  
-    $text = $_POST['text'];
-    $key  =  $_POST['key'] ? $_POST['key'] : 0;
-    $key = $key % 26; 
-      if($key<0){
-        $key = $key+26;
-      }
+<?php 
+  if(isset($_POST['message']) && isset($_POST['key'])) {
+    $message = $_POST['message'];
+    $key = $_POST['key'];
 
-    $text = strtoupper($text); 
-    $strArray = str_split($text);
-      echo '<p>Caesar Shift Result: ';
-      $encryptedMessage='';
-        for ($index = 0; $index < strlen($text); $index++) { 
-          $byte = ord($text[$index]);
-            if (ctype_alpha($byte)) { 
-              $byte = $byte + $key; 
-                if($byte>90){
-                  $byte=$byte-26;
-                }
+    $message = strtoupper($message); 
+    $splitMessage = str_split($message); 
+    $arraySize = count($splitMessage);
+
+              
+    for($letterIndex = 0; $letterIndex < $arraySize; $letterIndex++) {
+        for($stepCount = 0; $stepCount < $key; $stepCount++) {
+            if($splitMessage[$letterIndex] != "Z") {
+              $splitMessage[$letterIndex]++;
+            } else {
+              $splitMessage[$letterIndex] = "A";
             }
-
-              $encryptedByte = chr($byte); 
-              $encryptedMessage = $encryptedMessage.$encryptedByte;
         }
-              echo $encryptedMessage;
-              echo '</p>';
-  }
+    }
+
+      echo "<strong> Caesar Shift Result: </strong>";
+      foreach($splitMessage as $encryptedMessage) {
+        echo $encryptedMessage;
+              
+      }
+        $splitMessage = array();
+      }
 ?>
 </div>
 </div>

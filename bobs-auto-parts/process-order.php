@@ -47,7 +47,7 @@
    $totalQty = @($tireQty + $oilQty + $sparkQty);
 
    if ($totalQty == 0) {
-      echo 'You didn\'t order anything. <br/> <br/>';
+      echo 'You did not order anything. <br/> <br/>';
    } else {
       echo '<p>Your order is as follows</p>';
    if ($tireQty > 0)
@@ -92,7 +92,7 @@
 
 <div class="card-footer">
    <a class="btn btn-dark" href="order-form.php">Go Back</a>
-   
+</div> 
    <?php
       include("view-comp/footer.php")
    ?>
