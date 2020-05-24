@@ -65,7 +65,6 @@ if (isset($_POST['submit'])) {
          $stmt->bind_param("ssss",$bookTitle,$authorName,$bookTitle,$authorName);
          $stmt->execute();
          $affectedRows=$stmt->affected_rows;
-         echo 'affected rows: '.$affectedRows;
          $stmt->close();
          
          if ($affectedRows>0) {
