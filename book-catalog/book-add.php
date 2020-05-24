@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
    //block when closing mysqli (since $db would be null and 
    //we can't close a null connection).
    if (empty($bookTitle) || empty($authorName)) {
-      
+
       echo '<div class="m-4"> 
                Error: Book title OR author name were not provided.
                Please try again! 
@@ -30,27 +30,36 @@ if (isset($_POST['submit'])) {
          }
 
          //Clean Strings
-         $authorName=$db->real_escape_string($authorName);
-         $bookTitle=$db->real_escape_string($bookTitle);
+         $authorName = $db->real_escape_string($authorName);
+         $bookTitle = $db->real_escape_string($bookTitle);
 
          //PRO: Query below merges checking and inserting for 1 trip to db instead of 2 
          //CON: $result is always true
          $query =
             'INSERT INTO author (name)
-          SELECT * FROM (SELECT \'' . $authorName . '\') AS temp
-          WHERE NOT EXISTS(
+            SELECT * FROM (SELECT \'' . $authorName . '\') AS temp
+            WHERE NOT EXISTS(
               SELECT name FROM author WHERE name = \'' . $authorName . '\'
-              ) LIMIT 1';
+            ) LIMIT 1';
          $result = $db->query($query);
 
-         $query =
-            'INSERT INTO book (title, author_id) values (\'' . $bookTitle . '\',
-          (SELECT id FROM author WHERE name = \'' . $authorName . '\'))';
-         $result = $db->query($query);
-         if ($result) {
+         // $query =
+         //    'INSERT INTO book (title, author_id) values (\'' . $bookTitle . '\',
+         //    (SELECT id FROM author WHERE name = \'' . $authorName . '\'))';
+
+         // $result = $db->query($query);
+
+         $query = 'INSERT INTO book (title, author_id) values (?, (SELECT id FROM author WHERE name = \'' . $authorName . '\'))';
+         $stmt = $db->prepare($query);
+         $stmt->bind_param("s",$bookTitle);
+         $stmt->execute();
+         $affectedRows=$stmt->affected_rows;
+         $stmt->close();
+         
+         if ($affectedRows>0) {
             echo '<div class="m-4">Book successfully added to Catalog!</div>';
          } else {
-            throw new Exception('Error: The book you entered, <b>'.$bookTitle.' by '.$authorName.'</b> is already in the database!');
+            throw new Exception('Error: The book you entered, <b>' . $bookTitle . ' by ' . $authorName . '</b> is already in the database!');
          }
       } catch (Exception $e) {
          echo '<div class="m-4">' . $e->getMessage() . '</div>';
@@ -62,7 +71,7 @@ if (isset($_POST['submit'])) {
 ?>
 
 <div class="card-header">
-   <b>Add Book</b>
+   Add Book
 </div>
 <div class="card-body">
    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
