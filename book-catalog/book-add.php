@@ -29,6 +29,10 @@ if (isset($_POST['submit'])) {
             Please try again later.');
          }
 
+         //Clean Strings
+         $authorName=$db->real_escape_string($authorName);
+         $bookTitle=$db->real_escape_string($bookTitle);
+
          //PRO: Query below merges checking and inserting for 1 trip to db instead of 2 
          //CON: $result is always true
          $query =
