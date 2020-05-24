@@ -1,4 +1,6 @@
-<?php require_once('view-comp/header.php');?>
+<?php require_once('view-comp/header.php');
+      include 'dbconnection/connect.php';
+?>
 <div class="card-header">
   Book Results
 </div>
@@ -19,9 +21,6 @@
       if (!$searchType || !$searchTerm) { //exception as we did in the previous lessons
         throw new Exception('You have not entered search details. Please go back and try again.', 1);
       }
-
-      // 127.0.0.1 = localhost
-      @ $db = new mysqli('localhost', 'root', '', 'php_bookcatalog_db');
 
       $dbError = mysqli_connect_errno();
       if ($dbError) {//exception as we did in the previous lessons
