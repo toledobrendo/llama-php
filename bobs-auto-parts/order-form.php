@@ -9,6 +9,7 @@ require_once('model/product.php');
   <?php
 
 //creation of object
+  // Note: These objects must be accessible in process-order.php. Include the prices as well.
   $tire = new Product();
   $tire->name = 'Tires';
   $tire->key =  'tireQty';
