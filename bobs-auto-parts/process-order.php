@@ -28,6 +28,7 @@
           // $oilQuantity = $_POST['oilQuantity'] ? $_POST['oilQuantity'] : 0;
           // $sparkQuantity = $_POST['sparkQuantity'] ?  $_POST['sparkQuantity']: 0;
 
+          // Notice: Undefined index: tireQuantity in C:\xampp\htdocs\llama-php\bobs-auto-parts\process-order.php on line 31
           $tire->__set('qty', $_POST['tireQuantity'] ? $_POST['tireQuantity'] :0);
           $oil->__set('qty', $_POST['oilQuantity'] ? $_POST['oilQuantity'] :0);
           $sparkPlugs->__set('qty', $_POST['sparkQuantity'] ? $_POST['sparkQuantity'] :0);
