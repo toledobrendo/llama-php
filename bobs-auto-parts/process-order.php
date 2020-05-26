@@ -4,6 +4,8 @@
   require_once('model/product-list.php');
   require_once('service/order-servcie.php');
   require_once('resource/properties.php')
+  // Note: forgot semi-colon and some typo
+
 
   define('VAT_PERCENT',double(getProperty("VAT_PERCENT")));
   
