@@ -1,6 +1,6 @@
 <?php
 
-
+// Filename should be the same as class name
 
 class Product
 {

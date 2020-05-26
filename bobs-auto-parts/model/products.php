@@ -1,5 +1,7 @@
 <?php
 
+//Notice: Undefined variable: qty in C:\xampp\htdocs\llama-php\bobs-auto-parts\model\products.php on line 7
+
 $tire = new Product();
 $oil = new Product();
 $sparkPlug = new Product();
