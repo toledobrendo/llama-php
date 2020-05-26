@@ -1,6 +1,7 @@
 <?php
 
 // Filename should be the same as the class name
+// Awfully similar to Dino's
 
 class Product
 {
