@@ -8,7 +8,7 @@ require_once('exception/file-not-found-exception.php');
 
 // $VAT_PERCENT = file_get_contents(DOCUMENT_ROOT."/llama-php/bobs-autopart/resource/orders.txt", FALSE, NULL, 13, 3);
 
-
+// Note: Observe proper
 
   function getVat(){
       // $filePathProperties = @fopen(DOCUMENT_ROOT.'/llama-php/bobs-autopart/resource/properties.txt' , 'rd');
