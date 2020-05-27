@@ -60,13 +60,12 @@ Book Results
 
     $result = $db->query($query);
 
-<<<<<<< HEAD
     //    $resultCount =  $result->num_rows;
     $resultCount =  $result->num_rows;
-=======
+
 
    $resultCount =  $result->num_rows;
->>>>>>> 26fcc82305cf9f7beaff12bc11b64150b35dd03b
+
 
     echo '<p>Result for '.$searchType.' : '.$searchTerm.'</br>';
     echo 'Number of books found: '.$resultCount;
