@@ -10,7 +10,8 @@
     define('FIELDS', array(
       'author' => 'author.name',
       'title' => 'book.title',
-      'isbn' => 'book.isbn'
+      'isbn' => 'book.isbn',
+      'pic_url' => 'book.pic_url'
     ));
 
     $searchType = $_POST['searchType'];
@@ -32,9 +33,8 @@
 
       // save to db: 'http://localhost/dragon-php/book-catalog/image/manila.jpg'
       // save to db: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1562726234l/13496.jpg'
-
-      $query = 'SELECT author.name as author_name, book.title, book.isbn
-        FROM book
+      $query = 'SELECT author.name as author_name, book.title, book.isbn, book.pic_url
+            FROM book
         INNER JOIN author
             ON author.id = book.author_id
         WHERE '.FIELDS[$searchType].' LIKE \'%'.$searchTerm.'%\';';
@@ -58,6 +58,7 @@
             <p>
               By: <?php echo  $row['author_name'];?> <br/>
               <?php echo $row['isbn']?>
+              <?php echo "<img src = '{$row['pic_url']}'"?>
             </p>
           </div>
         </div>
