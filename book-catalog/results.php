@@ -10,7 +10,8 @@
     define('FIELDS', array(
       'author' => 'author.name',
       'title' => 'book.title',
-      'isbn' => 'book.isbn'
+      'isbn' => 'book.isbn', 
+      'pic_url' => 'book.pic_url'
     ));
 
     $searchType = $_POST['searchType'];
@@ -58,6 +59,7 @@
             <p>
               By: <?php echo  $row['author_name'];?> <br/>
               <?php echo $row['isbn']?>
+              <?php echo "<img src = '{$row['pic_url']}' "?>
             </p>
           </div>
         </div>
