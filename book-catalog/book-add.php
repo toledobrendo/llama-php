@@ -34,7 +34,8 @@ if (isset($_POST['submit'])) {
          // $bookTitle = $db->real_escape_string($bookTitle);
          // These clean Strings are not optimal since titles of
          // books with legit apostrophes (ex. Can't Hurt Me)
-         // get corrupted when uploaded to database
+         // get corrupted when uploaded to database.
+         // Instead we use prepared statements (found below)
 
          //Query below merges checking and inserting of author 
          //for 1 trip to db instead of 2 
