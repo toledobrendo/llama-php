@@ -25,7 +25,6 @@ Book Results
 
 
 
-
   // define('IMAGES', array(
   //   'A Game of Thrones' => '../assets/images-for-book/a-game-of-thrones.png',
   //   'Java for Developers' => '../assets/images-for-book/JavaDev.png'
@@ -42,13 +41,8 @@ Book Results
 
     // 127.0.0.1 = localhosl
     // Sir d po gumagana 'User Accounts sa phpmyadmin ko po baka po may sira
-    @ $db = new mysqli('localhost', 'root', '', 'php_lesson_db');
 
-    $dbError = mysqli_connect_errno();
-    if ($dbError) {
-      throw new Exception('Error: Could not connect to database. '.
-        'Please try again later. '.$dbError, 1);
-    }
+    include('DB_Connection.php');
 
     $query = 'SELECT author.name as author_name, book.title, book.isbn, book.imgPath
       FROM book
@@ -64,7 +58,6 @@ Book Results
     $resultCount =  $result->num_rows;
 
 
-   $resultCount =  $result->num_rows;
 
 
     echo '<p>Result for '.$searchType.' : '.$searchTerm.'</br>';
