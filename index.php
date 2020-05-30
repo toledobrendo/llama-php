@@ -47,6 +47,9 @@
                   <li class="list-group-item list-group-item-success">
                      <a href="book-catalog/book-add.php">Homework - Add Book - Book Catalog</a>
                   </li>
+                  <li class="list-group-item">
+                     <a href="authentication/login.php">Authentication</a>
+                  </li>
                </ul>
             </div>
          </div>
