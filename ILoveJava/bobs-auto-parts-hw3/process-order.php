@@ -65,6 +65,7 @@
      }
    }
    </style>
+   <!--Nice effort on the UI-->
    <body class="container">
           <h3 class="card-title"><span class="glow">Order Result</span></h3>
           <div class="container">
