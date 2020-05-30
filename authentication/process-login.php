@@ -19,9 +19,13 @@
       throw new Exception("Could not connect to database");
     }
 
-    $query = 'select * from user_info where username = ? and password = ?';
+    $isActive = true;
+
+    $query = 'select * from user_info where username = ? and password = ? and active = ?';
     $stmt = $db->prepare($query);
-    $stmt->bind_param('ss', $username, $password);
+
+    $hashedPassword = hash('sha512', $password);
+    $stmt->bind_param('ssi', $username, $hashedPassword, $isActive);
     $stmt->execute();
     $result = $stmt->get_result();
 
