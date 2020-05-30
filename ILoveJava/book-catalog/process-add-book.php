@@ -108,7 +108,39 @@
       error_log($e->getMessage());
       echo $e->getMessage();
     }
+
+    $result = mysqli_query($db, "SELECT * FROM author where id = '$author_id'");
+    while($row = mysqli_fetch_array($result)){
+      $author_name = $row['name'];
+    }
   ?>
+  <br />
+  <div class="card" align="center">
+    <div>
+      <br />
+    </div>
+    <div class="row">
+      <div class="col-lg-1"></div>
+      <div class="col-lg-3" style="border-style: solid; box-shadow: 10px 10px 5px grey;" height="300px" width="200px">
+        <center>
+          <!-- fixing the size of the image -->
+          <img src="<?php echo $bookImage; ?>" alt="<?php echo $bookImage; ?>" height="300px" width="200px">
+        </center>
+      </div>
+      <div class="col-lg-1"></div>
+      <div class="col-lg-5">
+        <h2><strong><?php echo $bookName;?></strong></h2>
+        <p>
+          By: <?php echo $author_name;?> <br/>
+          <?php echo $isbn;?>
+        </p>
+      </div>
+    </div>
+    <div>
+      <br />
+    </div>
+  </div>
+
 </div>
 <div class="card-footer">
   <a class="btn btn-secondary" href="add-books.php">Back</a>
