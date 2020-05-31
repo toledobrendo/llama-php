@@ -51,6 +51,9 @@
               <li class="list-group-item">
                 <a href="ILoveJava/book-catalog/">Book Catalog - HW </a>
               </li>
+              <li class="list-group-item">
+                <a href="authentication/index.php">Authentication </a>
+              </li>
             </ul>
           </div>
         </div>
