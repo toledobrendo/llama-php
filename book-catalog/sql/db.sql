@@ -28,3 +28,5 @@ VALUES
 ALTER TABLE book ADD COLUMN pic_url VARCHAR(255);
 UPDATE book SET pic_url = 'JAVA.jpg' WHERE id = 1;
 UPDATE book SET pic_url = 'GOT.jpg' WHERE id = 2;
+
+ALTER TABLE author ADD CONSTRAINT un_author_name UNIQUE (name);

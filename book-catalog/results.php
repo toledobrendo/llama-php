@@ -1,4 +1,6 @@
-<?php require_once('view-comp/header.php');?>
+<?php
+require_once('service/log-service.php');
+require_once('view-comp/header.php');?>
 <div class="card-header">
   Book Results
 </div>
@@ -38,12 +40,16 @@
 
       //echo $query.'<br/>';
 
+      // $documentRoot = $_SERVER['DOCUMENT_ROOT'];
+      // error_log($query, 3, $documentRoot.'/../apache/logs/info.log');
+      logMessage($query);
+
       $result = $db->query($query);
 
       $resultCount = $result->num_rows;
 
-      //echo '<p>Result for '.$searchType.' : '.$searchTerm.'</br>';
-      //echo 'Number of books found: '.$resultCount;
+      echo '<p>Result for '.$searchType.' : '.$searchTerm.'</br>';
+      echo 'Number of books found: '.$resultCount;
 
       echo '<div class="row">';
       for ($ctr = 0; $ctr < $resultCount; $ctr++) {
