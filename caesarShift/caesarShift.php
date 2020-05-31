@@ -21,6 +21,7 @@
           </form>
 
            <?php
+           // Note: Insert suppress warnings.
            $rm = $_POST['message'];
            $k = $_POST['key'];
 
