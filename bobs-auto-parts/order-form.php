@@ -7,7 +7,7 @@ require_once('model/product-list.php');
   <h3 class="card-title">Order Form</h3>
   <form action="process-order.php" method="post">
     <table class="table">
-      <thead>
+      <thead class="thead-dark">
         <tr class="row">
           <th class="col-6">Item</th>
           <th class="col-3">Price</th>
@@ -38,7 +38,7 @@ require_once('model/product-list.php');
               <option value="regular">I'm a regular customer</option>
               <option value="tv">Television advertising</option>
               <option value="phone">Phone Directory</option>
-              <option value="mouth">Word of mouth</option>
+              <option value="mouth">The Word of Mouth</option>
             </select>
           </td>
         </tr>

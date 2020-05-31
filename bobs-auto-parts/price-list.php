@@ -1,18 +1,18 @@
 <?php
 require_once('view-comp/header.php');
  ?>
-  <h1>Price List</h1>
-
+  <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <h3>Price List</h3>
   
     <?php
-        echo '</p>Products</p>';
-
         $products = array('Tires','Oil','Spark Plugs');
 
         sort($products); 
         rsort($products); 
 
-        echo '<p>Product 0: </p>'.$products[0];
+        echo '<p>Product: </p>'.$products[0];
 
         echo '<ul>';
         for($ctr=0; $ctr< count($products); $ctr++){
@@ -92,8 +92,8 @@ require_once('view-comp/header.php');
 
         echo '<p>'.$items[1]['Code'].' = '.$items[1]['Description'].'</p>';
 
-        echo '<table class="table table-condensed">
-                <thead>
+        echo '<table class="table">
+                <thead class="thead-dark">
                   <tr>
                     <th>Code</th>
                     <th>Description</th>

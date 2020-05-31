@@ -11,7 +11,7 @@
         throw new Exception('Author details not complete. Please try again.');
       }
 
-      @ $db = new mysqli('127.0.0.1:3306', 'student', '123qwe', 'php_lesson_db');
+      @ $db = new mysqli('127.0.0.1:3306', 'april', 'april', 'php_lesson_db');
 
       $dbError = mysqli_connect_errno();
       if ($dbError) {
@@ -41,12 +41,12 @@
         echo $affectedRows." author inserted into the database.";
       } else {
         throw new Exception('Error: The author was not added.');
-
       }
 
       $stmt->close();
 
     } catch (Exception $e) {
+      error_log($e->getMessage());
       echo $e->getMessage();
     }
   ?>

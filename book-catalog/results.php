@@ -1,4 +1,7 @@
-<?php require_once('view/header.php');?>
+<?php
+  require_once('service/log-service.php');
+  require_once('view-comp/header.php');
+?>
 <div class="card-header">
   Book Results
 </div>
@@ -19,10 +22,8 @@
       }
 
       // 127.0.0.1 = localhost
-      //3306 = mysql
-      @ $db = new mysqli('127.0.0.1:3306', 'student', 'b00kcatal0g', 'php_lesson_db');
+      @ $db = new mysqli('127.0.0.1:3306', 'april', 'april', 'php_lesson_db');
 
-      //Checking if there are errors in connecting to database
       $dbError = mysqli_connect_errno();
       if ($dbError) {
         throw new Exception('Error: Could not connect to database. '.
@@ -32,16 +33,16 @@
       // save to db: 'http://localhost/dragon-php/book-catalog/image/manila.jpg'
       // save to db: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1562726234l/13496.jpg'
 
-      $query = 'SELECT author.name as author_name, book.title, book.isbn, book.pic_url
+      $query = 'SELECT author.name as author_name, book.title, book.isbn
         FROM book
         INNER JOIN author
             ON author.id = book.author_id
         WHERE '.FIELDS[$searchType].' LIKE \'%'.$searchTerm.'%\';';
 
-      //Excecuting query and getting the results
+      logMessage($query);
+
       $result = $db->query($query);
 
-      //Getting the number of rows in the result table
       $resultCount = $result->num_rows;
 
       echo '<p>Result for '.$searchType.' : '.$searchTerm.'</br>';
@@ -51,9 +52,8 @@
       for ($ctr = 0; $ctr < $resultCount; $ctr++) {
         $row = $result -> fetch_assoc();
       ?>
-        <div class="card col-5 mx-1">
+        <div class="card col-4 mx-1">
           <div class="card-body">
-            <img src="<?php echo $row['pic_url']?>" height="200px" style="float: left; margin-right: 10px;">
             <h6><?php echo $row['title'];?></h6>
             <p>
               By: <?php echo  $row['author_name'];?> <br/>
@@ -71,4 +71,4 @@
   <br/>
   <a class="btn btn-secondary" href="index.php">Go Back</a>
 </div>
-<?php require_once('view/footer.php');?>
+<?php require_once('view-comp/footer.php');?>

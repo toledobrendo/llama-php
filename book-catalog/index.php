@@ -1,7 +1,4 @@
-<?php 
-  require_once('view/header.php'); 
-?>
-
+<?php require_once('view-comp/header.php'); ?>
 <div class="card-header">
   Search Book
 </div>
@@ -21,11 +18,8 @@
         class="form-control" placeholder="Search Term"/>
     </div>
     <div>
-      <button type="submit" class="btn btn-dark">Submit</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
     </div>
   </form>
 </div>
-
-<?php 
-  require_once('view/footer.php'); 
-?>
+<?php require_once('view-comp/footer.php'); ?>
