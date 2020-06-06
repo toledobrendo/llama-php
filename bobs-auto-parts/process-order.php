@@ -6,7 +6,7 @@
   require_once('resource/properties.php')
   // Note: forgot semi-colon and some typo
 
-
+  //Parse error: syntax error, unexpected 'define' (T_STRING) in C:\xampp\htdocs\llama-php\bobs-auto-parts\process-order.php on line 10
   define('VAT_PERCENT',double(getProperty("VAT_PERCENT")));
   
 ?>
