@@ -14,6 +14,8 @@ function saveOrder($tireQty,$oilQty,$sparkQty,$totalAmount){
      flock($file, LOCK_EX);
      fwrite($file, $outputString, strlen($outputString));
      fclose($file);
+
+     // Warning: flock(): supplied resource is not a valid stream resource in C:\xampp\htdocs\llama-php\bobs-auto-parts\model\order-service.php on line 17
      flock($file, LOCK_UN);
    }
 
