@@ -4,6 +4,7 @@
     require_once('model/list-of-products.php');
     require_once('service/orderService.php');
    ?>
+   <!-- Note: Better to place this on an external .css file -->
    <style>
    .flip-card {
      background-color: transparent;
