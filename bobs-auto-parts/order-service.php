@@ -43,6 +43,7 @@ function saveOrder($tireQty,$oilQty,$sparkQty,$totalAmount){
     }
 
     function getVAT()    {
+      // missing file
       $file = @fopen(DOCUMENT_ROOT.'/llama-php/bobs-auto-parts/resource/properties.txt', 'rd');
 
       if (!$file) {
