@@ -75,4 +75,20 @@
       echo $e;
     }
   }
+
+
+  //get vat from properties.txt
+  function getVatPercent(){
+      //get the file/path
+      $file = @ fopen(DOCUMENT_ROOT.'/llama-php/bobs-auto-parts/resource/properties.txt', 'rb');
+
+      if(!$file){
+        throw new FileNotFoundException('No VAT value found. Please try again later.');
+      } else {
+        $vatPercent = fgets($file, 999);
+        $vatPercentArr = explode("=", $vatPercent);
+        return $vatPercentArr[1];
+      }
+
+  }
 ?>

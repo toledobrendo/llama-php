@@ -1,11 +1,10 @@
-<?php
-  define ('VAT_PERCENT', 0.12);
- ?>
  <?php
    require_once('view-comp/header.php');
    require_once('model/product.php');
    require_once('model/product-list.php');
    require_once('service/order-service.php');
+   define ('VAT_PERCENT', getVatPercent());
+
   ?>
 
         <h3 class = "card-title"> Order Title </h3>
@@ -125,11 +124,12 @@
           // echo 'Other Total Amount: '.$otherTotalAmount. '<br/>';
 
           // $vatableAmount = (float) $totalAmount / (1 + 0.12);
-          $vatableAmount = (float) $totalAmount / (1 + VAT_PERCENT);
+
+          $vatableAmount = @ ((float) $totalAmount / (1 + VAT_PERCENT));
           echo 'VATable Amount: '.$vatableAmount.'.<br/>';
 
-          $vatAmount = $vatableAmount * VAT_PERCENT;
-          echo 'VAT Amount (12%): '.$vatAmount.'<br/>';
+          $vatAmount = @ ($vatableAmount * VAT_PERCENT);
+          echo 'VAT Amount ' .@(VAT_PERCENT * 100). '%: ' .$vatAmount.'<br/>';
 
           // $totalAmount = (float) ($tireAmount + $oilAmount + $sparkAmount);
           // $totalAmount += $sparkAmount;
