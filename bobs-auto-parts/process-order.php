@@ -31,6 +31,7 @@
           @($tire->__set('qty', $_POST['tireQuantity'] ? $_POST['tireQuantity'] : 0));
           @($oil->__set('qty', $_POST['oilQuantity'] ? $_POST['oilQuantity'] : 0));
           @($sparkPlugs->__set('qty', $_POST['sparkQuantity'] ? $_POST['sparkQuantity'] :0));
+
           // echo '<p>Your order is as follows</p>';
           // // means concatenation; instead of plus, kay php kailangan dot.
           // // single quote, kapag may nilagay na variable, hindi ipprocess.
