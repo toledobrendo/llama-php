@@ -47,6 +47,15 @@
               $oilAmount = @($oilQty * OIL_PRICE);
               $sparkAmount = @($sparkQty * SPARK_PRICE);
 
+              $vatAble = (float)(($tireAmount + $oilAmount + $sparkAmount)/1.12); //for VATable
+              $vatAmount = (float)($vatAble * 0.12);   //to get vatAmount
+
+              $totalAmount = (float)($vatAble + $vatAmount);
+
+              echo 'VATable Amount: '. $vatAble. '<br/>';
+              echo 'VAT Amount (12%): '. $vatAmount. '<br/>';
+              echo 'Total Amount: '.$totalAmount. '<br/>';
+
               $totalAmount = (float) $tireAmount;
 
               $otherTotalAmount = &$totalAmount;
