@@ -43,7 +43,7 @@
       //throw new Exception('No orders pending. Please try again later.', 1);
 
       //use the newly created file exception (no need for the code)
-      throw new Exception('No orders pending. Please try again later.');
+      throw new FileNotFoundException('No orders pending. Please try again later.');
       } else { //there is a file
           while(!feof($file)){
             $order = fgets($file, 999);
