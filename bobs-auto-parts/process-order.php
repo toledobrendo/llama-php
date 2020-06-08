@@ -155,6 +155,7 @@
           //tests if a variable has value - keyword EMPTY
           echo 'Is $totalAmountTwo empty? ' .(empty($totalAmountTwo) ? 'Yes' : 'No').'<br/>';
 
+          //call the function from the order-service.php
           saveOrder($tire->__get('qty'), $oil->__get('qty'), $sparkPlugs->__get('qty'), $totalAmount);
       	?>
 
