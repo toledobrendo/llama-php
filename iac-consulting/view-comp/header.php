@@ -23,10 +23,12 @@
           <a class="nav-link" href="index.php">Home</a>
         </li>
 
+        <!-- gets the current request uri then checks if that certain php file is contained in that current uri -->
         <!-- //One way -->
-        <!-- <li class="nav-item"> <?php if(strpos($_SERVER['REQUEST_URI'], 'about-us.php')) echo 'active'; ?>
-          <a class="nav-link" href="about-us.php">About Us</a>
+        <!-- <li class="nav-item" <?//php if(strpos($_SERVER['REQUEST_URI'], 'index.php')) echo 'active'; ?>">
+          <a class="nav-link" href="index.php">About Us</a>
         </li> -->
+
 
         <!-- //Second way -->
         <li class="nav-item"><?php if(isActive('about-us.php')) echo 'active'; ?>

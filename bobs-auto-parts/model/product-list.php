@@ -9,7 +9,7 @@
 
   $tire->instantiate ('Tire', TIRE_PRICE, 'tireQuantity');
   $oil->instantiate('Oil', OIL_PRICE, 'oilQuantity');
-  $sparkPlugs->instantiate('Spark Plugs', SPARK_PRICE, 'sparkQuantity');
+  $sparkPlugs->instantiate('SparkPlugs', SPARK_PRICE, 'sparkQuantity');
 
   $productList = array($tire, $oil, $sparkPlugs);
 

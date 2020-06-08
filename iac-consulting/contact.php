@@ -8,7 +8,8 @@
   require_once('message.php');
   require_once('view-comp/header.php');
  ?>
-        We are located at Yakal St., Makati City
+
+We are located at Yakal St., Makati City
 
 <?php
   require_once('view-comp/footer.php');

@@ -5,9 +5,75 @@
 
 <div class="card-body">
   <?php
-    $searchType = $_POST['searchType'];
-    $searchTerm = $_POST['searchTerm'];
 
+    define('FIELDS', array(
+     'author' => 'author.name',
+     'title' => 'book.title',
+     'isbn' => 'book.isbn'
+   ));
+
+   $searchType = $_POST['searchType'];
+   $searchTerm = $_POST['searchTerm'];
+
+    try{
+      if(!$searchType || !$searchTerm){
+        throw new Exception('You have not entered search details. Please go back and try again', 1);
+      }
+
+      @ $db = new mysqli('127.0.0.1:3306', 'student', '123qwe', 'php_lesson_db');
+
+      $dbError = mysqli_connect_errno();
+
+      if($dbError){
+        throw new Exception('Error: Could not connect to database. Please try again later.' .$dbError, 1);
+      }
+
+      $query = 'SELECT author.name as author_name, book.title, book.isbn
+      FROM book
+      INNER JOIN author
+        ON author.id = book.author_id
+        WHERE '.FIELDS[$searchType].' LIKE \'%'.$searchTerm.'%\';';
+
+      // $query = 'SELECT author.name as author_name, book.title, book.isbn
+      // FROM book
+      // INNER JOIN author
+      //   ON author.id = book.author_id
+      //   WHERE author.name LIKE \'%'.$searchTerm.'%\';';
+
+        $result = $db->query($query);
+
+        $resultCount = $result->num_rows;
+
+        echo '<p>Result for '.$searchType.' : '.$searchTerm.'</br>';
+        echo 'Number of books found: '.$resultCount;
+
+        echo '<div class="row">';
+        for ($ctr = 0; $ctr < $resultCount; $ctr++) {
+        $row = $result -> fetch_assoc();
+  ?>
+
+        <!-- for($ctr = 0; $ctr < $resultCount; $ctr++){
+          $row = $result->fetch_assoc();
+          // echo $row['author_name'];
+      ?> -->
+      <div class="card col-4">
+        <div class="card-body">
+          <h6><?php echo $row['title'];?></h6>
+          <p>By: <?php echo $row['author_name'];?> <br/>
+            <?php echo $row['isbn'];?>
+          </p>
+        </div>
+      </div>
+      <?php
+    }
+    echo '</div>';
+
+    // echo $query;
+    } catch (Exception $e) {
+      echo $e->getMessage();
+      // echo '<br/>';
+      // echo '<a class="btn btn-secondary my-3" href="index.php">Go Back</a>';
+    }
    ?>
 </div>
 <?php require_once('view-comp/footer.php') ?>

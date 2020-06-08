@@ -1,5 +1,5 @@
 <?php
-require_once('person.php');
+require_once('person.php'); //to make iwas of losing person.php if you put employee.php first in the index.php
 
 class Employee extends Person{
   private $company;
@@ -12,15 +12,16 @@ class Employee extends Person{
     $this->$fieldName = $fieldValue;
   }
 
-  //OVERRIDING METHODS
+  //OVERRIDING METHODS of the parent
   public function introduce(){
     parent::introduce();
-    echo ' from ' .$this.company;
+    echo ' from '.$this->company;
   }
 
-  // public function incrementAge(){
-  //   $this->age +=2;
-  // }
+//results to an error because it cannot be overriden anymore since it is a final function in person.php
+//   public function incrementAge(){
+//     $this->age +=2;
+//   }
 }
 
 

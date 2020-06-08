@@ -23,11 +23,12 @@ class Person{
   }
 
   public function __get($fieldName){
-    if($fieldName !== 'address'){
+    if($fieldName === 'address'){
       return $this->$fieldName;
     } else {
       return 'Access Denied';
     }
+    //would return access denied if - if($fieldName !== 'address')
 
   }
 

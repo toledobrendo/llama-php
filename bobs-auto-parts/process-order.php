@@ -28,9 +28,9 @@
           // $oilQuantity = $_POST['oilQuantity'] ? $_POST['oilQuantity'] : 0;
           // $sparkQuantity = $_POST['sparkQuantity'] ?  $_POST['sparkQuantity']: 0;
 
-          $tire->__set('qty', $_POST['tireQuantity'] ? $_POST['tireQuantity'] :0);
-          $oil->__set('qty', $_POST['oilQuantity'] ? $_POST['oilQuantity'] :0);
-          $sparkPlugs->__set('qty', $_POST['sparkQuantity'] ? $_POST['sparkQuantity'] :0);
+          @($tire->__set('qty', $_POST['tireQuantity'] ? $_POST['tireQuantity'] : 0));
+          @($oil->__set('qty', $_POST['oilQuantity'] ? $_POST['oilQuantity'] : 0));
+          @($sparkPlugs->__set('qty', $_POST['sparkQuantity'] ? $_POST['sparkQuantity'] :0));
           // echo '<p>Your order is as follows</p>';
           // // means concatenation; instead of plus, kay php kailangan dot.
           // // single quote, kapag may nilagay na variable, hindi ipprocess.
@@ -62,12 +62,24 @@
               break;
           }
 
-          echo '<br/><br/>';
+          $tireQty = $tire->__get('qty');
+          $oilQty = $oil->__get('qty');
+          $sparkQty = $sparkPlugs->__get('qty');
+
+          echo '<p>Your order is as follows: </p>';
+          echo  $tireQty.' tires <br/>';
+          echo $oilQty.' bottles of oil <br/>';
+          echo $sparkQty.' spark plugs.<br/><br/>';
+
+        $totalQty = @($tire->__get('qty') + $oil->__get('qty') + $sparkPlugs->__get('qty'));
+        echo 'Total Quantity '.$totalQty.'<br/><br/>';
+
+          echo '<br/>';
           echo '<p>Prices<br/>';
           // to access constant variables, call it using the same variable name WITHOUT the dollar sign.
           echo 'Tires: '.TIRE_PRICE. '<br/>';
-          echo "Oil: ".OIL_PRICE. '<br/>';
-          echo "Spark Plug: ".SPARK_PRICE. '<br/><br/>';
+          echo 'Oil: '.OIL_PRICE. '<br/>';
+          echo 'Spark Plug: '.SPARK_PRICE. '<br/><br/>';
 
           // ADDITION; it is expecting a numeric value. There would be a warning if the form submitted is empty.
           //nevertheless, with a warning, it would still display a zero.
@@ -88,24 +100,22 @@
           // }
 
 
-            echo '<p>Your order is as follows: </p>';
-               echo  @($tire->__get('qty').' tires. <br/>');
-               echo @($oil->__get('qty').' bottles of oil. <br/>');
-               echo @($sparkPlugs->__get('qty').' spark plugs.<br/><br/>');
 
-          $totalQty = @($tire->__get('qty') + $oil->__get('qty') + $sparkPlugs->__get('qty'));
-          echo 'Total Quantity '.$totalQty.'<br/><br/>';
           // $tireAmount = @($tireQuantity * TIRE_PRICE);
           // $oilAmount = @($oilQuantity * OIL_PRICE);
           // $sparkAmount = @($sparkQuantity * SPARK_PRICE);
 
-          $tireAmount = @($tire->__get('quantity') * TIRE_PRICE);
-          $oilAmount = @($oil->__get('quantity') * OIL_PRICE);
-          $sparkAmount = @($sparkPlugs->__get('quantity')* SPARK_PRICE);
+          $tireAmount = @($tire->__get('qty') * TIRE_PRICE);
+          $oilAmount = @($oil->__get('qty') * OIL_PRICE);
+          $sparkAmount = @($sparkPlugs->__get('qty')* SPARK_PRICE);
 
           // $totalAmount = (float) $tireAmount;
 
           $totalAmount = (float) $tireAmount + $oilAmount + $sparkAmount;
+
+          echo 'Tire Amount: '.$tireAmount.' <br/>';
+          echo 'Oil Amount: '.$oilAmount.' <br/>';
+          ECHO 'Spark Plugs Amount: '.$sparkAmount.' <br/><br/>';
 
           // $otherTotalAmount = &$totalAmount;
           // // kung saan nagpopoint ang reference, same sakaniya.
@@ -137,14 +147,14 @@
           //totalAmountTwo would be set
           $totalAmountTwo = ""; //if totalAmountTwo = 1, then it would NOT be empty.
 
-          //Checks if the variable in the file is initialized / declared - keword isset
+          //Checks if the variable in the file is initialized / declared - keword issetx
           echo 'Is $totalAmount set? ' .(isset($totalAmount) ? 'Yes' : 'No').'<br/>';
           echo 'Is $totalAmountTwo set? ' .(isset($totalAmountTwo) ? 'Yes' : 'No').'<br/>';
 
           //tests if a variable has value - keyword EMPTY
           echo 'Is $totalAmountTwo empty? ' .(empty($totalAmountTwo) ? 'Yes' : 'No').'<br/>';
 
-          saveOrder($tireQuantity, $oilQuantity, $sparkQuantity, $totalAmount);
+          saveOrder($tire->__get('qty'), $oil->__get('qty'), $sparkPlugs->__get('qty'), $totalAmount);
       	?>
 
 

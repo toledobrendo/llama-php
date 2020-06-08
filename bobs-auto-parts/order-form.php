@@ -36,7 +36,7 @@
                             <td class = "col-5"> '.$product->name.' </td>
                             <td class = "col-3"> '.$product->price.' </td>
                             <td class = "col-4">
-                              <input type = "number" name = '.$product->qty.' min = "0" max = "10" class="form-control"/>
+                              <input type = "number" name = "'.$product->qty.'" min = "0" max = "10" class="form-control"/>
                             </td>
                           </tr>';
                 }
