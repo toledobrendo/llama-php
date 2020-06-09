@@ -1,6 +1,5 @@
-<?php
-  require_once('view-comp/header.php');
- ?>
+<?php require_once('view-comp/header.php'); ?>
+
  <div class="card-header">
    Search Book
  </div>
@@ -25,6 +24,5 @@
     </div>
   </form>
 </div>
- <?php
-   require_once('view-comp/footer.php');
-  ?>
+
+<?php require_once('view-comp/footer.php'); ?>

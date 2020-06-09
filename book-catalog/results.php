@@ -20,8 +20,11 @@
         throw new Exception('You have not entered search details. Please go back and try again', 1);
       }
 
+      //CONNECTING MYSQL
+      //IP ADDRESS AND PORT
       @ $db = new mysqli('127.0.0.1:3306', 'student', '123qwe', 'php_lesson_db');
 
+      //check if db is connected
       $dbError = mysqli_connect_errno();
 
       if($dbError){
@@ -71,8 +74,8 @@
     // echo $query;
     } catch (Exception $e) {
       echo $e->getMessage();
-      // echo '<br/>';
-      // echo '<a class="btn btn-secondary my-3" href="index.php">Go Back</a>';
+      echo '<br/>';
+      echo '<a class="btn btn-secondary my-3" href="index.php">Go Back</a>';
     }
    ?>
 </div>
