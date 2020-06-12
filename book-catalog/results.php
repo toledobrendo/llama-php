@@ -9,7 +9,8 @@ require_once('view-comp/header.php');?>
     define('FIELDS', array(
       'author' => 'author.name',
       'title' => 'book.title',
-      'isbn' => 'book.isbn'
+      'isbn' => 'book.isbn',
+      'pic_url' => 'book.pic_url'
     ));
 
     $searchType = $_POST['searchType'];
