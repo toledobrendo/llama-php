@@ -27,6 +27,7 @@ VALUES
 
 ALTER TABLE book ADD COLUMN image_location VARCHAR(255);
 
+-- Note: Good job on using external images
 UPDATE book SET image_location = 'https://images-na.ssl-images-amazon.com/images/I/41F6QB7SWFL._SX258_BO1,204,203,200_.jpg' WHERE id=1;
 
 -- image_location value is 252 characters
