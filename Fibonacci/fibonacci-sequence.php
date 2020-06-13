@@ -18,7 +18,7 @@
                 <button type="submit" class="btn btn-success">Submit</button>
               </div>
               <?php
-                $fibonacciSeq =  @($_POST['sequence'] ? $_POST['sequence'] : 0);
+                  $fibonacciSeq =  @($_POST['sequence'] ? $_POST['sequence'] : 0);
                   echo 'Sequence Length: '. $fibonacciSeq. '<br/>';
 
                   $mainValue = 0;
