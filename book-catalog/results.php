@@ -11,6 +11,7 @@
         'isbn' => 'book.isbn'
       ));
 
+      // Note: Better to store this in the DB for better maintenance
       define('IMAGES', array(
         'The Lord of the Rings' => 'images/lotr.jpg',
         'Harry Potter and the Chamber of Secrets' => 'images/hp.jpg'
