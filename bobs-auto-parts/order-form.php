@@ -7,58 +7,52 @@
 
   </head>
     <body>
-      <div class="container">
-        <div class="card">
-          <div class="card-body">
+
             <h3 class="card-title">Order Form</h3>
             <form  action="process-order.php" method="post">
-              <table class="table">
+              <?php
+              $products = array(
+                array('Item' => 'Tires', 'Price' => 100, 'Quantity' => '<input type="number" name="tireQty" maxlength="3" min="0" max="10" class="form-control"/>'),
+                array('Item' => 'Oil', 'Price' => 50, 'Quantity' => '<input type="number" name="oilQty" maxlength="3" min="0" max="10" class="form-control"/>'),
+                array('Item' => 'Spark Plugs', 'Price' => 150, 'Quantity' => '<input type="number" name="sparkQty" maxlength="3" min="0" max="10" class="form-control"/>')
+                        );
+
+
+          echo '<table class="table table-condensed">
                 <thead>
-                  <tr class="row">
-                    <th class="col-5">Item</th>
-                    <th colspan="col-4">Quantity</th>
-                  </tr>
-                  <tr class="row">
-                    <td class="col-5">Tires</td>
-                    <td class="col-4">
-                      <input type="number" name="tireQty" maxlength="3" min="0" max="10" class="form-control"/>
-                    </td>
-                  </tr>
-                  <tr class="row">
-                    <td class="col-5">Oil</td>
-                    <td class="col-4">
-                      <input type="number" name="oilQty" maxlength="3" min="0" max="10" class="form-control"/>
-                    </td>
-                  </tr>
-                  <tr class="row">
-                    <td class="col-5">Spark Plugs</td>
-                    <td class="col-4">
-                      <input type="number" name="sparkQty" maxlength="3" min="0" max="10" class="form-control"/>
-                    </td>
-                  </tr>
-                  <tr class="row">
-                    <td class="col-5">How did you find Bob's </td>
-                    <td class="col-4">
-                      <select name= "find" class="custom-select">
-                        <option value="regular">I'm a regular customer</option>
-                        <option value="tv">Tv advertising</option>
-                        <option value="phone">Phone Directory</option>
-                        <option value="mouth">Word of mouth </option>
-                      </select>
-                    </td>
-                  </tr>
-                  <tr class="row">
-                    <td colspan="2" class="col-9">
-                      <a href="freight-cost.php" class="btn btn-secondary float-right">Freight Cost </a>
-                      <button type="submit" class="btn btn-primary float-right">Submit</button>
-                    </td>
-                  </tr>
-                </thead>
-              </table>
-            </form>
-          </div>
-        </div>
-      </div>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    </tr>
+                </thead>';
+          foreach ($products as $product) {
+                        echo '<tr>';
+          foreach ($product as $value) {
+            echo '<td>'.$value.'</td>';
+                  }
+            echo '</tr>';
+                  }
+            echo '<tr>
+              <td>How did you find Bob\'s<td>
+                <td>
+                  <select name="find" class="custom-select">
+                    <option value="regular">I\'m a regular customer</option>
+                    <option value="tv">TV Advertisement</option>
+                    <option value="phone">From Phone directory</option>
+                    <option value="mouth">From Word of Mouth</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td colspan=\'3\'>
+                  <a href="freight-cost.php" class="btn btn-secondary btn-sm float-right">Freight Cost</a>
+                  <button type="submit" class="btn btn-primary btn-sm float-right">Submit</button>
+                </td>
+              </tr>';
+              echo '</table><br/><br/>';
+              ?>
+          </form>
 
 
        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
