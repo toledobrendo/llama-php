@@ -1,104 +1,99 @@
-<?php require_once('view-comp/header.php') ?>
+<?php 
+  require_once('view-comp/header.php'); 
+?>
+
+<div class="card-header">
+  Add Book Result
+</div>
 <div class="card-body">
-<?php
-  try {
-    $bookTitle = $_POST['bookTitle'];
-    $authorName = $_POST['authorName'];
-    $ISBN = $_POST['ISBN'];
-    $imgURL = $_POST['imgURL'];
-    if(!$bookTitle || !$authorName || !$ISBN){
-      throw new Exception('Book details incomplete. Try again.');
-    }
+    <?php
+        $bookTitle = $_POST['bookTitle'];
+        $authorName = $_POST['authorName'];
+        $isbn = $_POST['isbn'];
+        $imageUrl = $_POST['imageUrl'];
 
-    try{
+        try {
 
-      @ $db = new mysqli('127.0.0.1:3306', 'april', 'april', 'php_lesson_db');
+          @ $db = new mysqli('127.0.0.1:3306', 'student', '123qwe', 'php_lesson_db');
 
-      $dbError = mysqli_connect_errno();
-      if ($dbError) {
-        throw new Exception('Error: Could not connect to database. Please try again later.');
-      }
+          $dbError = mysqli_connect_errno();
+          if ($dbError) {
+            throw new Exception('Error: Could not connect to database. Please try again.');
+          }
 
-    $query = "SELECT `id` FROM `author` WHERE `name` = ?";
-    $pStatement = $db->prepare($query);
-    $pStatement->bind_param('s',$authorName);
-    $pStatement->execute();
-    $result = $pStatement->get_result();
+          // searching for author's name
+          $query = 'select id from author where name = \''.$authorName.'\'';
+          $result = $db->query($query);
+          $resultCount = $result->num_rows;
 
-    if($result->num_rows > 0)  
-      $authorId = implode("",$result->fetch_assoc());
-      $pStatement->close();
-      addBook($bookTitle,$ISBN,$authorId,$imgURL);
-    } else { 
-      $pStatement->close();
-      $query = 'INSERT INTO AUTHOR(NAME) VALUES(?)';
-      $pStatement = $db->prepare($query);
-      $pStatement->bind_param('s',$authorName);
-      $pStatement->execute();
-      $pStatement->close();
-      $authorId = getAuthorId($authorName);
-      addBook($bookTitle,$ISBN,$authorId,$imgURL);
-    }
 
-  } catch (Exception $e) {
-    error_log($e->getMessage());
-    echo $e->getMessage();
-  }
+          if ($resultCount == 0) {
 
- ?>
+            $query = 'insert into author (name) values (?)';
+            $stmt = $db->prepare($query);
+            $stmt->bind_param("s", $authorName);
 
- <?php
-   function addBook($bookTitle,$ISBN,$authorId,$imgURL){
-    
-     try{
+            $stmt->execute();
 
-      @ $db = new mysqli('127.0.0.1:3306', 'april', 'april', 'php_lesson_db');
 
-      $dbError = mysqli_connect_errno();
-      if ($dbError) {
-        throw new Exception('Error: Could not connect to database. Please try again later.');
-      }
+            $query = 'select id from author where name = \''.$authorName.'\'';
+            $result = $db->query($query);
+            $row = $result -> fetch_assoc();
 
-     $query = "INSERT INTO `book`(`title`, `isbn`,`author_id`,`imgURL`)
-               VALUES (?,?,?,?)";
-     $pStatement = $db->prepare($query);
-     $pStatement->bind_param('siis',$bookTitle,$ISBN,$authorId,$imgURL);
-     $pStatement->execute();
+            
+            $authorId = $row['id'];
 
-     if($pStatement->affected_rows > 0){
-       echo "Book successfully added.";
-     } else {
-       throw new Exception('Book add fail.');
-     }
-     $pStatement->close();
-   }
-   function getAuthorId($authorName) {
-     try{
+            $query = 'insert into book (img_url, title, isbn, author_id) values (?, ?, ?, ?)';
+            $stmt = $db->prepare($query);
+            $stmt->bind_param("ssss", $imageUrl, $bookTitle, $isbn, $authorId);
 
-      @ $db = new mysqli('127.0.0.1:3306', 'april', 'april', 'php_lesson_db');
+            $stmt->execute();
 
-      $dbError = mysqli_connect_errno();
-      if ($dbError) {
-        throw new Exception('Error: Could not connect to database. Please try again later.');
-      }
-      
-     $query = "SELECT `id` FROM `author` WHERE `name` = ?";
-     $pStatement = $db->prepare($query);
-     $pStatement->bind_param('s',$authorName);
-     $pStatement->execute();
-     $result = $pStatement->get_result();
+            @ $affectedRows = $stmt->$affected_rows;
 
-     if($result->num_rows > 0) { 
-       $authorId = implode("",$result->fetch_assoc());
-       $pStatement->close();
-       return $authorId;
-     }
-   }
- ?>
+            if ($affectedRows > 0) {
+              throw new Exception("Error: Author was not added.");
+            } else {
+              echo $affectedRows."book successfully inserted into the database.";
+            }
 
- <div class="card-footer">
-   <a class="btn btn-info" href="book-add.php">Go Back</a>
- </div>
+            $stmt->close();
+          } else {
+
+            $query = 'select id from author where name = \''.$authorName.'\'';
+            $result = $db->query($query);
+            $row = $result -> fetch_assoc();
+
+            
+            $authorId = $row['id'];
+
+            $query = 'insert into book (img_url, title, isbn, author_id) values (?, ?, ?, ?)';
+            $stmt = $db->prepare($query);
+            $stmt->bind_param("ssss", $imageUrl, $bookTitle, $isbn, $authorId);
+
+            $stmt->execute();
+
+            @ $affectedRows = $stmt->$affected_rows;
+
+            if ($affectedRows > 0) {
+              throw new Exception("Error: Author was not added.");
+            } else {
+              echo $affectedRows."book successfully inserted into the database.";
+            }
+
+            $stmt->close();
+          }
+
+        } catch (Exception $e) {
+          echo $e->getMessage();
+        }
+
+     ?>
+</div>
+<div class="card-footer">
+  <a class="btn btn-dark" href="book-add.php">Back</a>
 </div>
 
-<?php require_once('view-comp/footer.php') ?>
+<?php 
+  require_once('view-comp/footer.php'); 
+?>

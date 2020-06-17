@@ -1,4 +1,6 @@
-<?php require_once('view-comp/header.php');?>
+<?php 
+  require_once('view-comp/header.php');
+?>
 <div class="card-header">
   Add Book
 </div>
