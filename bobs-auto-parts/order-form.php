@@ -53,4 +53,3 @@ require_once('model/product-list.php');
 <?php
 require_once('view-comp/footer.php');
  ?>
-© 2020 GitHub, Inc.
