@@ -32,7 +32,7 @@
       }
 
 
-      $query = 'SELECT author.name as author_name, book.title, book.isbn
+      $query = 'SELECT author.name as author_name, book.pic_url ,book.title, book.isbn
           FROM book
           INNER JOIN author
             ON author.id = book.author_id
@@ -54,6 +54,7 @@
       ?>
         <div class="card col-4 mx-1">
           <div class="card-body">
+            <img class="my-3" src="<<?php echo $row ['pic_url']; ?>" width="200 rem" alt="Book">
             <h6><?php echo $row['title'];?></h6>
             <p>
               By: <?php echo  $row['author_name'];?> <br/>
