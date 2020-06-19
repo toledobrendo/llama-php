@@ -23,6 +23,9 @@
             <li class="nav-item active">
               <a href="process-order.php" class="nav-link">Process Order</a>
             </li>
+            <li class="nav-item active">
+              <a href="../view-comp/view-orders.php" class="nav-link">Order Service</a>
+            </li>
           </ul>
         </div>
       </div>

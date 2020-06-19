@@ -1,16 +1,18 @@
 
 <?php
-  define('TIRE_PRICE', 100);
-  define('OIL_PRICE', 50);
-  define('SPARK_PRICE', 30);
+define('TIRE_PRICE', 100);
+define('OIL_PRICE', 50);
+define('SPARK_PRICE', 30);
 
-  $tire = new Product();
-  $oil = new Product();
-  $sparkPlugs = new Product();
+$tire = new Product();
+$oil = new Product();
+$sparkPlugs = new Product();
 
-  $tire->instantiate('Tires',TIRE_PRICE, 'tireQty');
-  $oil->instantiate('Oil', OIL_PRICE, 'oilQty');
-  $sparkPlugs->instantiate('Spark Plugs', SPARK_PRICE, 'sparkQty');
+$tire->instantiate ('Tire', TIRE_PRICE, 'tireQuantity');
+$oil->instantiate('Oil', OIL_PRICE, 'oilQuantity');
+$sparkPlugs->instantiate('SparkPlugs', SPARK_PRICE, 'sparkQuantity');
 
-  $products = array($tire,$oil,$sparkPlugs);
+$productList = array($tire, $oil, $sparkPlugs);
+
+
 ?>
