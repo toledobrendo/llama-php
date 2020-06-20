@@ -19,6 +19,8 @@ Add Author Result
       if ($dbError){
         throw new Exception('Error: Could not connect to database. Please try again later.');
       }
+      
+      // Note: What if the author already exists?
       $query = 'insert into author (name) values (?)';
       $stmt = $db->prepare($query);
       $stmt->bind_param("s", $authorName);
