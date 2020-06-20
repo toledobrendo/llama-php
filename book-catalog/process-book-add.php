@@ -11,6 +11,7 @@ Add Book Result
     $pic_url = $_POST['pic_url'];
 
     try{
+      // Note: Author name is not declared at this point.
       if (!$authorName) {
         throw new Exception('Book details not complete. Please try again.');
       }
