@@ -2,6 +2,9 @@
 <?php
   require_once('service/order-service.php');
   require_once('model/product-list.php');
+  require_once('service/vat-service.php');
+
+  define('VAT_PERCENT', readVatFile());
 
   define('TIRE_PRICE', 100);
   define('OIL_PRICE', 50);
@@ -58,15 +61,14 @@
             // VAT = 0.12 * VATable
             //VATable = total/1.12
 
-            $vatAble = (float)(($totalAmount)/1.12);
-            $vatAmount = (float)($vatAble * 0.12);
+            if($totalAmount != 0 && VAT_PERCENT != 0){
+              $vatableAmount = $totalAmount / (1 + VAT_PERCENT);
+              $vat = $totalAmount - $vatableAmount;
+            }
 
-            $totalAmount = (float)($vatAble + $vatAmount);
-
-
-            echo "<br/>VATable amount = ".$vatAble.'<br/>';
-            echo "VAT amount = ".$vatAmount.'<br/>';
-            echo "Total Amount = ".$totalAmount."<br/><br/>";
+            echo "<br/>VATable amount = ".round($vatableAmount,2).'<br/>';
+            echo "VAT amount = ".round($vat,2).'<br/>';
+            echo "Total Amount = ".round($totalAmount,2).".00<br/><br/>";
 
             echo "Amount exceeded 500?".($totalAmount > 500 ? ' YES' : ' NO').'<br/><br/>';
 
