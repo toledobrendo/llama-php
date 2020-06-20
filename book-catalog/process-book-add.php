@@ -62,6 +62,7 @@
               $authorID = $row['id'];
 
               //then we insert the book
+              // Note; This line is similar to line 45. This could be placed outside the if statement to minimize duplicate code.
               $sql = "INSERT INTO book (id,title, isbn, author_id, pic_url) VALUES (NULL,'$bookTitle', '$ISBN', '$authorID', '$imgURL')";
               $result = mysqli_query($conn,$sql);
               if ($result > 0) {
