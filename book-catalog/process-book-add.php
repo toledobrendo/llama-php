@@ -20,6 +20,7 @@
       }
 
       // Query by prepared statements
+      // Note: Book and Author tables are not normalized
       $query = 'insert into book (bookTitle, authorName, ISBN, pic_url) values (?,?,?,?)';/
       $stmt = $db->prepare($query);
       $stmt->bind_param("ssss", $authorName);/
