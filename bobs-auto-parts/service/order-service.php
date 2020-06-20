@@ -1,35 +1,41 @@
 <?php
-  require_once('../exception/file-not-found-exception.php');
+  require_once('exception/file-not-found-exception.php');
  ?>
 
 
 <?php
   define('DOCUMENT_ROOT', $_SERVER['DOCUMENT_ROOT']);
 
-  function saveOrder($tireQty, $oilQty, $sparkQty, $totalAmount){
-    echo "<br/>".DOCUMENT_ROOT;
+  function saveOrder($boughtList,$total){
 
-    $date = date('H:i, jS F Y');
-    $outputString = $date."\t"
-      .$tireQty." tires\t"
-      .$oilQty." oil\t"
-      .$sparkQty." spark plugs\t".
-      '$'.$totalAmount."\n";
+		$outFile = date('H:i, jS F Y').', '."\t";
+		$printFile = date('H:i, jS F Y').', '."\t".$total.'.00, '."\t";
 
-    $file = @ fopen(DOCUMENT_ROOT.'/llama-php/bobs-auto-parts/resource/orders.txt', 'ab'); //writing
+		$fileLoc = @ fopen(DOCUMENT_ROOT.'/llama-php/bobs-auto-parts/resource/orders.txt', 'ab');
 
-    if (!$file) {
-      echo "<p><strong>Your order could not be processed at this time.
-          Please try again later.</strong></p>";
-    }else{
+		if(!$fileLoc){
+			echo '<p><b>Sorry for the inconvinience. We are currently under maintainance.</b></p>';
+		}else{
+			//success
+			$ctr=1;
+			foreach ($boughtList->product as $item) {
+				if($ctr!=3){
+					$printFile .= $_POST[$item->prodId]." ".$item->name.'(s). '."\t";
 
-        flock($file, LOCK_EX);
-        fwrite($file, $outputString, strlen($outputString));
-        flock($file, LOCK_UN);
+          $item->name.'(s), '."\t";
+    				}else{
+    					$printFile .= $_POST[$item->prodId]." ".$item->name.'(s). '."\n";
+    				}
+    				$ctr++;
+                }
 
-        fclose($file);
-    }
-  }
+                flock($fileLoc, LOCK_EX);
+                fwrite($fileLoc, $printFile, strlen($printFile));
+                flock($fileLoc, LOCK_UN);
+
+                fclose($fileLoc);
+    		}
+    	}
 
   function getOrders(){
 

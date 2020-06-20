@@ -1,3 +1,5 @@
 10:49, 9th May 2020	0 tires	0 oil	0 spark plugs	$0
 10:51, 9th May 2020	3 tires	2 oil	4 spark plugs	$1700
 11:12, 9th May 2020	3 tires	2 oil	4 spark plugs	$1700
+07:49, 20th June 2020, 	900.00, 	07:52, 20th June 2020, 	1000.00, 	2 Oil(s). 	3 Tires(s). 	4 Spark Plugs(s). 
+07:53, 20th June 2020, 	1200.00, 	5 Oil(s). 	5 Tires(s). 	3 Spark Plugs(s). 

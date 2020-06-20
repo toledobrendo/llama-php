@@ -1,6 +1,7 @@
 
 <?php
   require_once('service/order-service.php');
+  require_once('model/product-list.php');
 
   define('TIRE_PRICE', 100);
   define('OIL_PRICE', 50);
@@ -17,10 +18,8 @@
             echo date('H:i, jS F Y');
             echo '</p>';
 
+            $list = new ProductList();
 
-            $tireQty = $_POST['tireQty'] ? $_POST['tireQty'] : 0;
-            $oilQty = $_POST['oilQty'] ? $_POST['oilQty'] : 0;
-            $sparkQty = $_POST['sparkQty'] ? $_POST['sparkQty'] : 0;
             $find = $_POST['find'];
 
             switch($find){
@@ -39,36 +38,27 @@
                 echo "Unknown Customer<br/>";
             }
 
-            echo '<p>Prices<br/>';
-            echo 'Tires: '.TIRE_PRICE.'<br/>';
-            echo 'Oil: '.OIL_PRICE.'<br/>';
-            echo 'Sparkplugs: '.SPARK_PRICE.'<br/>';
+            echo '<table>';
 
-            $totalQty = @($tireQty + $oilQty + $sparkQty);
-            echo 'Total Quantity: '.$totalQty.'<br/>';
+                $totalAmount = 0;
+
+                foreach ($list->product as $products) {
+                  echo '<tr>';
+                    echo '<td>'.$_POST[$products->prodId].'</td>';
+                    echo '<td>'.$products->name.'</td>';
+                    echo '<td> @ '.round($products->price, 2).'.00 </td>';
+                  echo '</tr>';
+
+                  $totalAmount += $products->price * $_POST[$products->prodId];
+                }
+            echo '</table>';
 
 
             //total = VAT + VATable
             // VAT = 0.12 * VATable
             //VATable = total/1.12
 
-            if($totalQty == 0){
-              echo 'You didn\'t order anything. <br/><br/>';
-            }else{
-              echo '<p>Your order is as follows</p>';
-              if($tireQty)
-                echo "$tireQty tires<br/>";
-              if($oilQty)
-                echo "$oilQty bottles of oil<br/>";
-              if($sparkQty)
-                echo "$sparkQty sparkplugs<br/><br/>";
-            }
-
-            $tireAmount = @($tireQty * TIRE_PRICE); // @() - Surpressing [To avoid warnings]
-            $oilAmount = @($oilQty * OIL_PRICE);
-            $sparkAmount = @($sparkQty * SPARK_PRICE);
-
-            $vatAble = (float)(($tireAmount + $oilAmount + $sparkAmount)/1.12);
+            $vatAble = (float)(($totalAmount)/1.12);
             $vatAmount = (float)($vatAble * 0.12);
 
             $totalAmount = (float)($vatAble + $vatAmount);
@@ -78,16 +68,11 @@
             echo "VAT amount = ".$vatAmount.'<br/>';
             echo "Total Amount = ".$totalAmount."<br/><br/>";
 
-            $otherTotalAmount = &$totalAmount;
-            $otherTotalAmount += $oilAmount;
-            echo 'Other Total Amount:  '.$otherTotalAmount.'<br/>';
-            $totalAmount +=$sparkAmount;
-            echo 'Total Amount: '.$totalAmount.'<br/>';
-
             echo "Amount exceeded 500?".($totalAmount > 500 ? ' YES' : ' NO').'<br/><br/>';
 
 
-            saveOrder($tireQty, $oilQty, $sparkQty, $totalAmount);
+            saveOrder($list, $totalAmount);
+            getOrders();
 
           ?>
 
