@@ -48,13 +48,15 @@
 
 
 
+
+
       echo '<div class="row">';
       for ($ctr = 0; $ctr < $resultCount; $ctr++) {
         $row = $result -> fetch_assoc();
       ?>
         <div class="card col-4 mx-1">
           <div class="card-body">
-            <img class="my-3" src="<<?php echo $row ['pic_url']; ?>" width="200 rem" alt="Book">
+            <img class="my-3" src="<?php echo $row ['pic_url']; ?>" width="200 rem" alt="Book">
             <h6><?php echo $row['title'];?></h6>
             <p>
               By: <?php echo  $row['author_name'];?> <br/>
