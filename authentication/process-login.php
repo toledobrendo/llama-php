@@ -24,7 +24,8 @@ require_once('resources/db-properties.php');
     //select $query
     $query = 'select * from user_info where username = ? and password = ? and active = ?';
     $stmt = $db->prepare($query);
-    $stmt->bind_param('ssi', $username, $password, $isActive);
+    $hasedPassword = hash('sha512',$password);
+    $stmt->bind_param('ssi', $username, $hasedPassword, $isActive);
     $stmt->execute();
     $result = $stmt->get_result();
     //fetch_assoc pointer
