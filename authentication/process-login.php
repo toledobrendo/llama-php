@@ -1,5 +1,8 @@
 <?php
+session_start();
 require_once('resources/db-properties.php');
+
+
 
   $username = $_POST['username'];
   $password = $_POST['password'];
@@ -16,14 +19,17 @@ require_once('resources/db-properties.php');
     if ($dbError) {
       throw new Exception('Could not connect to database. Error');
     }
+
+    $isActive = true;
     //select $query
-    $query = 'select * from user_info where username = ? and password = ?';
+    $query = 'select * from user_info where username = ? and password = ? and active = ?';
     $stmt = $db->prepare($query);
-    $stmt->bind_param('ss', $username, $password);
+    $stmt->bind_param('ssi', $username, $password, $isActive);
     $stmt->execute();
     $result = $stmt->get_result();
     //fetch_assoc pointer
     if ($result->fetch_assoc()) {
+      $_SESSION['username'] = $username;
       //if there something fetched redirected to the location
       header('Location: index.php');
     }else {
@@ -32,7 +38,7 @@ require_once('resources/db-properties.php');
 
     }
   } catch (Exception $e) {
-    echo $e->getMessage();
+    header('Location: login.php?error='.$e->getMessage());
   }
 
  ?>

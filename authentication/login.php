@@ -12,6 +12,11 @@
       <h4>Please Sign-in</h4>
       <input type="text" id = "username" name="username" class="form-control" placeholder="Username" required autofocus/>
       <input type="password" id = "password" name="password" class="form-control" placeholder="Password" required/>
+      <?php if (isset($_GET['error'])) { ?>
+        <div class="alert alert-danger">
+          <?php echo $_GET['error'] ?>
+        </div>
+      <?php } ?>
       <div class="row">
         <a class="btn btn-lg btn-success btn-block col-6" href="register.php">Register</a>
         <button class="btn btn-lg btn-primary  col-6" type="sumbit">Log In</button>

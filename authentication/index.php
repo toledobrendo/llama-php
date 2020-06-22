@@ -1,3 +1,11 @@
+<?php
+  session_start();
+
+  if (!isset($_SESSION['username'])) {
+    header('Location: login.php?error=Unauthoried access');
+  }
+ ?>
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -11,7 +19,7 @@
         <div class="card">
           <div class="card-body">
 
-              Hello World!
+              Hello there <?php echo $_SESSION ['username']; ?> <a href="process-logout.php">Logout</a>?
 
           </div>
         </div>
