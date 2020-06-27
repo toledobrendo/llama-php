@@ -42,6 +42,7 @@
   // If author found
   if($resultCount == 1){
     echo "Author is already on database<br>";
+    // Note: This line has been repeated in the 'else' clause. Try to extract them outside the if-else statement to prevent duplicate code.
     $stmnt_insert_book = "INSERT INTO book (title, isbn, author_id, imgPath) VALUES
     ('$bookTitle', '$ISBN', '$authorID', '$imgPath')";
     $result_insert_book = mysqli_query($db,$stmnt_insert_book);
