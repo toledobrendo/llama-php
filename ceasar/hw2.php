@@ -39,7 +39,6 @@
 
             for($count = 0; $count < $counter; $count++){
 
-                // Note: Error if input is 'ZZZZ', Notice: Undefined offset: 28 in C:\xampp\htdocs\llama-php\ceasar\hw2.php on line 45
                 $cipher[$count] = array_search($message[$count],$alphabet,true);
                 $cipher[$count] += $key;
 
