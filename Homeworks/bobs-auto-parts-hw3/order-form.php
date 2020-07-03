@@ -5,6 +5,9 @@ require_once('exception/file-not-found-exception.php');
  ?>
 <html>
   <head>
+    <?php
+    require_once('view-comp/header.php');
+     ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet"
@@ -79,4 +82,7 @@ require_once('exception/file-not-found-exception.php');
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"></script>
   </body>
+  <?php
+  require_once('view-comp/footer.php');
+   ?>
 </html>

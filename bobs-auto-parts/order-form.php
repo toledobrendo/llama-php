@@ -1,8 +1,13 @@
 <?php
-require_once('view-comp/header.php');
+require_once('model/ProductBean.php');
+require_once('model/product.php');
+require_once('exception/file-not-found-exception.php');
  ?>
 <html>
   <head>
+    <?php
+    require_once('view-comp/header.php');
+     ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet"
@@ -22,27 +27,28 @@ require_once('view-comp/header.php');
                 <tr class="row">
                   <th class="col-5">Item</th>
                   <th class="col-4">Quantity</th>
+                  <th class="col-3">Price</th>
                 </tr>
               </thead>
+
               <tbody>
-                <tr class="row">
-                  <td class="col-5">Tires</td>
-                  <td class="col-4">
-                    <input type="number" name="tireQty" maxlength="3" min="0" max="10" class="form-control"/>
-                  </td>
-                </tr>
-                <tr class="row">
-                  <td class="col-5">Oil</td>
-                  <td class="col-4">
-                    <input type="number" name="oilQty" maxlength="3" min="0" max="10" class="form-control"/>
-                  </td>
-                </tr>
-                <tr class="row">
-                  <td class="col-5">Spark Plugs</td>
-                  <td class="col-4">
-                    <input type="number" name="sparkQty" maxlength="3" min="0" max="10" class="form-control"/>
-                  </td>
-                </tr>
+          <?php
+                foreach($productList as $input){
+                  echo '<tr class="row">
+                          <td class="col-4">
+                             '.$input->name.'
+                           </td>
+                           <td class="col-4">
+                             Php. '.$input->price.'
+                           </td>
+                           <td class="col-4">
+                             <input type="number" name="'.$input->detail.'" maxlength="3" min="0" max="10" class="form-control"/>
+                           </td>
+                        </tr>';
+                }
+
+            ?>
+
                 <tr class="row">
                     <td class="col-5">How did you find Bob's</td>
                     <td class="col-4">
@@ -76,7 +82,7 @@ require_once('view-comp/header.php');
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"></script>
   </body>
+  <?php
+  require_once('view-comp/footer.php');
+   ?>
 </html>
-<?php
-require_once('view-comp/footer.php');
- ?>

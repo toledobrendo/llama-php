@@ -1,6 +1,5 @@
 <?php
   require_once('service/order-service.php');
-
   define('TIRE_PRICE', 100);
   define('OIL_PRICE', 50);
   define('SPARK_PRICE', 30);
@@ -13,9 +12,11 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous">
+      <?php
+      require_once('view-comp/header.php');
+       ?>
   </head>
   <body>
-    <!-- hello-world.php or hello_world.php -->
     <div class="container">
       <div class="card">
         <div class="card-body">
@@ -24,10 +25,6 @@
             echo '<p>Order Processed at ';
             echo date('H:i, jS F Y');
             echo '</p>';
-
-            // PHP Comments
-            /**Multiline Comments
-              Wow**/
 
             $tireQty = $_POST['tireQty'] ? $_POST['tireQty'] : 0;
             $oilQty = $_POST['oilQty'] ? $_POST['oilQty'] : 0;
@@ -47,9 +44,7 @@
               case 'mouth':
                 echo 'From Word of Mouth';
                 break;
-              default:
-                echo 'Unknown Customer';
-                break;
+
             }
 
             echo '<br/><br/>';
@@ -93,20 +88,15 @@
 
             echo 'VATable Amount: '.$vatableAmount.'<br/>';
             echo 'VAT: '.$vat.'<br/>';
-
             echo 'Amount exceeded 500? '.($totalAmount > 500 ? 'Yes' : 'No').'<br/><br/>';
-
             echo 'Is $totalAmount string? '.(is_string($totalAmount) ? 'Yes' : 'No').'<br/>';
-
-            // unset($totalAmount);
-
             echo 'Is $totalAmount set? '.(isset($totalAmount) ? 'Yes' : 'No').'<br/>';
-
             $totalAmountTwo = 0;
             echo 'Is $totalAmountTwo set? '.(isset($totalAmountTwo) ? 'Yes' : 'No').'<br/>';
             echo 'Is $totalAmountTwo empty? '.(empty($totalAmountTwo) ? 'Yes' : 'No').'<br/>';
-
             saveOrder($tireQty, $oilQty, $sparkQty, $totalAmount);
+
+
           ?>
         </div>
         <div class="card-footer">
@@ -124,4 +114,7 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"></script>
   </body>
+  <?php
+  require_once('view-comp/footer.php');
+   ?>
 </html>
