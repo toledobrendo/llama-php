@@ -1,0 +1,53 @@
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+
+CREATE TABLE author (
+  id int(6) UNSIGNED NOT NULL,
+  name varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO author (id, `name`) VALUES
+(2, 'George RR Martin'),
+(1, 'Michael Morgan');
+
+CREATE TABLE book (
+  id int(6) UNSIGNED NOT NULL,
+  title varchar(255) DEFAULT NULL,
+  isbn varchar(255) DEFAULT NULL,
+  author_id int(6) UNSIGNED DEFAULT NULL,
+  pic_url varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO book (id, title, isbn, author_id, pic_url) VALUES
+(1, 'Java for Professional Developers', '0-672-316123-8', 1, 'image/java.jpg'),
+(2, 'A Game of Thrones', '1-141-5143123-5', 2, 'image/got.jpg');
+
+
+
+ALTER TABLE author
+  ADD PRIMARY KEY (id),
+  ADD UNIQUE KEY un_author_name (name);
+
+ALTER TABLE book
+  ADD PRIMARY KEY (id),
+  ADD KEY author_id (author_id);
+
+
+ALTER TABLE author
+  MODIFY id int(6) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE book
+  MODIFY id int(6) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+
+ALTER TABLE book
+  ADD CONSTRAINT book_ibfk_1 FOREIGN KEY (author_id) REFERENCES author (id);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
