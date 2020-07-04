@@ -14,47 +14,47 @@
           <h2 class="card-title">Caesar Shift</h2>
           <form action="caesar-shift.php" method="post">
             <div class="form-group">
-              <label for="formGroupExampleInput">Message</label>
-              <input type="text" class="form-control" name="message" id="formGroupExampleInput" placeholder="Enter Message">
+              <label for="caesarShift">Enter Message:</label>
+              <input type="text" class="form-control" name="messageEnter" placeholder="Enter Message" required="required">
             </div>
             <div class="form-group">
-              <label for="formGroupExampleInput2">Key</label>
-              <input type="number" class="form-control" name="key" id="formGroupExampleInput2" min="0" placeholder="Enter Key">
+              <label for="key">Enter Key</label>
+              <input type="text" class="form-control" name="keyEnter"  placeholder="Enter Key" required="required">
             </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
           </form>
 
           <?php
 
-            $message = @($_POST['message']);
-            $key = @($_POST['key']);
+            
+              $messageEnter = @($_POST['messageEnter']);
+              $keyEnter = @($_POST['keyEnter']);
 
-            $upperMessage = strtoupper($message);
-            $arrayMessage = str_split($upperMessage);
-            $counter = count($arrayMessage);
-            $alphabet = range("A","Z");
-            $cipher = array();
+              $messageEnter = strtoupper($messageEnter);
+              $messageEnter = str_split($messageEnter);
+              $counter = count($messageEnter);
+              $letterAlphabet = range("A","Z");
+              $cipher = array();
 
 
-            for ($count=0; $count < $counter; $count++) {
+              for ($count=0; $count < $counter; $count++) {
 
-              if (!(preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $arrayMessage[$count]) || ctype_space($arrayMessage[$count]))){
-
-                $cipher[$count] = array_search($arrayMessage[$count],$alphabet,true);
-                $cipher[$count] += $key;
-                $cipher[$count] = $alphabet[$cipher[$count]];
-                $arrayMessage[$count] = $cipher[$count];
+                  $cipher[$count] = array_search($messageEnter[$count],$letterAlphabet,true);
+                  $cipher[$count] += $keyEnter;
+                  $cipher[$count] = $letterAlphabet[$cipher[$count]];
+                  $messageEnter[$count] = $cipher[$count];
               }
-            }
+              
 
 
-            echo "Message:&emsp;";
-            for ($count=0; $count < $counter; $count++) {
-              echo $arrayMessage[$count];
-            }
+              if(isset($_POST['submit'])){
+                  for ($count = 0; $count < $counter; ++$count){
+                    echo $messageEnter[$count];
+                  }
+                }
 
            ?>
+
       </div>
     </div>
   </div>
