@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <html>
   <head></head>
   <body>
@@ -20,4 +20,3 @@
     ?>
   </body>
 </html>
->>>>>>> 2dc50f48693fa08194b991dacf79666d5235eb19
