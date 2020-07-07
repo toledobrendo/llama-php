@@ -18,7 +18,7 @@
 				 <?php
 
 			      echo 'Hello World';
-			      echo 'Hello Mothafucka';
+
 			     ?>
      		</div>
      	</div>

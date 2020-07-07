@@ -21,6 +21,21 @@
 						<li class="list-group-item">
 							<a href="hello-world.php">Hello World</a>
 						</li>
+
+						<li class="list-group-item">
+							<a href="Fibonacci/fibonacci.php">Fibonacci</a>
+						</li>
+
+						<li class="list-group-item">
+							<a href="Caesar-Shift/caesar-shift.php">Caesar Shift</a>
+						</li>
+
+						<li class="list-group-item">
+							<a href="Bobs-Auto-Parts-HW3/order-form.php">Bob's Auto Parts- HW 3</a>
+						</li>
+						<li class="list-group-item">
+							<a href="Bobs-Auto-Parts-HW4/order-form.php">Bob's Auto Parts- HW 4</a>
+						</li>
 					</ul>
 				</div>
      		</div>
