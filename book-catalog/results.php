@@ -11,7 +11,8 @@
     define('FIELDS', array(
       'author' => 'author.name',
       'title' => 'book.title',
-      'isbn' => 'book.isbn'
+      'isbn' => 'book.isbn',
+      'image' => 'book.imgSrc'
     ));
 
     $searchType = $_POST['searchType'];
@@ -53,7 +54,7 @@
       for ($ctr = 0; $ctr < $resultCount; $ctr++) {
         $row = $result -> fetch_assoc();
       ?>
-        <div class="card col-4 mx-1">
+        <div class="card col-4 text-center">
           <div class="card-body">
             <img src="<?php echo $row['imgSrc']; ?>" alt="photo" height="320px" width="240px">
             <h6><?php echo $row['title'];?></h6>
