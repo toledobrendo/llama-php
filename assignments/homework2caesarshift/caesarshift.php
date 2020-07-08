@@ -14,10 +14,10 @@
 
 
 	</head>
-
+<br>
 		<body>
 		<!-- 	hello-world.php or hello_world.php -->
-	<center><h1>Caesar Shift - Homework 2</h1></center>
+	<center><h3>Caesar Shift - Homework 2</h3></center>
 		<div class="container">
 			<div class="card">
 
@@ -68,25 +68,25 @@
 
 				</form>
 
-					<br><br><br><br><br>
+					<br><br>
 
 					<?php
 
 
-						function encrypt($str, $offset) {
+						function encrypt($message, $key) {
 						    $ans = "";
-						    $offset = $offset % 26;
-						    if($offset < 0) {
-						        $offset += 26;
+						    $key = $key % 26;
+						    if($key < 0) {
+						        $key += 26;
 						    }
 						    $i = 0;
-						    while($i < strlen($str)) {
-						        $c = strtoupper($str{$i});
+						    while($i < strlen($message)) {
+						        $c = strtoupper($message{$i});
 						        if(($c >= "A") && ($c <= 'Z')) {
-						            if((ord($c) + $offset) > ord("Z")) {
-						                $ans .= chr(ord($c) + $offset - 26);
+						            if((ord($c) + $key) > ord("Z")) {
+						                $ans .= chr(ord($c) + $key - 26);
 						        } else {
-						            $ans .= chr(ord($c) + $offset);
+						            $ans .= chr(ord($c) + $key);
 						        }
 						      } else {
 						          $ans .= " ";
