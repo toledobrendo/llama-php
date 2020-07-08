@@ -59,18 +59,19 @@
 
 
 
-				echo '<p> Your order is as follows</p>';
+				echo '<hr><p><b> Your order is as follows: </b></p>';
 				//echo $tireQty.' tires<br/>';
 				if($tireQty > 0)
 					echo "$tireQty tires<br/>";
 
-				if($tireQty > 0)
+				if($oilQty > 0)
 					echo "$oilQty bottles of oil<br/>";
 
-				if($tireQty > 0)
+				if($sparkQty > 0)
 					echo "$sparkQty sparkplugs<br/><br/>";
 
-				echo "<p>Prices</br>";
+
+				echo "<hr><p>Prices</br>";
 				echo 'Tires: '.TIRE_PRICE.'<br/> ';
 				echo 'Oil: '.OIL_PRICE.'<br/> ';
 				echo 'Spark Plugs: '.SPARK_PRICE.'<br/> <br/>';

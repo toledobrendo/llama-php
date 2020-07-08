@@ -74,14 +74,14 @@
 
 
 						function encrypt($message, $key) {
-						    $ans = "";
-						    $key = $key % 26;
-						    if($key < 0) {
-						        $key += 26;
-						    }
-						    $i = 0;
-						    while($i < strlen($message)) {
-						        $c = strtoupper($message{$i});
+					    $ans = "";
+					    $key = $key % 26;
+					    if($key < 0) {
+					        $key += 26;
+					    }
+						    $ctr = 0;
+						    while($ctr < strlen($message)) {
+						        $c = strtoupper($message{$ctr});
 						        if(($c >= "A") && ($c <= 'Z')) {
 						            if((ord($c) + $key) > ord("Z")) {
 						                $ans .= chr(ord($c) + $key - 26);
@@ -91,7 +91,7 @@
 						      } else {
 						          $ans .= " ";
 						      }
-						      $i++;
+						      $ctr++;
 						    }
 						    return $ans;
 						}

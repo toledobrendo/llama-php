@@ -1,12 +1,9 @@
-<?php
-	define('TIRE_PRICE', 100);
-	define('OIL_PRICE', 50);
-	define('SPARK_PRICE', 30);
-	?>
 
 
 	<?php
   require_once('view-comp/header-bobs.php');
+	require_once('model/productModel.php');
+	require_once('model/ProductList.php');
 ?>
 
 				<h3 class="card-title">Order Results</h3>
@@ -18,9 +15,9 @@
 				echo '</p>';
 
 				//variable, getting variable from another site
-				$tireQty = $_POST['tireQty'] ?  $_POST['tireQty'] : 0;
-				$oilQty = $_POST['oilQty'] ?  $_POST['oilQty'] : 0;
-				$sparkQty = $_POST['sparkQty'] ?  $_POST['sparkQty'] : 0;
+				$tires->__set('quantity',$_POST['tireQty'] ?  $_POST['tireQty'] : 0);
+				$oil->__set('quantity',$_POST['oilQty'] ?  $_POST['oilQty'] : 0);
+				$sparkPlugs->__set('quantity',$_POST['sparkQty'] ?  $_POST['sparkQty'] : 0);
 				$find = $_POST['find'];
 
 				switch ($find) {
@@ -50,7 +47,7 @@
 
 
 
-			$totalQty = @($tireQty + $oilQty + $sparkQty);
+			   $totalQty = ($tires->__get('quantity') + $oil->__get('quantity') + $sparkPlugs->__get('quantity'));
 
 				if ($totalQty == 0) {
 					echo "<br/>You didn't order anything. <br/> </br>";
@@ -61,14 +58,14 @@
 
 				echo '<hr><p><b> Your order is as follows: </b></p>';
 				//echo $tireQty.' tires<br/>';
-				if($tireQty > 0)
-					echo "$tireQty tires<br/>";
+				if($tires->__get('quantity') > 0)
+					echo ''.$tires->__get('quantity').' tires<br/>';
 
-				if($oilQty > 0)
-					echo "$oilQty bottles of oil<br/>";
+				if($oil->__get('quantity') > 0)
+					echo ''.$oil->__get('quantity').' Oil<br/>';
 
-				if($sparkQty > 0)
-					echo "$sparkQty sparkplugs<br/><br/>";
+				if($sparkPlugs->__get('quantity') > 0)
+					echo ''.$sparkPlugs->__get('quantity').'&nbsp;Spark Plug<br/>';
 
 
 				echo "<hr><p>Prices</br>";
@@ -83,9 +80,9 @@
 
 				echo "Total Quantity: ".$totalQty."<br/><br/>";
 
-				$tireAmount = @($tireQty * TIRE_PRICE);
-				$oilAmount = @($oilQty * OIL_PRICE);
-				$sparkAmount = @($sparkQty * SPARK_PRICE);
+				$tireAmount = @($tires->__get('quantity') * $tires->__get(price));
+				$oilAmount = @($oil->__get('quantity') * $oil->__get(price));
+				$sparkAmount = @($sparkPlugs->__get('quantity') * $oil->__get(price));
 
 
 
