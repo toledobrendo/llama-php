@@ -59,7 +59,7 @@
 																<a href="assignments/homework3orderformclasses/order-form.php">Homework 3 - Order Form Classes<br/></a>
 																<a href="assignments/homework4vatpercent/order-form.php">Homework 4 - Vat Percent<br/></a>
 																<a href="assignments/homework5bookthumbnail/index.php">Homework 5 - Book Thumbnail<br/></a>
-																<a href="assignments/homework4vatpercent/order-form.php">Homework 6 -Add Book<br/></a>
+																<a href="assignments/homework6addbook/index.php">Homework 6 -Add Book<br/></a>
 
 															</li>
 												</div>
