@@ -54,7 +54,7 @@
       ?>
         <div class="card col-4 mx-1">
           <img src="<?php echo $row['pic_url']; ?>" width="340" height="400" style="margin-top: 10px;" alt="<?php echo $row['title'];  ?>" />
-          <!-- image src is pic_url from db -->
+          <!-- image src is pic_url from db, images/1.jpg, images/2.jpg is the format on my database, the number is the same as id of book to the name of image -->
           <div class="card-body">
             <h6><?php echo $row['title'];?></h6>
             <p>
