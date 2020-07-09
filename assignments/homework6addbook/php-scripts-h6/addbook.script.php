@@ -53,7 +53,7 @@ if (isset($_POST['book-submit'])) {
           $id = $row["id"];
          }
 
-         if($id != null){//if id is not equal to null it means an author exits
+         if($id != null){//if id is not equal to null it means an author exits and the code will skip to end of "authorexists" code
 
            $sql = "INSERT INTO book (title, isbn, author_id, pic_url) VALUES (?, ?, ?, ?)";
            $stmnt = mysqli_stmt_init($connection);
