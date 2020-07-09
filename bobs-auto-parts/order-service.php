@@ -23,7 +23,7 @@ function saveOrder($tireQty,$oilQty,$sparkQty,$totalAmount){
      flock($file, LOCK_EX);
      fwrite($file, $outputString, strlen($outputString));
      fclose($file);
-     flock($file, LOCK_UN);
+     @flock($file, LOCK_UN);
    }
 
 
@@ -50,17 +50,17 @@ function saveOrder($tireQty,$oilQty,$sparkQty,$totalAmount){
         echo "<p><strong>NO VAT VALUE</strong></p>";
       } else {
         while(!feof($file)){
-         
+
           $order = fgets($file, 999);
-       
+
           $value=explode("VAT_PERCENT=",$order);
 
-          
+
           return $value[1];
         }
         }
 
-      fclose($file);
+      @fclose($file);
     }
 
  ?>

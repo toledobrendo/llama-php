@@ -13,25 +13,28 @@
 	<div class="card">
 		<div class="card-body">
 			<h1 class="card-title">PHP Exercises</h1>
-			<div class="col-6">  
+			<div class="col-6">
 				<ul class="list-group">
 					<li class="list list-group-item">
 						<a href="bobs-auto-parts/hello-world.php"> Hello World</a>
 					</li>
 					<li class="list-group-item">
-						<a href="bobs-auto-parts/order-form.php">Bobs auto parts</a>
+						<a href="bobs-auto-parts/order-form.php">Bobs auto parts ACT4, ACT5  Complete</a>
 					</li>
 					<li class="list-group-item">
 						<a href="fibonacci.php">Fibonacci Sequence</a>
 					</li>
 					<li class="list-group-item">
-						<a href="caesarCypher.php">Caesar's Cypher</a>
+						<a href="caesarCypher.php">Caesar's Cipher</a>
 					</li>
+          <li class="list-group-item">
+            <a href="book-catalog/index.php">Book Catalog - Complete Assignments</a>
+          </li>
 				</ul>
 			</div>
 		</div>
 	</div>
-<!-- 
+<!--
 	<?php
 	echo "Hello World";
 	?> -->
