@@ -37,7 +37,7 @@ if (isset($_POST['book-submit'])) {
 
    else {
 
-     $sql = "SELECT name, id FROM author WHERE name=? ";
+     $sql = "SELECT name, id FROM author WHERE name=? ";//search first if aithor exists and get his/her id
      $stmnt = mysqli_stmt_init($connection);
      if(!mysqli_stmt_prepare($stmnt, $sql)){
        header("Location: ../book-add.php?error=sqlerror1");
@@ -45,7 +45,7 @@ if (isset($_POST['book-submit'])) {
      }
 
        else {
-         mysqli_stmt_bind_param($stmnt, "s", $name);
+         mysqli_stmt_bind_param($stmnt, "s", $name);     //search first if aithor exists and get his/her id
          mysqli_stmt_execute($stmnt);
          $result = mysqli_stmt_get_result($stmnt);
          $resultCheck = mysqli_stmt_num_rows($stmnt);
@@ -53,7 +53,7 @@ if (isset($_POST['book-submit'])) {
           $id = $row["id"];
          }
 
-         if($id != null){//if id is not equal to null it means an author exists and the code will skip to end of "authorexists" code
+         if($id != null){//if id is not equal to null it means an author exists and if the author doesnt exist(id=null) code will skip to end of "authorexists" code
 
            $sql = "INSERT INTO book (title, isbn, author_id, pic_url) VALUES (?, ?, ?, ?)";
            $stmnt = mysqli_stmt_init($connection);
