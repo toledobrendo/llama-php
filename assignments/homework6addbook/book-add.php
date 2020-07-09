@@ -33,26 +33,26 @@
   <form action="php-scripts-h6/addbook.script.php" method="post">
     <div class="form-group">
       <label for="searchTerm">Book Title</label>
-      <input type="text" name="title" name="searchTerm"
+      <input type="text" name="title"
         class="form-control" />
 
     </div>
 
     <div class="form-group">
       <label for="searchTerm">Author Name</label>
-      <input type="text" name="name" name="searchTerm"
+      <input type="text" name="name"
         class="form-control" />
     </div>
 
     <div class="form-group">
       <label for="searchTerm">ISBN</label>
-      <input type="text" name="isbn" name="searchTerm"
+      <input type="text" name="isbn"
         class="form-control" />
     </div>
 
     <div class="form-group">
       <label for="searchTerm">Image URL</label>
-      <input type="text" name="imageUrl" name="searchTerm"
+      <input type="text" name="imageUrl"
         class="form-control" />
     </div>
 
