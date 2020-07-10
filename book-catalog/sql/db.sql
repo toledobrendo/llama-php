@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS book (
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(255),
   ISBN VARCHAR(255),
+  image_url VARCHAR(255),
   author_id INT(6) UNSIGNED,
   FOREIGN KEY (author_id) REFERENCES author(id)
 );
@@ -20,12 +21,12 @@ INSERT INTO author (name)
   ('Michael Morgan'),
   ('George RR Martin');
 
-INSERT INTO book (title, ISBN, author_id)
+INSERT INTO book (title, ISBN, image_url, author_id)
   VALUES
-  ('Java for Professional Developers', '0-672-316123', 1),
-  ('Game of Thrones', '1-141-5143123-5', 2);
+  ('Java for Professional Developers', '0-672-316123', 'images/java2.jpg', 1),
+  ('Game of Thrones', '1-141-5143123-5', 'images/got.jpg', 2);
 
-  ALTER TABLE book ADD COLUMN pic_url VARCHAR(255);
-  UPDATE book SET pic_url = '/url.png' WHERE id = 1;
+  -- ALTER TABLE book ADD COLUMN pic_url VARCHAR(255);
+  -- UPDATE book SET pic_url = '/got.jpg' WHERE id = 1;
 
   ALTER TABLE author ADD CONSTRAINT un_author_name UNIQUE(name);
