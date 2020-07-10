@@ -22,10 +22,6 @@
         throw new Exception('Error: Could not connect to database. Please try again later.');
       }
 
-      if(getAuthorCount($db, $authorName) > 0){
-        throw new Exception('Error: Author already exists.');
-      }
-
       //use backslash to put single quote inside a signle quote
       // $query = 'insert author (name) values (\''.$authorName.'\')';
 
@@ -44,29 +40,20 @@
 
 
     //to avoid sql injection
-    $query = 'insert into author (id, name) values (?, ?)';
-    $stmt = $db->prepare($query);
+    $query = 'insert into author (name) values (?)';
+    $statement = $db->prepare($query);
     //1st parameter: data type to bind; 2nd parameter: parameters to bind
     //s meant to string; so we tell bind param to bind a string in that question mark and that string contains authorName
-    $stmt->bind_param("s", authorName);
-    $stmt-> execute();
+    $statement->bind_param("s", $authorName);
+    $statement-> execute();
 
-    $affectedRows = $stmt->affected_rows;
-    if($affectedRows > 0) {
-        echo $$affected_rows." author inserted into database.";
+    if($statement-> affected_rows > 0) {
+        echo $statement->affected_rows." author inserted into database.";
     } else {
       throw new Exception('Error: The author was not added.');
     }
 
-    $stmt->close();
-    //get results
-    $result = $db->query($query);
-
-    if($result){
-      echo $db-> affected_rows."author inserted into the database.";
-    } else {
-      throw new Exception('Error: The author was not added.');
-    }
+    $statement->close();
 
     } catch(Exception $e){
       echo $e->getMessage();
