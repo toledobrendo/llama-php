@@ -3,6 +3,7 @@
   define('OIL_PRICE', 50);
   define('SPARK_PRICE', 30);
 ?>
+<!-- Note: product.php and productBean.php should also be used here. -->
 <html>
   <head>
     <meta charset="utf-8">

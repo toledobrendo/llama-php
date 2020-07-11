@@ -14,6 +14,7 @@
      </form>
      </table>
 
+    <!-- Note: Observe proper indention -->
 	 <?php 
 	function Fibonacci($n){ 
   

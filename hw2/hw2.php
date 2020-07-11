@@ -26,7 +26,7 @@
           </form>
 
           <?php
-
+            // Note: Spaces were not handled. ex. "hello world", 1 key yields "IFMMPBXPSME"
             $message = @($_POST['message']);
             $key = @($_POST['key']);
 
