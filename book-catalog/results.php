@@ -33,7 +33,8 @@
         throw new Exception('Error: Could not connect to database. Please try again later.' .$dbError, 1);
       }
 
-      //look for the query
+
+      //insert query
       $query = 'SELECT author.name as author_name, book.title, book.isbn, image_url
       FROM book
       INNER JOIN author
