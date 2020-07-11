@@ -13,6 +13,7 @@
       <label for="authorName">Choose author:</label>
       <select name="authorName" id="authorName">
         <?php
+        // Note: This is nice. Good good!
         $result = mysqli_query($db, "SELECT * FROM author");
         while($row = mysqli_fetch_array($result)){
           echo '<option value="'.$row['id'].'">'.$row['name'].'</option>';
