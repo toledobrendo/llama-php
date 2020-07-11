@@ -46,6 +46,7 @@
 
     if(count($errors) == 0){
 
+      // Note: There is no authorName in the sql, this will yield an error.
       $query = 'insert into book (title, authorName, isbn, pic_url )
         VALUES (?, ? , ?, ?)';
 

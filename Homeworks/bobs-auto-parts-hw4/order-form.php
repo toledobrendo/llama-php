@@ -26,6 +26,7 @@ require_once('exception/file-not-found-exception.php');
               <thead>
                 <tr class="row">
                   <th class="col-5">Item</th>
+                  <!-- Price and quantity are reversed -->
                   <th class="col-4">Quantity</th>
                   <th class="col-3">Price</th>
                 </tr>
