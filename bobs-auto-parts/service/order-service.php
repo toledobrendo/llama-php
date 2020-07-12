@@ -31,7 +31,7 @@
 
   function getOrders() {
     try {
-      $file = @ fopen(DOCUMENT_ROOT.'/llama-php/bobs-auto-parts/resource/orders.txt', 'rb');
+      $file = @ fopen(DOCUMENT_ROOT.'/llama-php/llama-php/bobs-auto-parts/resource/orders.txt', 'rb');
 
       if (!$file) {
         throw new FileNotFoundException('No orders pending. Please try again later');
@@ -42,6 +42,28 @@
         };
 
         fclose($file);
+      }
+    } catch (FileNotFoundException $fnfe) {
+        echo $fnfe->getMessage();
+        echo $fnfe;
+    }
+  }
+
+  function getVAT(){
+    try{
+    $file = @ fopen(DOCUMENT_ROOT.'/llama-php/llama-php/bobs-auto-parts/resource/properties.txt', 'rb');
+
+    if (!$file) {
+       throw new FileNotFoundException('no value');
+     } else {
+       while (!feof($file)) {
+         $vat = fgets($file, 999);
+          $val = explode("=",$vat,2);
+          $val = trim ($val[1]);
+         return $val;
+      };
+
+       fclose($file);
       }
     } catch (FileNotFoundException $fnfe) {
         echo $fnfe->getMessage();

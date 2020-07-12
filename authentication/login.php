@@ -1,4 +1,9 @@
-<!doctype html>
+<?php
+  if ($_SERVER['HTTPS'] != 'on') {
+    header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+    exit;
+  }
+?>
 <html lang="en">
   <head>
     <title>Title</title>
@@ -18,6 +23,11 @@
         placeholder="Username" required autofocus/>
       <input type="password" id="password" name="password" class="form-control"
         placeholder="Password" required/>
+      <?php if (isset($_GET['error'])) { ?>
+        <div class="alert alert-danger">
+          <?php echo $_GET['error']; ?>
+        </div>
+      <?php } ?>
       <div class="row">
         <a class="btn btn-lg btn-success btn-block col-6" href="register.php">Register</a>
         <button class="btn btn-lg btn-primary col-6" type="submit">Log In</button>

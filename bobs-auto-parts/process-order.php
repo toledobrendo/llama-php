@@ -1,4 +1,11 @@
-<<<<<<< HEAD
+<<?php
+  require_once('service/order-service.php');
+  define('VAT_PERCENT', getVAT());
+  define('TIRE_PRICE', 100);
+  define('OIL_PRICE', 50);
+  define('SPARK_PRICE', 150);
+ ?>
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -14,6 +21,7 @@
       <div class="card">
         <div class="card-body">
           <h3 class="card-title">Order Result</h3>
+
           <?php
             echo '<p>Order Processed at ';
             echo date('H:i, jS F Y');
@@ -69,6 +77,7 @@
             }
             echo 'Total Quantity: '.$totalQty.'<br/>';
 
+            $percent = VAT_PERCENT;
             $tireAmount = @($tireQty * TIRE_PRICE);
             $oilAmount = @($oilQty * OIL_PRICE);
             $sparkAmount = @($sparkQty * SPARK_PRICE);
@@ -82,8 +91,8 @@
             echo 'Other Total Amount: '.$otherTotalAmount.'<br/>';
             echo 'Total Amount: '.$totalAmount.'<br/>';
 
-            $vatableAmount = $totalAmount / 1.12;
-            $vat = $totalAmount - $vatableAmount;
+              $vatableAmount = $totalAmount / (1 + VAT_PERCENT);
+              $vat = $totalAmount - $vatableAmount;
 
             echo 'VATable Amount: '.$vatableAmount.'<br/>';
             echo 'VAT: '.$vat.'<br/>';
