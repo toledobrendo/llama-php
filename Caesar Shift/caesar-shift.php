@@ -22,6 +22,8 @@
                <button type="submit" name="submit" class="btn btn-success">Submit</button>
               </form>
 
+               <!-- Note: Spaces were not encrypted properly.
+               "Hello world", with key 1, yields "IFMMPBXPSME"-->
                <?php
                  $sentence = @$_POST['sentence'];
                  $key = @$_POST['key'];

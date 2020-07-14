@@ -21,6 +21,7 @@
         throw new Exception('Error: Could not connect to database. Please try again later.');
       }
 
+      // Note: Observe proper indention.
       $query = 'SELECT * FROM author WHERE name LIKE \''.$authorName.'\';';
       $result = $db->query($query);
       $row = $result -> fetch_assoc();
