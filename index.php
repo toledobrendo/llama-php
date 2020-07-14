@@ -52,6 +52,11 @@
 						<li class="list-group-item">
 							<a href="Bobs-Auto-Parts-HW4/order-form.php">Bob's Auto Parts- HW 4</a>
 						</li>
+
+						<li class="list-group-item">
+							<a href="Book-Catalog/index.php">Book Catalog</a>
+						</li>
+
 					</ul>
 				</div>
      		</div>
