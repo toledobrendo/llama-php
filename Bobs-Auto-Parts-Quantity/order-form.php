@@ -32,12 +32,14 @@
                     <input type="number" name="oilQty" maxlength="3" min="0" max="10" class="form-control">
                   </td>
                 </tr>
-<tr class="row">
+
+                <tr class="row">
                   <td class="col-5"> Spark Plugs </td>
                   <td class="col-4">
                     <input type="number" name="sparkQty" maxlength="3" min="0" max="10" class="form-control">
                   </td>
                 </tr>
+
                 <tr class="row">
                   <td colspan="2" class="col-9">
                     <button type="submit" class="btn btn-primary float-right">Submit</button>

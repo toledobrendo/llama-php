@@ -43,6 +43,10 @@
 						</li>
 
 						<li class="list-group-item">
+							<a href="Bobs-Auto-Parts-Header-Footer/order-form.php">Bob's Auto Parts - Header & Footer</a>
+						</li>
+
+						<li class="list-group-item">
 							<a href="Bobs-Auto-Parts-HW3/order-form.php">Bob's Auto Parts- HW 3</a>
 						</li>
 						<li class="list-group-item">
