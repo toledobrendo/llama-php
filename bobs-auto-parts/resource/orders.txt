@@ -7,3 +7,4 @@
 08:32,16th May 2020	3 Tires	2 Oil	1Spark Plugs	$430
 19:55,26th May 2020	1 Tires	2 Oil	3Spark Plugs	$290
 13:33,6th June 2020	1 Tires	2 Oil	3Spark Plugs	$290
+02:58,15th July 2020	1 Tires	2 Oil	3Spark Plugs	$290

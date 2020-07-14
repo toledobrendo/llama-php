@@ -60,6 +60,7 @@
       $stmt->bind_param("ssis", $bookTitle, $ISBN, $id, $imgURL);
 
       // set parameters and execute
+      // Note: This might not be needed
       $bookTitle  = $bookTitle;
       $ISBN       = $ISBN;
       $id         = $id;

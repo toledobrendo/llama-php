@@ -48,6 +48,9 @@
                     <p class="font-weight-bold">Result: </p>
                   </div>
                    <?php
+                   // Note: Observe proper indention
+                   // Note: Spaces are not encrypted properly.
+                   // "Hello world", with key 1, yields "IFMMPXPSME"
                    $cypherArray = range('A', 'Z');
                    if(isset($_POST['submit'])) {
                        
