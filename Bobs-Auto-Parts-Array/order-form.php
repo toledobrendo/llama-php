@@ -9,6 +9,7 @@
               <thead>
                 <tr class="row">
                   <th class="col-4">Item</th>
+                  <th class="col-5">Price</th>
                   <th class="col-3">Quantity</th>
                 </tr>
               </thead>
@@ -19,7 +20,10 @@
                             <td class="col-5">
                               '.$productInput->desc.'
                             </td>
-                            <td class="col-3">
+                            <td class="col-2">
+                              '.$productInput->price.'
+                            </td>
+                            <td class="col-4">
                               <input type="text" name="'.$productInput->name.'" maxlength="3" class="form-control"/>
                             </td>
                           </tr>';
@@ -31,11 +35,9 @@
                     <button type="submit" class="btn btn-primary float-right">Submit</button>
                   </td>
                 </tr>
-
               </tbody>
             </table>
           </form>
-
-          <?php
-            require_once('view/footer.php');
-          ?>
+<?php
+  require_once('view/footer.php');
+?>

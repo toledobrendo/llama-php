@@ -39,6 +39,10 @@
 						</li>
 
 						<li class="list-group-item">
+							<a href="Bobs-Auto-Parts-Array/order-form.php">Bob's Auto Parts - Order Form: Array</a>
+						</li>
+
+						<li class="list-group-item">
 							<a href="Bobs-Auto-Parts-HW3/order-form.php">Bob's Auto Parts- HW 3</a>
 						</li>
 						<li class="list-group-item">
