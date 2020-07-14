@@ -6,6 +6,7 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 $result = 'SELECT * FROM users WHERE username=? AND password=?';
+$stmt = $con->prepare($result);
 
 // while($row = mysqli_fetch_array($result))
 // {
@@ -29,20 +30,21 @@ $result = 'SELECT * FROM users WHERE username=? AND password=?';
 // {
 //     header("location: ../login.php");
 // }
-
-$stmt = $con->prepare($result);
-$stmt->bind_param('ss', $username, $password);
+$hpass = hash('sha512', $password);
+$stmt->bind_param('ss', $username, $hpass);
 $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->fetch_assoc()){
     $success = true;
-    $result = mysqli_query($con, "SELECT * FROM users WHERE username='$username' AND password='$password';");
+    $result = mysqli_query($con, "SELECT * FROM users;");
     while($row = mysqli_fetch_array($result))
 {
     $user_id = $row['id'];
     $name = $row['name'];
 }
+
+
 
     if($success == true)
 {
@@ -56,6 +58,6 @@ if ($result->fetch_assoc()){
 }
 
 else{
-    header("location: ../login.php");
+    header('location: ../login.php');
 }
 ?>

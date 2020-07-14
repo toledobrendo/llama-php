@@ -10,7 +10,8 @@
     define('FIELDS', array(
       'author' => 'author.name',
       'title' => 'book.title',
-      'isbn' => 'book.isbn'
+      'isbn' => 'book.isbn',
+      'pic_url' =>'book.pic_url'
     ));
 
     $searchType = $_POST['searchType'];
@@ -22,7 +23,7 @@
       }
 
       // 127.0.0.1 = localhost
-      @ $db = new mysqli('127.0.0.1:3306', 'student', '123qwe', 'php_lesson_db');
+      @ $db = new mysqli('localhost', 'root', '', 'php_lesson_db');
 
       $dbError = mysqli_connect_errno();
       if ($dbError) {
@@ -33,7 +34,7 @@
       // save to db: 'http://localhost/dragon-php/book-catalog/image/manila.jpg'
       // save to db: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1562726234l/13496.jpg'
 
-      $query = 'SELECT author.name as author_name, book.title, book.isbn
+      $query = 'SELECT author.name as author_name, book.title, book.isbn, book.pic_url
         FROM book
         INNER JOIN author
             ON author.id = book.author_id
@@ -52,15 +53,18 @@
       for ($ctr = 0; $ctr < $resultCount; $ctr++) {
         $row = $result -> fetch_assoc();
       ?>
-        <div class="card col-4 mx-1">
-          <div class="card-body">
-            <h6><?php echo $row['title'];?></h6>
+      <?php
+        echo '<div class="card col-4 mx-1">';
+          echo '<div class="card-body">';
+            echo '<h6>'.$row['title'].'</h6>
+            <div><img src='.$row['pic_url'].' width=300 height=300px></div>
             <p>
-              By: <?php echo  $row['author_name'];?> <br/>
-              <?php echo $row['isbn']?>
+              By: '.$row['author_name'].' <br/>
+                '.$row['isbn'].'
             </p>
           </div>
-        </div>
+        </div>';
+        ?>
       <?php
       }
       echo '</div>';

@@ -3,10 +3,10 @@
 include 'includes/connect.php';
 include 'view-comp/header.php';
 
-if ($_SERVER["HTTPS"] != "on") {
-    header("Location: https://".$_SERVER["localhost"].$_SERVER["/llama-php/llama-php/eccom_finals/confirm-checkout.php"]);
-    exit;
-  }
+if ($_SERVER['HTTPS'] != 'on') {
+      header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+      exit;
+      }
 
 $payment_type = $_SESSION['payment_type'];
 $item_id = $_SESSION['item_id'];

@@ -12,7 +12,7 @@
     <div class="form-group">
       <label for="searchProduct">Search Product</label>
       <input type="text" id="searchProduct" name="searchProduct"
-        class="form-control" placeholder="Search Product"/>
+        class="form-control" value="Search Product"/>
       <input type="hidden" name="open" value="1"/>
     </div>
     <div>
@@ -29,7 +29,7 @@ if (@$_POST['search'] == 1) {
 
   $result = $con->query($query);
 
-  echo '<p>Result for Cards '.$searchTerm.'</p>';
+  echo '<p>Result for Cards: '.$searchTerm.'</p>';
 
   echo '<div class="row">';
     $row = $result -> fetch_assoc();

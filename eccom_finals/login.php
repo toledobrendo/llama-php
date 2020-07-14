@@ -4,10 +4,10 @@ session_start();
 @include 'view-comp/header.php';
 @include 'includes/connect.php';
 
-// if ($_SERVER["HTTPS"] != "on") {
-//             header("Location: https://".$_SERVER["localhost"].$_SERVER["/llama-php/llama-php/eccom_finals/login.php"]);
-//             exit;
-//             }
+ if ($_SERVER['HTTPS'] != 'on') {
+             header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+            exit;
+             }
 
 if(isset($_SESSION['customer_sid']))
 {

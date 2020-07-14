@@ -17,15 +17,21 @@ CREATE TABLE IF NOT EXISTS book (
 
 INSERT INTO author (name)
 VALUES
-  ('Michael Morgan'),
-  ('George RR Martin');
+  ('Eric Nylund'),
+  ('George RR Martin'),
+  ('Andrzej Sapkowski');
+
 
 INSERT INTO book (title, isbn, author_id)
 VALUES
-  ('Java for Professional Developers', '0-672-316123-8', 1),
-  ('A Game of Thrones', '1-141-5143123-5', 2);
+  ('Halo: The Fall of Reach', '0-672-316123-8', 1),
+  ('A Game of Thrones', '1-141-5143123-5', 2),
+  ('The Witcher: The Tower of Swallows', '2-147-6148973-5', 3);
+
 
 ALTER TABLE book ADD COLUMN pic_url VARCHAR(255);
-UPDATE book SET pic_url = '/url.png' WHERE id = 1;
+UPDATE book SET pic_url = 'image/fall_of_reach.jpg' WHERE id = 1;
+UPDATE book SET pic_url = 'image/game_of_thrones.jpg' WHERE id = 2;
+UPDATE book SET pic_url = 'image/the_tower_of_swallows.jpg' WHERE id = 3;
 
 ALTER TABLE author ADD CONSTRAINT un_author_name UNIQUE (name);

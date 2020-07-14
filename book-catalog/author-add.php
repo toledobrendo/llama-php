@@ -1,4 +1,5 @@
-<?php require_once('view-comp/header.php'); ?>
+<?php require_once('view-comp/header.php');
+require_once('connect.php')?>
 <div class="card-header">
   Add Author
 </div>
