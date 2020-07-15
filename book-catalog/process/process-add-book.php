@@ -20,7 +20,7 @@ Add Author Result
         throw new Exception('Error: Could not connect to database. Please try again later.');
       }
 
-
+      // Note: Duplicate authors not caught.
       $query = "INSERT into author (NAME) values (?)";
 
       $stmt = $db->prepare($query);

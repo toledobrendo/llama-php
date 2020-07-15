@@ -15,6 +15,7 @@
           <form action="caesar-shift.php" method="post">
             <div class="form-group">
               <label for="messageInput">Message</label>
+                <!-- Note: Should accept spaces -->
               <input type="text" class="form-control" name="message" id="messageInput" placeholder="Enter The Message" required = "required" pattern="[A-Za-z]*">
             </div>
             <div class="form-group">

@@ -52,3 +52,4 @@
 23:41, 23rd June 2020	2 tires	2 oil	2 spark plugs	$360
 19:43, 29th June 2020	1 tires	1 oil	1 spark plugs	$180
 19:55, 29th June 2020	0 tires	0 oil	0 spark plugs	$0
+17:38, 15th July 2020	1 tires	2 oil	3 spark plugs	$290
