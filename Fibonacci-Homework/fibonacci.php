@@ -22,7 +22,8 @@
             </div>
 
             
-            <?php 
+            <?php
+            //Note: Spaces are not encrypted properly. "Hello world", key 1, yields "IFMMPBXPSME".
             function Fibonacci($n){ 
               
                 $num1 = 0; 

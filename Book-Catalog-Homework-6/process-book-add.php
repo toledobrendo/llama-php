@@ -43,6 +43,8 @@
           throw new Exception('Error: The author was not added.');
         }
 
+          // Note: This and line 29 are repeated. This can be placed outside the if-statement.
+          // This is to adhere to DRY principle (Don't Repeat Yourself)
           $query1 = 'insert into book (title, isbn, pic_url, author_id) values (?,?,?,?)';
           $stmt = $db->prepare($query1);
           $stmt->bind_param("ssis", $bookName, $imageURL, $isbn, $authorId);

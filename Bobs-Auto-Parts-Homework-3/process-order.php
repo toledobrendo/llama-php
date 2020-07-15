@@ -16,6 +16,7 @@
   </head>
   <body>
     <!-- hello-world.php or hello_world.php -->
+    <!-- Note: Product classes were not used here -->
     <div class="container">
       <div class="card">
         <div class="card-body">
@@ -31,6 +32,8 @@
 
             $tireQty = $_POST['tireQty'] ? $_POST['tireQty'] : 0;
             $oilQty = $_POST['oilQty'] ? $_POST['oilQty'] : 0;
+            // Notice: Undefined index: sparkQty in
+            // C:\xampp\htdocs\llama-php\Bobs-Auto-Parts-Homework-3\process-order.php on line 34
             $sparkQty = $_POST['sparkQty'] ? $_POST['sparkQty'] : 0;
             $find = $_POST['find'];
 

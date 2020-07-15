@@ -4,6 +4,8 @@
   define('TIRE_PRICE', 100);
   define('OIL_PRICE', 50);
   define('SPARK_PRICE', 30);
+
+  // Note: VAT_PERCENT is not extracted from a external properties file
   define('VAT_PERCENT' ,0.12);
 ?>
 <html>
