@@ -101,6 +101,7 @@ if (isset($_POST['book-submit'])) {
                 }
               }
 
+                     // Note: This lines of code repeats line 58. Find a way to minimize repetition of code.
                      $sql = "INSERT INTO book (title, isbn, author_id, pic_url) VALUES (?, ?, ?, ?) ";
                      $stmnt = mysqli_stmt_init($connection);
                      if(!mysqli_stmt_prepare($stmnt, $sql)){
