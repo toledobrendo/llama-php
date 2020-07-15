@@ -4,6 +4,10 @@
   require_once('model/define-products.php');
 ?>
 				<h3 class="card-title"> Order Form </h3>
+                <!-- Note: Organize Code into workable ones first. I'm trying to execute them on my local machine. -->
+                <!-- Note: Error 404 -->
+                <!-- Note: Also don't forget to make an index.html where I could browse through the assignments. -->
+                <!-- Note: Observe proper indention. -->
 				<form action="process-order.php" method="post">
 				<table class="table">
 				<thead>
