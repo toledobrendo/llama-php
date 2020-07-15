@@ -2,3 +2,5 @@
 18:02, 6th July 2020	6 tires	6 oil	6 spark plugs	$1080
 04:06, 14th July 2020	5 tires	6 oil	6 spark plugs	$980
 04:06, 14th July 2020	5 tires	6 oil	6 spark plugs	$980
+20:47, 15th July 2020	1 tires	2 oil	3 spark plugs	$290
+20:47, 15th July 2020	1 tires	2 oil	3 spark plugs	$290

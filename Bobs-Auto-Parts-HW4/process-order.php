@@ -82,6 +82,7 @@
             echo 'Other Total Amount: '.$otherTotalAmount.'<br/>';
             echo 'Total Amount: '.$totalAmount.'<br/>';
 
+            // Note: VAT Percent must be extracted from an external .txt file
             $vatableAmount = $totalAmount / 1.12;
             $vat = $totalAmount - $vatableAmount;
 
