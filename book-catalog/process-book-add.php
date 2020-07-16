@@ -1,5 +1,6 @@
 <?php
 
+// Note: Observe proper indention
 $server = "localhost";
 $dBUser = "root";
 $dbPass = "";
