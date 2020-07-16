@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d66ff5fd-71fb-470e-bcf7-584ec225a652" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="580" y="135" key="FileChooserDialogImpl" timestamp="1590495304719">
+      <screen x="0" y="0" width="1600" height="870" />
+    </state>
+    <state x="580" y="135" key="FileChooserDialogImpl/0.0.1600.870@0.0.1600.870" timestamp="1590495304719" />
+    <state x="465" y="138" key="NewModule_or_Project.wizard" timestamp="1590495312353">
+      <screen x="0" y="0" width="1600" height="870" />
+    </state>
+    <state x="465" y="138" key="NewModule_or_Project.wizard/0.0.1600.870@0.0.1600.870" timestamp="1590495312353" />
+    <state x="182" y="117" key="new project wizard" timestamp="1590495298395">
+      <screen x="0" y="0" width="1600" height="870" />
+    </state>
+    <state x="182" y="117" key="new project wizard/0.0.1600.870@0.0.1600.870" timestamp="1590495298395" />
+  </component>
+</project>
